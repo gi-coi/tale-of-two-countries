@@ -1,0 +1,26 @@
+{
+    "nodes":[
+    {"node":0,"name":"North"},
+    {"node":1,"name":"Centre"},
+    {"node":2,"name":"Mezzogiorno"},
+    {"node":3,"name":"North"},
+    {"node":4,"name":"Centre"},
+    {"node":5,"name":"Mezzogiorno"}
+    ],
+    "links":[
+       
+
+
+  
+    {"source":0,"target":4,"value":36633},
+    {"source":0,"target":5,"value":20221},
+    
+    {"source":1,"target":3,"value": 81623},
+    
+    {"source":1,"target":5,"value":35997},
+  
+    {"source":2,"target":3,"value":176785},
+    {"source":2,"target":4,"value":151919}
+  
+   
+    ]}

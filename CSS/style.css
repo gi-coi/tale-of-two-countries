@@ -160,6 +160,43 @@ The content `<div>` is where all your content goes.
   display: block;
 }
 
+
+ /* Style the button that is used to open and close the collapsible content */
+ .readMore {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: .5em 1.4em;
+  margin-top: 1em;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.2em;
+  
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.readMore.open, .readMore:hover {
+  background-color: #ccc;
+  transition-duration: 4s;
+  transition: ease;
+}
+
+
+span.arrow {
+  transition-duration: 2s;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.collapsed {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  transition: linear 2s;
+} 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
@@ -320,6 +357,8 @@ The content `<div>` is where all your content goes.
                     stroke: #3d3c3c;
                     stroke-width: .1px;
                 }
+
+
     
     
                 .mapVis .active {
@@ -327,7 +366,81 @@ The content `<div>` is where all your content goes.
         stroke-width: .3px;
     }
 
+    #mapFilter {
+      width: 60vw;
+      margin: 0 auto;
+  }
+  #mapContainer {
+    /*   width: 60vw; */
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      font-family: 'Open Sans', sans-serif;
+      margin: 1em auto;
+      /* border: 1em solid #C9C9C9; */
+  }
+  #interactiveMap {
+      /* overflow: scroll;  */
+      margin: 0 auto;
+      padding: 3em;
+      height: 65vh;
+      flex-grow:1;
+     /*   background-color: #eeeeee;  */
+     background-color: white;
+      position: relative;
+      border: 1em solid rgb(247, 244, 244);
+      border-right: none;
+      
+    
+  }
 
+
+  #interactiveMap .area {
+      stroke: #797979;
+      stroke-width: .1px;
+  }
+
+
+  #interactiveMap .active {
+      opacity: .754;
+      stroke-width: .3px;
+      fill: rgb(184, 88, 96)
+  }
+
+
+
+#selectMeasure {
+  border-radius: .5em;
+    padding: .3em;
+    font-size: 1.1em;
+}
+
+  .side {
+     
+   
+      flex-grow: 1;
+      height: inherit;
+      display: flex;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+padding: 1em 2em;
+border: 1em solid rgb(247, 244, 244);
+    background: rgba(247, 244, 244, 0.48);
+
+  }
+
+
+  .number {
+      text-align: center;
+      font-size: 4em;
+      color: #09489F;
+      font-weight: bold;
+  }
+
+  .suffix {
+      font-size: .3em;
+  }
 
     .legendLinear, .legendOrdinal {
         font-size: .9em;
@@ -359,8 +472,15 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         width: inherit;
     }
 
+    
+
 }
 
+@media (max-width: 36em) {
+  #mapContainer {
+    display: block;
+  }
+}
 @media (max-width: 48em) {
     /* Only apply this when the window is small. Otherwise, the following
     case results in extra padding on the left:

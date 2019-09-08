@@ -1,81 +1,79 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">    <title>A tale of two countries</title>    
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    
-    
-    
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/side-menu-old-ie.css">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="CSS/style.css">
-        <!--<![endif]-->
-    <!--[if lt IE 9]>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+   
+    <meta name="description" content="Intro">
+    <title>Home - A Tale of Two Countries</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+        integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/style.css">
+
 
 </head>
+
 <body>
 
-<div id="layout">
-       <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div id="layout">
+        <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <div class="topnav" id="navigationBar">
+                    <a href="index.html">Home</a>
+                            <a href="project.html">The project</a>
+                            <a href='explore_data.html'>The data</a>
+                    <div class="dropdown">
+                      <button class="dropbtn">Explore 
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="intro.html">Life expectancy</a>
+                        <a href="asbestos.html">Asbestos</a>
+                        <a href="csections.html">C-sections</a>
+                        <a href="healthcare_migration.html">Healthcare migration</a>
+                      </div>
+                    </div> 
+                  
+                  
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                  </div>
+                
 
-       <div class="topnav" id="myTopnav">
-         <a href="#home" class="active">Home</a>
-         <a href="#news">News</a>
-         <a href="#contact">Contact</a>
-         <a href="#about">About</a>
-         <a href="javascript:void(0);" class="icon" onclick="responsiveMenu()">
-           <i class="fa fa-bars"></i>
-         </a>
-       </div> 
-
-    <div id="main">
-        <div class="header">
-            <h1>A tale of two countries</h1>
-            <h2>This is the landing page</h2>
-        </div>
-
-        <div class="content">
-            <h2 class="content-subhead">How to use this layout</h2>
-            <p>
-                To use this layout, you can just copy paste the HTML, along with the CSS in <a href="/css/layouts/side-menu.css" alt="Side Menu CSS">side-menu.css</a>, and the JavaScript in <a href="/js/ui.js">ui.js</a>. The JS file uses vanilla JavaScript to simply toggle an <code>active</code> class that makes the menu responsive.
-            </p>
-
-            <h2 class="content-subhead">Now Let's Speak Some Latin</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-            <div class="pure-g">
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg" alt="Peyto Lake">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg" alt="Train">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg" alt="T-Shirt Store">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg" alt="Mountain">
-                </div>
+        <div id="main">
+            <div class="header">
+                <h1>A Tale of Two Countries</h1>
+                <h2>Dissecting Italy's healthcare gap</h2>
             </div>
 
-            <h2 class="content-subhead">Try Resizing your Browser</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <div class="content">
+                    <p>On this website, you will find some stories of healthcare inequality in Italy.</p>
+                    <p>You will discover the invisible border shaping the lives of thousands of people in Italy, and why it exists.</p>
+                    <p>You will learn about Giampietro's trips to Verona, Claudia's difficult choices at the hospital, and Sabina's battle to protect workers' health.</p>
+                    <p>You will hear the voices of Luigi, Quirico, Giampaolo and tens of others, and of their families who fight in their name.</p>
+                    <p>Click <a href='project.html'>here</a> to learn more about the story behind this project.</p>
+                    <p>Use the navigation bar on top of the page or click on the links below to start your journey:</p>
+                    <ul>
+    
+                        <li><a href='intro.html'>The invisible border: Italy's life expectancy gap</a></li>
+                        <li><a href='asbestos.html'>“They brought jobs, but they also brought death”. Sardinia's environmental timebomb is killing hundreds</a></li>
+                        <li><a href='csections.html'>Curbing the c-section epidemic: What is happening in Southern Italy's delivery rooms?</a></li>
+                        <li><a href='healthcare_migration.html'>Meet Italy's "healthcare tourists": More than 300,000 Southern patients forced to migrate to receive treatment</a></li>
+                    </ul>
+
+
+
+            </div>
         </div>
     </div>
-</div>
+    <script src='JS/menu.js'></script>
 
-<script src="JS/horizontal_menu.js"></script>
+
 
 </body>
+
 </html>

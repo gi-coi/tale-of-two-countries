@@ -191,6 +191,15 @@ const dotplot = function (data) {
             .tickFormat(d3.formatPrefix(".0", 1e6)))
 
 
+            svg.append("text")             
+            .attr("transform",
+                  "translate(" + (width / 2) + " ," + 
+                                 (height + margin.bottom - 18) + ")")
+            .style("text-anchor", "middle")
+            .attr('class', 'x axisLabel')
+            .text("Healthcare mobility credits/debts (€)");
+
+
     var transposed = [];
 
     data.forEach(function (d) {
@@ -364,6 +373,19 @@ link.text('Conferenza delle Regioni, Quotidiano Sanità');
         .call(d3.axisBottom(xScale)
             .ticks(5)
             .tickFormat(d3.formatPrefix(".0", 1e6)))
+
+
+// x axis label
+     
+svg.append("text")             
+.attr("transform",
+      "translate(" + (width / 2) + " ," + 
+                     (height + margin.bottom - 18) + ")")
+.style("text-anchor", "middle")
+.attr('class', 'x axisLabel')
+.text("Healthcare mobility credits/debts (€)");
+
+        
 }
 
 
@@ -594,7 +616,7 @@ var svg = d3.select("#migrationFlow").append("svg")
 
 
 // load the data
-d3.json("sankey.json", function(error, graph) {
+d3.json("src/mobility_flows.json", function(error, graph) {
 
     // Set the sankey diagram properties
 var sankey = d3.sankey()

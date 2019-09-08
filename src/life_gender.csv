@@ -1,0 +1,761 @@
+"year","region","men","women"
+1980,"Abruzzo",72.07,77.57
+1980,"Basilicata",72.35,76.83
+1980,"Calabria",72.22,77.1
+1980,"Campania",69.49,74.9
+1980,"Emilia Romagna",71.2,78.32
+1980,"Friuli Venezia Giulia",68.79,77.41
+1980,"Lazio",70.72,77.23
+1980,"Liguria",70.93,78.05
+1980,"Lombardia",68.97,77.11
+1980,"Marche",72.39,78.61
+1980,"Molise",72.07,77.57
+1980,"Piemonte",70.11,77.14
+1980,"Puglia",71.71,76.88
+1980,"Sardegna",71.87,78.01
+1980,"Sicilia",71.65,76.24
+1980,"Toscana",71.63,78.57
+1980,"Trentino Alto Adige",69.14,78.06
+1980,"Umbria",71.99,78.46
+1980,"Valle d Aosta",70.11,77.14
+1980,"Veneto",69.37,77.53
+1981,"Abruzzo",72.35,78.17
+1981,"Basilicata",72.99,77.24
+1981,"Calabria",72.29,77.51
+1981,"Campania",70,75.43
+1981,"Emilia Romagna",71.74,78.98
+1981,"Friuli Venezia Giulia",69.25,77.69
+1981,"Lazio",72.07,78.36
+1981,"Liguria",71.5,78.36
+1981,"Lombardia",69.79,77.96
+1981,"Marche",72.82,79.11
+1981,"Molise",72.35,78.17
+1981,"Piemonte",70.68,77.77
+1981,"Puglia",71.96,77.48
+1981,"Sardegna",72.07,78.34
+1981,"Sicilia",72.07,76.64
+1981,"Toscana",72.19,78.88
+1981,"Trentino Alto Adige",69.74,78.22
+1981,"Umbria",72.53,79.26
+1981,"Valle d Aosta",70.68,77.77
+1981,"Veneto",69.92,78.42
+1982,"Abruzzo",72.92,78.45
+1982,"Basilicata",73.13,77.69
+1982,"Calabria",72.52,77.83
+1982,"Campania",70.45,76
+1982,"Emilia Romagna",72.05,79.07
+1982,"Friuli Venezia Giulia",69.95,77.75
+1982,"Lazio",71.93,78.32
+1982,"Liguria",71.65,78.47
+1982,"Lombardia",70.01,77.91
+1982,"Marche",73.5,79.38
+1982,"Molise",72.92,78.45
+1982,"Piemonte",70.92,77.78
+1982,"Puglia",72.51,77.67
+1982,"Sardegna",72.52,78.61
+1982,"Sicilia",72.27,76.76
+1982,"Toscana",72.5,79.31
+1982,"Trentino Alto Adige",70.07,78.3
+1982,"Umbria",72.84,78.85
+1982,"Valle d Aosta",70.92,77.78
+1982,"Veneto",70.21,78.31
+1983,"Abruzzo",72.76,78.21
+1983,"Basilicata",72.67,77.81
+1983,"Calabria",72.52,77.79
+1983,"Campania",70.7,76.28
+1983,"Emilia Romagna",71.87,78.59
+1983,"Friuli Venezia Giulia",70.04,77.71
+1983,"Lazio",71.94,78.01
+1983,"Liguria",71.41,78.62
+1983,"Lombardia",69.94,77.74
+1983,"Marche",72.78,79.07
+1983,"Molise",72.76,78.21
+1983,"Piemonte",70.8,77.53
+1983,"Puglia",72.33,77.58
+1983,"Sardegna",71.86,78.1
+1983,"Sicilia",72.23,76.86
+1983,"Toscana",72.43,79.18
+1983,"Trentino Alto Adige",70.64,78.04
+1983,"Umbria",72.69,78.62
+1983,"Valle d Aosta",70.8,77.53
+1983,"Veneto",70.22,78.38
+1984,"Abruzzo",73.01,78.94
+1984,"Basilicata",73.41,78.5
+1984,"Calabria",73.27,78.51
+1984,"Campania",71.43,76.88
+1984,"Emilia Romagna",72.66,79.46
+1984,"Friuli Venezia Giulia",70.57,78.34
+1984,"Lazio",72.39,78.42
+1984,"Liguria",72.27,78.77
+1984,"Lombardia",70.55,78.37
+1984,"Marche",73.76,79.97
+1984,"Molise",73.01,78.94
+1984,"Piemonte",71.41,78.27
+1984,"Puglia",72.98,78.48
+1984,"Sardegna",72.95,79.45
+1984,"Sicilia",72.88,77.74
+1984,"Toscana",73.1,79.59
+1984,"Trentino Alto Adige",70.67,78.43
+1984,"Umbria",73.3,79.66
+1984,"Valle d Aosta",71.41,78.27
+1984,"Veneto",71.01,79.08
+1985,"Abruzzo",73.36,79.23
+1985,"Basilicata",73.46,78.25
+1985,"Calabria",73.17,78.55
+1985,"Campania",71.48,76.77
+1985,"Emilia Romagna",72.63,79.38
+1985,"Friuli Venezia Giulia",70.76,78.37
+1985,"Lazio",72.51,78.5
+1985,"Liguria",72.43,79
+1985,"Lombardia",70.97,78.52
+1985,"Marche",73.69,79.78
+1985,"Molise",73.36,79.23
+1985,"Piemonte",71.82,78.51
+1985,"Puglia",72.94,78.32
+1985,"Sardegna",72.9,79.18
+1985,"Sicilia",72.62,77.43
+1985,"Toscana",73.03,79.65
+1985,"Trentino Alto Adige",70.76,78.85
+1985,"Umbria",73.41,80.03
+1985,"Valle d Aosta",71.82,78.51
+1985,"Veneto",71.15,79.19
+1986,"Abruzzo",73.42,79.51
+1986,"Basilicata",73.39,78.9
+1986,"Calabria",73.23,78.58
+1986,"Campania",71.8,77.05
+1986,"Emilia Romagna",73.17,79.89
+1986,"Friuli Venezia Giulia",71.09,78.57
+1986,"Lazio",72.94,78.87
+1986,"Liguria",72.66,79.51
+1986,"Lombardia",71.28,78.74
+1986,"Marche",74.08,79.92
+1986,"Molise",73.42,79.51
+1986,"Piemonte",72.13,78.73
+1986,"Puglia",73.13,78.55
+1986,"Sardegna",72.73,79.11
+1986,"Sicilia",73.18,77.71
+1986,"Toscana",73.36,80.1
+1986,"Trentino Alto Adige",71.26,79.21
+1986,"Umbria",73.43,80.02
+1986,"Valle d Aosta",72.13,78.73
+1986,"Veneto",71.66,79.46
+1987,"Abruzzo",73.96,79.72
+1987,"Basilicata",74.12,78.69
+1987,"Calabria",73.61,78.78
+1987,"Campania",72.01,77.43
+1987,"Emilia Romagna",73.36,80.27
+1987,"Friuli Venezia Giulia",71.72,79.57
+1987,"Lazio",73.31,79.27
+1987,"Liguria",73.1,79.75
+1987,"Lombardia",72.03,79.38
+1987,"Marche",74.49,80.49
+1987,"Molise",73.96,79.72
+1987,"Piemonte",72.52,79.29
+1987,"Puglia",73.62,78.64
+1987,"Sardegna",73.22,79.9
+1987,"Sicilia",72.9,77.57
+1987,"Toscana",73.75,80.57
+1987,"Trentino Alto Adige",71.84,79.83
+1987,"Umbria",73.71,80.34
+1987,"Valle d Aosta",72.52,79.29
+1987,"Veneto",72.31,80.11
+1988,"Abruzzo",74.42,80.03
+1988,"Basilicata",73.87,78.76
+1988,"Calabria",73.89,78.92
+1988,"Campania",72.14,77.54
+1988,"Emilia Romagna",73.69,80.36
+1988,"Friuli Venezia Giulia",71.87,79.65
+1988,"Lazio",73.65,79.5
+1988,"Liguria",73.06,79.87
+1988,"Lombardia",72.16,79.67
+1988,"Marche",74.79,80.6
+1988,"Molise",74.42,80.03
+1988,"Piemonte",72.89,79.6
+1988,"Puglia",74.04,79.34
+1988,"Sardegna",73.93,79.93
+1988,"Sicilia",73.56,78.25
+1988,"Toscana",74.23,80.66
+1988,"Trentino Alto Adige",72.37,80.02
+1988,"Umbria",74.15,80.32
+1988,"Valle d Aosta",72.89,79.6
+1988,"Veneto",72.66,80.15
+1989,"Abruzzo",74.54,80.18
+1989,"Basilicata",75.09,79.63
+1989,"Calabria",74.52,79.93
+1989,"Campania",72.88,78.23
+1989,"Emilia Romagna",74,80.85
+1989,"Friuli Venezia Giulia",72.54,80.12
+1989,"Lazio",73.54,79.38
+1989,"Liguria",73.38,80.2
+1989,"Lombardia",72.54,79.96
+1989,"Marche",74.99,81.13
+1989,"Molise",74.54,80.18
+1989,"Piemonte",73.18,79.79
+1989,"Puglia",74.42,79.79
+1989,"Sardegna",74.11,80.28
+1989,"Sicilia",73.89,78.84
+1989,"Toscana",74.5,80.9
+1989,"Trentino Alto Adige",72.79,80.49
+1989,"Umbria",74.8,80.32
+1989,"Valle d Aosta",73.18,79.79
+1989,"Veneto",73,80.48
+1990,"Abruzzo",74.92,80.46
+1990,"Basilicata",74.26,79.82
+1990,"Calabria",74.27,79.88
+1990,"Campania",73.21,78.65
+1990,"Emilia Romagna",74.13,80.71
+1990,"Friuli Venezia Giulia",72.51,80.07
+1990,"Lazio",74.18,80.16
+1990,"Liguria",73.23,80.17
+1990,"Lombardia",72.43,79.9
+1990,"Marche",75.22,81.19
+1990,"Molise",74.92,80.46
+1990,"Piemonte",73.28,79.89
+1990,"Puglia",74.54,80.01
+1990,"Sardegna",73.83,80.27
+1990,"Sicilia",73.68,78.71
+1990,"Toscana",74.68,81.04
+1990,"Trentino Alto Adige",73.14,80.98
+1990,"Umbria",74.87,80.52
+1990,"Valle d Aosta",73.28,79.89
+1990,"Veneto",73.24,80.73
+1991,"Abruzzo",74.88,80.73
+1991,"Basilicata",75.18,80.21
+1991,"Calabria",74.35,80.05
+1991,"Campania",72.92,78.59
+1991,"Emilia Romagna",74.26,80.91
+1991,"Friuli Venezia Giulia",73.02,80.49
+1991,"Lazio",73.97,80.18
+1991,"Liguria",73.72,80.63
+1991,"Lombardia",72.72,80.39
+1991,"Marche",75.4,81.22
+1991,"Molise",74.88,80.73
+1991,"Piemonte",73.55,80.25
+1991,"Puglia",74.68,80.16
+1991,"Sardegna",73.75,80.52
+1991,"Sicilia",73.89,79.08
+1991,"Toscana",74.71,81.11
+1991,"Trentino Alto Adige",73.44,81.11
+1991,"Umbria",74.82,80.85
+1991,"Valle d Aosta",73.55,80.25
+1991,"Veneto",73.58,81.13
+1992,"Abruzzo",75.07,80.9
+1992,"Basilicata",74.83,79.85
+1992,"Calabria",74.4,80.17
+1992,"Campania",73.19,79.28
+1992,"Emilia Romagna",74.08,81.08
+1992,"Friuli Venezia Giulia",73.04,80.43
+1992,"Lazio",74.13,80.37
+1992,"Liguria",73.99,80.72
+1992,"Lombardia",73.03,80.63
+1992,"Marche",75.85,81.89
+1992,"Molise",75.07,80.9
+1992,"Piemonte",73.55,80.63
+1992,"Puglia",74.92,80.3
+1992,"Sardegna",74.04,80.85
+1992,"Sicilia",74.15,79.34
+1992,"Toscana",75.11,81.39
+1992,"Trentino Alto Adige",73.74,81.49
+1992,"Umbria",75.24,81.21
+1992,"Valle d Aosta",73.55,80.63
+1992,"Veneto",73.88,81.3
+1993,"Abruzzo",75.37,81.03
+1993,"Basilicata",75.45,79.77
+1993,"Calabria",74.96,80.06
+1993,"Campania",73.4,79.21
+1993,"Emilia Romagna",74.42,81.25
+1993,"Friuli Venezia Giulia",73.35,80.5
+1993,"Lazio",73.94,80.2
+1993,"Liguria",73.92,80.67
+1993,"Lombardia",73.37,80.77
+1993,"Marche",75.95,82.03
+1993,"Molise",75.37,81.03
+1993,"Piemonte",73.9,80.7
+1993,"Puglia",75.09,80.72
+1993,"Sardegna",74.16,80.71
+1993,"Sicilia",74.06,79.23
+1993,"Toscana",75.24,81.38
+1993,"Trentino Alto Adige",74.18,81.55
+1993,"Umbria",75.36,81.38
+1993,"Valle d Aosta",73.9,80.7
+1993,"Veneto",74.1,81.54
+1994,"Abruzzo",75.23,81.13
+1994,"Basilicata",75.5,80.12
+1994,"Calabria",74.96,80.29
+1994,"Campania",73.33,79.17
+1994,"Emilia Romagna",74.87,81.53
+1994,"Friuli Venezia Giulia",73.82,80.98
+1994,"Lazio",74.47,80.75
+1994,"Liguria",74.19,80.75
+1994,"Lombardia",73.74,81.11
+1994,"Marche",76.3,82.28
+1994,"Molise",75.23,81.13
+1994,"Piemonte",74.24,80.67
+1994,"Puglia",75.18,80.75
+1994,"Sardegna",74.16,80.96
+1994,"Sicilia",74.51,79.49
+1994,"Toscana",75.36,81.49
+1994,"Trentino Alto Adige",74.31,81.87
+1994,"Umbria",75.41,81.78
+1994,"Valle d Aosta",74.24,80.67
+1994,"Veneto",74.21,81.61
+1995,"Abruzzo",75.6,81.67
+1995,"Basilicata",75.61,80.46
+1995,"Calabria",75.57,80.5
+1995,"Campania",73.87,79.65
+1995,"Emilia Romagna",75.36,81.7
+1995,"Friuli Venezia Giulia",74.24,81.3
+1995,"Lazio",74.62,80.94
+1995,"Liguria",74.24,80.76
+1995,"Lombardia",74.06,81.31
+1995,"Marche",76.44,82.35
+1995,"Molise",75.6,81.67
+1995,"Piemonte",74.31,80.89
+1995,"Puglia",75.65,81.22
+1995,"Sardegna",74.76,81.66
+1995,"Sicilia",74.78,79.86
+1995,"Toscana",75.81,81.74
+1995,"Trentino Alto Adige",74.7,82.28
+1995,"Umbria",75.98,81.76
+1995,"Valle d Aosta",74.31,80.89
+1995,"Veneto",74.64,81.97
+1996,"Abruzzo",75.97,81.64
+1996,"Basilicata",75.43,80.56
+1996,"Calabria",75.64,80.98
+1996,"Campania",73.86,79.64
+1996,"Emilia Romagna",75.51,81.98
+1996,"Friuli Venezia Giulia",74.45,81.09
+1996,"Lazio",75.29,81.45
+1996,"Liguria",74.7,81.27
+1996,"Lombardia",74.3,81.39
+1996,"Marche",76.62,82.59
+1996,"Molise",75.97,81.64
+1996,"Piemonte",74.72,81.26
+1996,"Puglia",75.87,81.38
+1996,"Sardegna",74.97,81.7
+1996,"Sicilia",75.07,79.9
+1996,"Toscana",76.05,81.97
+1996,"Trentino Alto Adige",74.85,82.65
+1996,"Umbria",76.1,81.64
+1996,"Valle d Aosta",74.72,81.26
+1996,"Veneto",75.07,82.18
+1997,"Abruzzo",76.13,81.91
+1997,"Basilicata",75.89,81
+1997,"Calabria",75.6,81.08
+1997,"Campania",74.11,80
+1997,"Emilia Romagna",75.8,82.08
+1997,"Friuli Venezia Giulia",74.78,81.42
+1997,"Lazio",75.21,81.07
+1997,"Liguria",74.82,81.53
+1997,"Lombardia",74.87,81.73
+1997,"Marche",76.54,82.67
+1997,"Molise",76.13,81.91
+1997,"Piemonte",74.95,81.4
+1997,"Puglia",76.1,81.44
+1997,"Sardegna",75.31,81.9
+1997,"Sicilia",75.27,80.15
+1997,"Toscana",76.3,82.05
+1997,"Trentino Alto Adige",75.81,82.61
+1997,"Umbria",76.41,82.17
+1997,"Valle d Aosta",74.95,81.4
+1997,"Veneto",75.34,82.28
+1998,"Abruzzo",76.53,81.95
+1998,"Basilicata",75.73,81.12
+1998,"Calabria",75.92,81.01
+1998,"Campania",74.3,79.94
+1998,"Emilia Romagna",76,82.19
+1998,"Friuli Venezia Giulia",74.93,81.72
+1998,"Lazio",75.31,81.27
+1998,"Liguria",75.4,81.68
+1998,"Lombardia",75.03,81.7
+1998,"Marche",76.66,82.51
+1998,"Molise",76.53,81.95
+1998,"Piemonte",75.26,81.61
+1998,"Puglia",75.99,81.26
+1998,"Sardegna",75.2,81.64
+1998,"Sicilia",75.48,80.18
+1998,"Toscana",76.49,82.24
+1998,"Trentino Alto Adige",75.68,82.63
+1998,"Umbria",76.34,81.84
+1998,"Valle d Aosta",75.26,81.61
+1998,"Veneto",75.55,82.53
+1999,"Abruzzo",76.58,82.43
+1999,"Basilicata",76.62,81.06
+1999,"Calabria",76.44,81.5
+1999,"Campania",74.74,80.42
+1999,"Emilia Romagna",76.5,82.61
+1999,"Friuli Venezia Giulia",75.32,82.18
+1999,"Lazio",75.57,81.58
+1999,"Liguria",75.7,81.99
+1999,"Lombardia",75.54,82.24
+1999,"Marche",77.4,83.15
+1999,"Molise",76.58,82.43
+1999,"Piemonte",75.55,81.68
+1999,"Puglia",76.61,81.8
+1999,"Sardegna",75.82,82.04
+1999,"Sicilia",75.65,80.54
+1999,"Toscana",76.89,82.49
+1999,"Trentino Alto Adige",76.14,83.14
+1999,"Umbria",76.84,82.54
+1999,"Valle d Aosta",75.55,81.68
+1999,"Veneto",75.97,82.78
+2000,"Abruzzo",77.1,82.6
+2000,"Basilicata",76.98,81.78
+2000,"Calabria",76.9,81.73
+2000,"Campania",75.09,80.57
+2000,"Emilia Romagna",76.98,83.08
+2000,"Friuli Venezia Giulia",76.23,82.43
+2000,"Lazio",76.45,81.98
+2000,"Liguria",76.26,82.36
+2000,"Lombardia",76.21,82.72
+2000,"Marche",77.81,83.49
+2000,"Molise",77.1,82.6
+2000,"Piemonte",76.24,82.16
+2000,"Puglia",77.03,82.06
+2000,"Sardegna",76.2,82.79
+2000,"Sicilia",76.08,80.97
+2000,"Toscana",77.31,82.9
+2000,"Trentino Alto Adige",76.87,83.34
+2000,"Umbria",77.67,82.79
+2000,"Valle d Aosta",76.24,82.16
+2000,"Veneto",76.66,83.22
+2001,"Abruzzo",77.44,83.53
+2001,"Basilicata",76.97,82.51
+2001,"Calabria",77.48,82.33
+2001,"Campania",75.67,81.12
+2001,"Emilia Romagna",77.43,83.29
+2001,"Friuli Venezia Giulia",76.52,82.99
+2001,"Lazio",76.79,82.5
+2001,"Liguria",76.84,82.67
+2001,"Lombardia",76.63,83.03
+2001,"Marche",78.37,83.9
+2001,"Molise",77.44,83.53
+2001,"Piemonte",76.78,82.64
+2001,"Puglia",77.49,82.54
+2001,"Sardegna",76.57,83.09
+2001,"Sicilia",76.81,81.42
+2001,"Toscana",77.73,83.5
+2001,"Trentino Alto Adige",77.15,84.22
+2001,"Umbria",77.72,83.28
+2001,"Valle d Aosta",76.78,82.64
+2001,"Veneto",77.3,83.64
+2002,"Abruzzo",77.38,83.21
+2002,"Basilicata",77.05,82.8
+2002,"Calabria",77.68,82.89
+2002,"Campania",75.81,81.37
+2002,"Emilia Romagna",77.48,83.7
+2002,"Friuli Venezia Giulia",76.65,82.94
+2002,"Lazio",76.86,82.51
+2002,"Liguria",76.99,82.82
+2002,"Lombardia",76.9,83.16
+2002,"Marche",78.51,84.11
+2002,"Molise",77.38,83.21
+2002,"Piemonte",76.72,82.64
+2002,"Puglia",77.79,82.86
+2002,"Sardegna",76.79,83.29
+2002,"Sicilia",76.72,81.74
+2002,"Toscana",77.98,83.6
+2002,"Trentino Alto Adige",77.69,84.35
+2002,"Umbria",78.04,83.56
+2002,"Valle d Aosta",76.72,82.64
+2002,"Veneto",77.32,83.78
+2003,"Abruzzo",77.8,83.21
+2003,"Basilicata",77.4,82.97
+2003,"Calabria",77.61,82.46
+2003,"Campania",75.75,81.37
+2003,"Emilia Romagna",77.66,83.29
+2003,"Friuli Venezia Giulia",76.57,82.99
+2003,"Lazio",77.01,82.36
+2003,"Liguria",77.06,82.37
+2003,"Lombardia",76.95,83.09
+2003,"Marche",78.24,83.94
+2003,"Molise",77.8,83.21
+2003,"Piemonte",76.71,82.59
+2003,"Puglia",77.72,82.88
+2003,"Sardegna",76.76,82.93
+2003,"Sicilia",76.8,81.59
+2003,"Toscana",78.05,83.56
+2003,"Trentino Alto Adige",77.41,83.75
+2003,"Umbria",78.13,83.94
+2003,"Valle d Aosta",76.71,82.59
+2003,"Veneto",77.49,83.75
+2004,"Abruzzo",77.79,84.18
+2004,"Basilicata",77.94,82.96
+2004,"Calabria",78.2,83.31
+2004,"Campania",76.46,82.27
+2004,"Emilia Romagna",78.45,84.08
+2004,"Friuli Venezia Giulia",77.7,83.46
+2004,"Lazio",77.44,82.9
+2004,"Liguria",77.96,83.77
+2004,"Lombardia",77.89,84.13
+2004,"Marche",79.04,84.69
+2004,"Molise",77.79,84.18
+2004,"Piemonte",77.57,83.55
+2004,"Puglia",78.64,83.83
+2004,"Sardegna",77.64,84.03
+2004,"Sicilia",77.81,82.65
+2004,"Toscana",78.85,84.42
+2004,"Trentino Alto Adige",77.96,84.42
+2004,"Umbria",78.69,84.27
+2004,"Valle d Aosta",77.57,83.55
+2004,"Veneto",78.14,84.46
+2005,"Abruzzo",78.15,84.22
+2005,"Basilicata",77.96,83.2
+2005,"Calabria",78.08,83.17
+2005,"Campania",76.43,82.09
+2005,"Emilia Romagna",78.75,84.12
+2005,"Friuli Venezia Giulia",77.78,83.7
+2005,"Lazio",77.86,83.09
+2005,"Liguria",78,83.81
+2005,"Lombardia",78.14,84.02
+2005,"Marche",79.36,84.97
+2005,"Molise",78.15,84.22
+2005,"Piemonte",77.96,83.48
+2005,"Puglia",78.62,83.52
+2005,"Sardegna",77.58,83.94
+2005,"Sicilia",77.7,82.57
+2005,"Toscana",78.92,84.22
+2005,"Trentino Alto Adige",78.46,84.56
+2005,"Umbria",78.37,83.96
+2005,"Valle d Aosta",77.96,83.48
+2005,"Veneto",78.39,84.47
+2006,"Abruzzo",78.45,84.36
+2006,"Basilicata",78.1,83.29
+2006,"Calabria",78.59,83.88
+2006,"Campania",76.91,82.54
+2006,"Emilia Romagna",79.14,84.38
+2006,"Friuli Venezia Giulia",78.1,83.87
+2006,"Lazio",78.1,83.56
+2006,"Liguria",78.56,83.63
+2006,"Lombardia",78.49,84.31
+2006,"Marche",79.46,84.97
+2006,"Molise",78.45,84.36
+2006,"Piemonte",78.21,83.71
+2006,"Puglia",78.9,83.91
+2006,"Sardegna",77.91,84.48
+2006,"Sicilia",78.15,82.88
+2006,"Toscana",79.2,84.6
+2006,"Trentino Alto Adige",78.68,84.65
+2006,"Umbria",79.29,84.25
+2006,"Valle d Aosta",78.21,83.71
+2006,"Veneto",78.8,84.76
+2007,"Abruzzo",78.81,84.38
+2007,"Basilicata",78.5,83.58
+2007,"Calabria",78.56,83.66
+2007,"Campania",77.01,82.4
+2007,"Emilia Romagna",79.28,84.46
+2007,"Friuli Venezia Giulia",78.61,84.16
+2007,"Lazio",78.61,83.99
+2007,"Liguria",78.69,84.03
+2007,"Lombardia",78.94,84.43
+2007,"Marche",79.76,85.17
+2007,"Molise",78.81,84.38
+2007,"Piemonte",78.52,84.06
+2007,"Puglia",78.85,83.7
+2007,"Sardegna",78.32,84.25
+2007,"Sicilia",77.98,82.72
+2007,"Toscana",79.33,84.55
+2007,"Trentino Alto Adige",79.07,85.01
+2007,"Umbria",79.32,84.47
+2007,"Valle d Aosta",78.52,84.06
+2007,"Veneto",79.03,84.68
+2008,"Abruzzo",78.69,84.52
+2008,"Basilicata",79.16,83.95
+2008,"Calabria",78.75,83.86
+2008,"Campania",77.25,82.57
+2008,"Emilia Romagna",79.46,84.44
+2008,"Friuli Venezia Giulia",78.45,84.12
+2008,"Lazio",78.86,84.03
+2008,"Liguria",78.79,83.8
+2008,"Lombardia",78.91,84.3
+2008,"Marche",79.77,84.96
+2008,"Molise",78.69,84.52
+2008,"Piemonte",78.67,83.82
+2008,"Puglia",79.21,84.1
+2008,"Sardegna",78.55,84.25
+2008,"Sicilia",78.3,83.07
+2008,"Toscana",79.45,84.46
+2008,"Trentino Alto Adige",79.2,85.12
+2008,"Umbria",79.28,84.35
+2008,"Valle d Aosta",78.67,83.82
+2008,"Veneto",78.99,84.79
+2009,"Abruzzo",78.63,83.92
+2009,"Basilicata",79.1,84.53
+2009,"Calabria",78.76,83.76
+2009,"Campania",77.48,82.64
+2009,"Emilia Romagna",79.71,84.58
+2009,"Friuli Venezia Giulia",78.93,84.4
+2009,"Lazio",78.9,83.91
+2009,"Liguria",78.75,84.04
+2009,"Lombardia",79.23,84.52
+2009,"Marche",80.1,85.09
+2009,"Molise",78.96,84.57
+2009,"Piemonte",78.84,84
+2009,"Puglia",79.26,83.98
+2009,"Sardegna",78.42,84.35
+2009,"Sicilia",78.26,82.88
+2009,"Toscana",79.78,84.57
+2009,"Trentino Alto Adige",79.76,85.32
+2009,"Umbria",79.84,84.83
+2009,"Valle d Aosta",78.07,84.2
+2009,"Veneto",79.5,84.99
+2010,"Abruzzo",79.09,84.48
+2010,"Basilicata",79.5,84.35
+2010,"Calabria",79.18,84.57
+2010,"Campania",77.75,82.78
+2010,"Emilia Romagna",80.02,84.91
+2010,"Friuli Venezia Giulia",79.15,84.72
+2010,"Lazio",79.15,84.26
+2010,"Liguria",79.38,84.27
+2010,"Lombardia",79.63,84.7
+2010,"Marche",80.39,85.45
+2010,"Molise",79.02,84.51
+2010,"Piemonte",79.22,84.38
+2010,"Puglia",79.8,84.41
+2010,"Sardegna",78.93,84.89
+2010,"Sicilia",78.77,83.29
+2010,"Toscana",80.15,84.99
+2010,"Trentino Alto Adige",80.08,85.37
+2010,"Umbria",79.89,85.1
+2010,"Valle d Aosta",78.4,84.43
+2010,"Veneto",79.84,85.14
+2011,"Abruzzo",79.12,84.48
+2011,"Basilicata",79.49,84.54
+2011,"Calabria",79.18,83.94
+2011,"Campania",77.64,82.6
+2011,"Emilia Romagna",80.32,84.93
+2011,"Friuli Venezia Giulia",79.33,84.65
+2011,"Lazio",78.99,83.76
+2011,"Liguria",79.22,84.25
+2011,"Lombardia",79.95,84.94
+2011,"Marche",80.47,85.35
+2011,"Molise",79.09,84.2
+2011,"Piemonte",79.35,84.41
+2011,"Puglia",79.74,84.3
+2011,"Sardegna",78.9,84.63
+2011,"Sicilia",78.57,83.02
+2011,"Toscana",80.28,84.9
+2011,"Trentino Alto Adige",80.55,85.66
+2011,"Umbria",80.32,85.15
+2011,"Valle d Aosta",78.56,84.95
+2011,"Veneto",80.04,85.12
+2012,"Abruzzo",79.64,84.57
+2012,"Basilicata",79.89,84.32
+2012,"Calabria",79.22,83.99
+2012,"Campania",77.98,82.85
+2012,"Emilia Romagna",80.19,84.92
+2012,"Friuli Venezia Giulia",79.29,84.73
+2012,"Lazio",79.07,83.77
+2012,"Liguria",79.39,84.4
+2012,"Lombardia",79.87,84.87
+2012,"Marche",80.59,85.31
+2012,"Molise",79.49,84.52
+2012,"Piemonte",79.62,84.38
+2012,"Puglia",80.01,84.5
+2012,"Sardegna",79.06,84.77
+2012,"Sicilia",78.82,83.17
+2012,"Toscana",80.09,84.82
+2012,"Trentino Alto Adige",80.7,85.5
+2012,"Umbria",80.12,85.06
+2012,"Valle d Aosta",79.56,84.27
+2012,"Veneto",80.05,85.12
+2013,"Abruzzo",79.81,84.76
+2013,"Basilicata",79.48,84.71
+2013,"Calabria",79.42,84.3
+2013,"Campania",78.11,82.98
+2013,"Emilia Romagna",80.54,85.07
+2013,"Friuli Venezia Giulia",79.51,84.69
+2013,"Lazio",79.48,84.19
+2013,"Liguria",79.49,84.5
+2013,"Lombardia",80.25,85.12
+2013,"Marche",80.66,85.46
+2013,"Molise",79.66,84.6
+2013,"Piemonte",79.73,84.57
+2013,"Puglia",80.16,84.61
+2013,"Sardegna",79.25,84.96
+2013,"Sicilia",79.04,83.41
+2013,"Toscana",80.48,85.07
+2013,"Trentino Alto Adige",80.81,85.7
+2013,"Umbria",80.27,85.25
+2013,"Valle d Aosta",79.65,84.55
+2013,"Veneto",80.29,85.29
+2014,"Abruzzo",80.19,85.1
+2014,"Basilicata",79.93,84.94
+2014,"Calabria",79.65,84.55
+2014,"Campania",78.54,83.3
+2014,"Emilia Romagna",80.98,85.38
+2014,"Friuli Venezia Giulia",80.12,85.13
+2014,"Lazio",80.04,84.72
+2014,"Liguria",80.11,84.96
+2014,"Lombardia",80.84,85.54
+2014,"Marche",81.04,85.72
+2014,"Molise",79.69,84.94
+2014,"Piemonte",80.22,84.95
+2014,"Puglia",80.48,84.89
+2014,"Sardegna",79.71,85.25
+2014,"Sicilia",79.51,83.83
+2014,"Toscana",80.98,85.46
+2014,"Trentino Alto Adige",81.22,85.83
+2014,"Umbria",80.86,85.62
+2014,"Valle d Aosta",79.73,84.55
+2014,"Veneto",80.75,85.66
+2015,"Abruzzo",80.15,84.64
+2015,"Basilicata",79.69,84.44
+2015,"Calabria",79.58,84.28
+2015,"Campania",78.31,82.85
+2015,"Emilia Romagna",80.87,84.95
+2015,"Friuli Venezia Giulia",79.92,85.03
+2015,"Lazio",80.11,84.47
+2015,"Liguria",79.94,84.6
+2015,"Lombardia",80.58,85.08
+2015,"Marche",80.73,85.34
+2015,"Molise",79.57,84.79
+2015,"Piemonte",79.9,84.49
+2015,"Puglia",80.34,84.55
+2015,"Sardegna",79.78,84.84
+2015,"Sicilia",79.37,83.41
+2015,"Toscana",80.63,85.14
+2015,"Trentino Alto Adige",81.03,85.74
+2015,"Umbria",80.59,85.29
+2015,"Valle d Aosta",78.75,83.62
+2015,"Veneto",80.65,85.27
+2016,"Abruzzo",80.58,85.23
+2016,"Basilicata",80.29,84.68
+2016,"Calabria",80,84.71
+2016,"Campania",78.86,83.39
+2016,"Emilia Romagna",81.17,85.31
+2016,"Friuli Venezia Giulia",80.36,85.43
+2016,"Lazio",80.56,84.85
+2016,"Liguria",80.49,85.1
+2016,"Lombardia",81.05,85.55
+2016,"Marche",81.08,85.76
+2016,"Molise",80.07,85.24
+2016,"Piemonte",80.45,84.91
+2016,"Puglia",80.8,84.97
+2016,"Sardegna",80.16,85.25
+2016,"Sicilia",79.83,83.94
+2016,"Toscana",81.16,85.52
+2016,"Trentino Alto Adige",81.18,86.08
+2016,"Umbria",81.13,85.59
+2016,"Valle d Aosta",79.36,84.5
+2016,"Veneto",81.01,85.71
+2017,"Abruzzo",80.33,84.9
+2017,"Basilicata",79.89,84.8
+2017,"Calabria",79.87,84.37
+2017,"Campania",78.9,83.32
+2017,"Emilia Romagna",81.21,85.37
+2017,"Friuli Venezia Giulia",80.67,85.45
+2017,"Lazio",80.44,84.66
+2017,"Liguria",80.58,84.92
+2017,"Lombardia",81.18,85.51
+2017,"Marche",81.16,85.46
+2017,"Molise",79.92,84.89
+2017,"Piemonte",80.43,84.7
+2017,"Puglia",80.62,84.8
+2017,"Sardegna",80.35,85.28
+2017,"Sicilia",79.53,83.68
+2017,"Toscana",81.3,85.41
+2017,"Trentino Alto Adige",81.51,86.2
+2017,"Umbria",81.34,85.41
+2017,"Valle d Aosta",79.79,84.3
+2017,"Veneto",81.25,85.64

@@ -1,0 +1,106 @@
+geo_time,year,value,geo_label,measure
+ITF1,2017,16284.2,Abruzzo,Household disposable income
+ITF5,2017,13483,Basilicata,Household disposable income
+ITF6,2017,12656.3,Calabria,Household disposable income
+ITF3,2017,13152.7,Campania,Household disposable income
+ITH5,2017,22463.2,Emilia-Romagna,Household disposable income
+ITH4,2017,20562.5,Friuli-Venezia Giulia,Household disposable income
+ITI4,2017,19365.9,Lazio,Household disposable income
+ITC3,2017,21639.4,Liguria,Household disposable income
+ITC4,2017,22418.8,Lombardia,Household disposable income
+ITI3,2017,18722.2,Marche,Household disposable income
+ITF2,2017,14416.3,Molise,Household disposable income
+ITC1,2017,20727.2,Piemonte,Household disposable income
+ITH1,2017,24968,Provincia Autonoma di Bolzano/Bozen,Household disposable income
+ITH2,2017,21462.5,Provincia Autonoma di Trento,Household disposable income
+ITF4,2017,13932.2,Puglia,Household disposable income
+ITG2,2017,15240,Sardegna,Household disposable income
+ITG1,2017,13285.9,Sicilia,Household disposable income
+ITI1,2017,20274.8,Toscana,Household disposable income
+ITI2,2017,18038.3,Umbria,Household disposable income
+ITC2,2017,20901.2,Valle d'Aosta/Vallée d'Aoste,Household disposable income
+ITH3,2017,20349.5,Veneto,Household disposable income
+ITF1,2017,80.33,Abruzzo,Life expectancy for men
+ITF5,2017,79.89,Basilicata,Life expectancy for men
+ITF6,2017,79.87,Calabria,Life expectancy for men
+ITF3,2017,78.9,Campania,Life expectancy for men
+ITH5,2017,81.21,Emilia-Romagna,Life expectancy for men
+ITH4,2017,80.67,Friuli-Venezia Giulia,Life expectancy for men
+ITI4,2017,80.44,Lazio,Life expectancy for men
+ITC3,2017,80.58,Liguria,Life expectancy for men
+ITC4,2017,81.18,Lombardia,Life expectancy for men
+ITI3,2017,81.16,Marche,Life expectancy for men
+ITF2,2017,79.72,Molise,Life expectancy for men
+ITC1,2017,80.43,Piemonte,Life expectancy for men
+ITH1,2017,81.51,Provincia Autonoma di Bolzano/Bozen,Life expectancy for men
+ITH2,2017,81.51,Provincia Autonoma di Trento,Life expectancy for men
+ITF4,2017,80.62,Puglia,Life expectancy for men
+ITG2,2017,80.35,Sardegna,Life expectancy for men
+ITG1,2017,79.53,Sicilia,Life expectancy for men
+ITI1,2017,81.3,Toscana,Life expectancy for men
+ITI2,2017,81.34,Umbria,Life expectancy for men
+ITC2,2017,79.79,Valle d'Aosta/Vallée d'Aoste,Life expectancy for men
+ITH3,2017,81.25,Veneto,Life expectancy for men
+ITF1,2017,84.9,Abruzzo,Life expectancy for women
+ITF5,2017,84.8,Basilicata,Life expectancy for women
+ITF6,2017,86.2,Calabria,Life expectancy for women
+ITF3,2017,84.37,Campania,Life expectancy for women
+ITH5,2017,83.32,Emilia-Romagna,Life expectancy for women
+ITH4,2017,85.37,Friuli-Venezia Giulia,Life expectancy for women
+ITI4,2017,85.45,Lazio,Life expectancy for women
+ITC3,2017,84.66,Liguria,Life expectancy for women
+ITC4,2017,84.92,Lombardia,Life expectancy for women
+ITI3,2017,85.51,Marche,Life expectancy for women
+ITF2,2017,85.46,Molise,Life expectancy for women
+ITC1,2017,84.89,Piemonte,Life expectancy for women
+ITH1,2017,84.7,Provincia Autonoma di Bolzano/Bozen,Life expectancy for women
+ITH2,2017,84.8,Provincia Autonoma di Trento,Life expectancy for women
+ITF4,2017,85.28,Puglia,Life expectancy for women
+ITG2,2017,83.68,Sardegna,Life expectancy for women
+ITG1,2017,85.41,Sicilia,Life expectancy for women
+ITI1,2017,86.2,Toscana,Life expectancy for women
+ITI2,2017,85.41,Umbria,Life expectancy for women
+ITC2,2017,84.3,Valle d'Aosta/Vallée d'Aoste,Life expectancy for women
+ITH3,2017,85.64,Veneto,Life expectancy for women
+ITF1,2017,24273,Abruzzo,Median income (after housing costs)
+ITF5,2017,20195,Basilicata,Median income (after housing costs)
+ITF6,2017,33300,Calabria,Median income (after housing costs)
+ITF3,2017,19665,Campania,Median income (after housing costs)
+ITH5,2017,20727,Emilia-Romagna,Median income (after housing costs)
+ITH4,2017,30052,Friuli-Venezia Giulia,Median income (after housing costs)
+ITI4,2017,26866,Lazio,Median income (after housing costs)
+ITC3,2017,25381,Liguria,Median income (after housing costs)
+ITC4,2017,25107,Lombardia,Median income (after housing costs)
+ITI3,2017,28222,Marche,Median income (after housing costs)
+ITF2,2017,27898,Molise,Median income (after housing costs)
+ITC1,2017,21550,Piemonte,Median income (after housing costs)
+ITH1,2017,25367,Provincia Autonoma di Bolzano/Bozen,Median income (after housing costs)
+ITH2,2017,23793,Provincia Autonoma di Trento,Median income (after housing costs)
+ITF4,2017,22912,Puglia,Median income (after housing costs)
+ITG2,2017,18471,Sardegna,Median income (after housing costs)
+ITG1,2017,26974,Sicilia,Median income (after housing costs)
+ITI1,2017,26083,Toscana,Median income (after housing costs)
+ITI2,2017,26457,Umbria,Median income (after housing costs)
+ITC2,2017,24081,Valle d'Aosta/Vallée d'Aoste,Median income (after housing costs)
+ITH3,2017,29295,Veneto,Median income (after housing costs)
+ITF1,2017,27921,Abruzzo,Median income (before housing costs)
+ITF5,2017,23499,Basilicata,Median income (before housing costs)
+ITF6,2017,37519,Calabria,Median income (before housing costs)
+ITF3,2017,23050,Campania,Median income (before housing costs)
+ITH5,2017,23890,Emilia-Romagna,Median income (before housing costs)
+ITH4,2017,35513,Friuli-Venezia Giulia,Median income (before housing costs)
+ITI4,2017,31692,Lazio,Median income (before housing costs)
+ITC3,2017,30788,Liguria,Median income (before housing costs)
+ITC4,2017,30234,Lombardia,Median income (before housing costs)
+ITI3,2017,33598,Marche,Median income (before housing costs)
+ITF2,2017,32182,Molise,Median income (before housing costs)
+ITC1,2017,25430,Piemonte,Median income (before housing costs)
+ITH1,2017,29232,Provincia Autonoma di Bolzano/Bozen,Median income (before housing costs)
+ITH2,2017,27655,Provincia Autonoma di Trento,Median income (before housing costs)
+ITF4,2017,27289,Puglia,Median income (before housing costs)
+ITG2,2017,22331,Sardegna,Median income (before housing costs)
+ITG1,2017,32652,Sicilia,Median income (before housing costs)
+ITI1,2017,31743,Toscana,Median income (before housing costs)
+ITI2,2017,31004,Umbria,Median income (before housing costs)
+ITC2,2017,27567,Valle d'Aosta/Vallée d'Aoste,Median income (before housing costs)
+ITH3,2017,34732,Veneto,Median income (before housing costs)

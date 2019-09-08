@@ -83,3 +83,25 @@ const basics = function (parent, type) {
         return link;
         
     }
+
+
+
+    var readMore = document.getElementsByClassName("readMore");
+
+for (let i = 0; i < readMore.length; i++) {
+  readMore[i].addEventListener("click", function() {
+    this.classList.toggle("open");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+  
+        content.style.display = "none";
+        this.querySelector('span.arrow').textContent = '⮞'
+    
+     
+      
+    } else {
+      content.style.display = "block";
+      this.querySelector('span.arrow').textContent = '⮟'
+    }
+  });
+} 

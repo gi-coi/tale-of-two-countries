@@ -216,7 +216,7 @@
             return d.region == 'Campania'
         })
 
-        var margin = { top: 50, right: 50, bottom: 50, left: 50 }
+        var margin = { top: 50, right: 50, bottom: 50, left: 90 }
 
 
         // title and caption
@@ -336,6 +336,15 @@
         svg.select('.y.axis')
             .call(d3.axisLeft(yScale))
 
+            svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x",0 - (height / 2))
+            .attr("dy", "2.2em")
+            .style("text-anchor", "middle")
+            .attr('class', 'y axisLabel')
+            .text("Rate of caesarean sections (%)");
+        
 
     }
 

@@ -1,0 +1,174 @@
+country,year,c_sections,country_code
+Afghanistan, 2010-2015,2.7,AFG
+Albania,2013,34.1,ALB
+Algeria, 2010-2013,16,DZA
+Angola, 2010-2016,3.7,AGO
+Argentina,2011,29.1,ARG
+Armenia, 2010-2016,18,ARM
+Australia,2015,33.3,AUS
+Austria,2016,29.5,AUT
+Azerbaijan,2015,27.6,AZE
+Bahrain,2015,28,BHR
+Bangladesh, 2013-2016,30.7,BGD
+Barbados, 2010-2012,21.3,BRB
+Belarus,2014,27.1,BLR
+Belgium,2013,21.2,BEL
+Belize, 2013-2016,34.2,BLZ
+Benin, 2012-2014,5.3,BEN
+Bhutan, 2008-2010,12.4,BTN
+"Bolivia, Plurinational State of", 2011-2016,33.4,BOL
+Bosnia and Herzegovina,2014,24,BIH
+Brazil,2015,55.5,BRA
+Bulgaria,2014,39.1,BGR
+Burkina Faso, 2010-2015,3.7,BFA
+Burundi, 2005-2010,4,BDI
+Cambodia, 2009-2014,6.3,KHM
+Cameroon, 2012-2014,2.4,CMR
+Canada,2015,27.9,CAN
+Central African Republic, 2008-2010,4.5,CAF
+Chad, 2009-2015,1.4,TCD
+Chile,2012,49.6,CHL
+China,2014,34.9,CHN
+Colombia,2016,45.8,COL
+Comoros, 2007-2012,9.6,COM
+Congo, 2012-2015,4.9,COG
+Costa Rica,2014,23.5,CRI
+Côte d'Ivoire, 2014-2016,3.3,CIV
+Croatia,2016,23,HRV
+Cuba, 2012-2014,40.4,CUB
+Cyprus,2015,56.9,CYP
+Czechia,2012,25.9,CZE
+Democratic People's Republic of Korea, 2007-2009,12.5,PRK
+Democratic Republic of the Congo, 2008-2014,5.1,COD
+Denmark,2016,19.5,DNK
+Djibouti, 2007-2012,11,DJI
+Dominican Republic,2012,58.1,DOM
+Ecuador,2015,49,ECU
+Egypt, 2009-2014,51.8,EGY
+El Salvador,2016,31.3,SLV
+Equatorial Guinea, 2006-2011,6.6,GNQ
+Eritrea, 2005-2010,2.8,ERI
+Estonia,2016,20.3,EST
+Eswatini, 2012-2014,11.6,SWZ
+Ethiopia, 2011-2016,1.9,ETH
+Finland,2016,16.4,FIN
+France,2016,19.6,FRA
+Gabon, 2007-2012,10,GAB
+Gambia, 2008-2013,2,GMB
+Georgia,2015,41.4,GEO
+Germany,2016,30.5,DEU
+Ghana, 2009-2014,12.8,GHA
+Guatemala, 2009-2015,26.3,GTM
+Guinea, 2014-2016,3.1,GIN
+Guinea-Bissau, 2012-2014,3.9,GNB
+Guyana, 2012-2014,16.9,GUY
+Haiti,2013,5.4,HTI
+Honduras, 2006-2012,18.6,HND
+Hungary,2014,36.4,HUN
+Iceland,2016,18.3,ISL
+India, 2010-2016,17.2,IND
+Indonesia, 2007-2012,12.3,IDN
+"Iran, Islamic Republic of", 2008-2010,45.6,IRN
+Iraq,2012,24.4,IRQ
+Ireland,2015,31.3,IRL
+Israel,2014,16.1,ISR
+Italy,2014,35,ITA
+Jamaica, 2009-2011,21.2,JAM
+Japan,2014,19.7,JPN
+Jordan, 2007-2012,28,JOR
+Kazakhstan, 2013-2015,14.8,KAZ
+Kenya,2009,8.7,KEN
+Kiribati, 2004-2009,9.6,KIR
+Kyrgyzstan, 2012-2014,7.4,KGZ
+Lao People's Democratic Republic, 2009-2012,3.7,LAO
+Latvia,2016,21.7,LVA
+Lebanon,2016,47.1,LBN
+Lesotho, 2009-2014,9.7,LSO
+Liberia, 2008-2013,3.9,LBR
+Lithuania,2015,21.9,LTU
+Luxembourg,2013,30.5,LUX
+Madagascar, 2007-2013,1.9,MDG
+Malawi, 2010-2016,6.1,MWI
+Malaysia,2006,15.7,MYS
+Maldives,2014,41.2,MDV
+Mali, 2013-2015,2,MLI
+Malta,2016,30.7,MLT
+Marshall Islands, 2002-2007,9.3,MHL
+Mauritania, 2013-2015,4.9,MRT
+Mauritius,2016,45.4,MUS
+Mexico, 2013-2015,40.7,MEX
+"Micronesia, Federated States of",2006,10.5,FSM
+Monaco,2015,20.6,MCO
+Mongolia, 2011-2013,23.4,MNG
+Montenegro, 2011-2013,19.9,MNE
+Morocco,2015,15.2,MAR
+Mozambique, 2006-2011,3.9,MOZ
+Myanmar, 2010-2016,17.1,MMR
+Namibia, 2008-2013,14.4,NAM
+Nauru, 2002-2007,7.5,NRU
+Nepal, 2011-2016,9,NPL
+Netherlands,2015,16.6,NLD
+New Zealand,2015,25.5,NZL
+Nicaragua, 2006-2012,29.7,NIC
+Niger, 2007-2012,1.4,NER
+Nigeria, 2014-2017,2.8,NGA
+Norway,2016,16.1,NOR
+Oman,2016,19.5,OMN
+Pakistan, 2007-2013,14.1,PAK
+Panama, 2011-2013,27.7,PAN
+Paraguay, 2014-2016,45.9,PRY
+Peru, 2011-2016,31.6,PER
+Philippines, 2008-2013,9.3,PHL
+Poland,2014,35.6,POL
+Portugal,2011,35.2,PRT
+Qatar, 2010-2012,19.5,QAT
+Republic of Korea, 2013-2015,39.1,KOR
+Republic of Moldova,2014,18.4,LBN
+Romania,2013,40.1,ROU
+Russian Federation, 2006-2011,13,RUS
+Rwanda, 2010-2015,13,RWA
+Saint Lucia, 2010-2012,18.5,LCA
+Samoa, 2009-2014,4.6,WSM
+San Marino,2016,27.5,SMR
+Sao Tome and Principe, 2012-2014,5.6,STP
+Saudi Arabia,2016,30.2,SAU
+Senegal, 2011-2016,5.5,SEN
+Serbia, 2012-2014,28.8,SRB
+Seychelles,2016,28.2,SYC
+Sierra Leone, 2008-2013,2.9,SLE
+Slovakia,2012,30.3,SVK
+Slovenia,2012,18.9,SVN
+Solomon Islands, 2010-2015,5.9,SLB
+South Sudan, 2008-2010,&lt;1.0,#N/D
+Spain,2014,27.3,ESP
+Sri Lanka,2015,33.2,LKA
+Sudan, 2012-2014,9.1,SDN
+Suriname, 2008-2010,19,SUR
+Sweden,2015,17.4,SWE
+Switzerland,2015,33.3,CHE
+Syrian Arab Republic, 2004-2009,26,SYR
+Tajikistan, 2007-2012,4,TJK
+Thailand, 2013-2016,32.7,THA
+Republic of North Macedonia, 2009-2011,24.9,MKD
+Timor-Leste, 2004-2010,1.7,TLS
+Togo, 2008-2014,6.5,TGO
+Tonga, 2007-2012,17.4,TON
+Trinidad and Tobago,2007,18.4,TTO
+Tunisia, 2009-2012,26.7,TUN
+Turkey, 2008-2013,48.1,TUR
+Turkmenistan, 2013-2016,6.3,TKM
+Tuvalu, 2002-2007,7.1,TUV
+Uganda, 2006-2011,5.3,UGA
+Ukraine, 2010-2012,12.1,UKR
+United Arab Emirates,2013,23.9,ARE
+United Kingdom of Great Britain and Northern Ireland, 2016-2017,29.5,GBR
+United Republic of Tanzania, 2010-2016,5.9,TZA
+United States of America,2015,32,USA
+Uruguay,2015,39.4,URY
+Uzbekistan,2015,13.6,UZB
+Vanuatu, 2008-2013,11.9,VUT
+"Venezuela, Bolivarian Republic of",2009,32.2,VEN
+Viet Nam, 2011-2014,27.5,VNM
+Yemen, 2008-2013,4.8,YEM
+Zambia, 2008-2014,4.4,ZMB
+Zimbabwe, 2010-2015,5.8,ZWE

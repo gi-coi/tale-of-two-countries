@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-format.v1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.2/d3-annotation.min.js'></script>
+    <meta name="description" content="Intro">
+    <title>Intro - A Tale of Two Countries</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+        integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js'></script>
+
+
+
+    <link rel="stylesheet" href="CSS/style.css">
+  
+
+</head>
+
+<body>
+
+    <div id="layout">
+        <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <div class="topnav" id="navigationBar">
+                    <a href="index.html">Home</a>
+                            <a href="project.html">The project</a>
+                            <a href='explore_data.html'>The data</a>
+                    <div class="dropdown">
+                      <button class="dropbtn">Explore 
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="intro.html">Life expectancy</a>
+                        <a href="asbestos.html">Asbestos</a>
+                        <a href="csections.html">C-sections</a>
+                        <a href="healthcare_migration.html">Healthcare migration</a>
+                      </div>
+                    </div> 
+                  
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                  </div>
+                
+
+        <div id="main">
+            <div class="header">
+                <h1>The invisible border</h1>
+                <h2>Italy's life expectancy gap</h2>
+            </div>
+
+            <div class="content">
+                <p>
+                    At the two extremities of the Italian peninsula are Bolzano, the northernmost province, and Sicily,
+                    a
+                    Mediterranean island off the coast of Tunisia. This distance is not merely physical – Bolzano and
+                    Sicily
+                    also find themselves at the opposing ends of the EU’s poverty rankings.
+                    Sicily, at 52%, has the highest poverty rate in the European Union, while Bolzano, at 8.5%, has the
+                    lowest. The average disposable income for a Sicilian household is €12,500; a family in Bolzano has
+                    almost twice as much.
+                </p>
+                <p>
+                    A boy born in Palermo, Sicily, has an average life expectancy of 79 years. The same boy born in
+                    Bolzano
+                    will live around 2 years longer. While girls may fare a little better, this gap is wider: 83 years
+                    in
+                    Palermo, 86 in Bolzano.
+                </p>
+                <p>
+                    For centuries before Italian reunification, the story of Bolzano and Palermo was one of two
+                    different
+                    countries. The borders may be no longer there, but the spectre remains.</p>
+                <p>
+                    An invisible line cuts across the Italian peninsula. This border is the product of opinions,
+                    cultures,
+                    identities and self-perceptions. Sometimes it’s above Lazio, bordering the green hills of Tuscany.
+                    More
+                    often it is right in the middle, between Lazio and Campania.</p>
+
+                <p>
+                    Below this invisible border is the Mezzogiorno, a term that encompasses the whole of Southern Italy
+                    and
+                    Sardinia. It means “noon” in English and refers to the position and intensity of sunshine in
+                    Southern
+                    Italy at midday. In time, this geographical label has almost become an identity, so strong there is
+                    no
+                    corresponding definition for the other parts of Italy. It’s just the Mezzogiorno, and the rest.
+                </p>
+                <p>
+                    It has also been, and still is, a pressing political problem. The Southern question, which
+                    generations
+                    of politicians have tried to answer, is no more than this: why is the Mezzogiorno so poor and
+                    backward?
+                    What can be done to erase this gap?
+
+                </p>
+                <h2>A never-ending crisis</h2>
+                <p>
+                    The north-south economic gap has been an inaugural feature of the developing Italian state –
+                    resulting in an ever-broadening wellbeing gap.
+
+                </p>
+
+
+                <p>
+                    With a median income almost half of their northern counterparts, households in the south are at a
+                    higher risk of poverty. Though most of the population lives in the North, nearly half of households
+                    in poverty live in the Mezzogiorno. The South of Italy is one of the poorest areas in the European
+                    Union, on par with the Southern Spain and parts of eastern Europe.
+
+                </p>
+                <p>
+                    Economic disparities compound an unequal income distribution even further. More than half of the
+                    population in the south and islands inhabits the two lower income quintiles. Average disposable
+                    income
+                    is around 60% that of the North and has been so since 2004. Incomes have grown by about 10% since
+                    the
+                    early 2000s but have stagnated since 2008.
+                </p>
+                <p>
+                    The economic crisis dealt a particularly hard blow the Italian economy, with the Mezzogiorno bearing
+                    a
+                    heavy burden. Recovery has been difficult and disproportionate, and the gap between North and South,
+                    if
+                    anything, continues to grow. Poverty has doubled compared to pre-crisis levels, with one in ten
+                    southern
+                    households living below the poverty line. Unemployment, which had declined significantly up until
+                    2009,
+                    is now back to the early 2000s levels, and exceeds 20% in Campania, Calabria and Sicily.
+                </p>
+                <p>
+                    For young
+                    people growing up in the South, the crisis isn’t over. And they feel it will never end. Almost one
+                    third
+                    of those aged 15 to 24 living in Sicily, Calabria and Campania are NEET, (not in employment,
+                    education
+                    or training). In these regions youth unemployment exceeds 50%.</p>
+
+                <p>
+                    “The crisis has been there for as long as I can remember,” says A., 24 years old, Cagliari. She is a
+                    graduate in foreign languages but is struggling to find a job in her field. She’s worked a part-time
+                    job
+                    at a restaurant to support her studies. “My family and I have sacrificed a lot for this degree. I
+                    don’t
+                    want this to go to waste. I don’t know what to do, I’d like to move to Milan and look for a job
+                    there,
+                    but it’s so expensive. I wouldn’t want to live my family, the city I grew up in, but I see no future
+                    here.”
+
+                </p>
+                <h2>Prophecy by postcode</h2>
+                <p>Numbers are informative, but they can feel a bit dry. So, how do they translate into years, and
+                    health, lost?
+                    Socio-economic background and living standards are strictly related. According to the <a
+                        href='https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death'
+                        target='_blank'>World Health Organisation</a>, noncommunicable diseases, like cancer and heart
+                    conditions, are becoming more common.
+                    They cause more than 70% of deaths worldwide, and 88% in countries with higher incomes, where they
+                    disproportionately affect poorer groups.
+                </p>
+
+                <div id='deathCausesIT' class='chart'></div>
+
+                <p>Individuals with lower income are more vulnerable to illness and trauma that might otherwise be
+                    avoidable. A lack of access to health care (or inadequate healthcare), means people tend to get
+                    sicker, more frequently, their symptoms tend to be more intractable and thus they are more likely to
+                    die, because of diminished access to regular check-ups. People of the south are often more
+                    susceptible to lifestyle-related diseases, which can be the product of a lower economic background.
+                    Lack of access to cheap and healthy food options, for example, correlates with malnutrition and
+                    excess weight. These, in turn, increase the risk for a range of chronic conditions, like type 2
+                    diabetes. In the workplace, individuals may be exposed to health hazards without any protection.
+                </p>
+                <p>It is no coincidence that people living in the Mezzogiorno will live shorter lives, and are
+                    typically less healthy than average. The gap in life expectancy is around 2 years, but that in
+                    healthy life expectancy – that is, without disabilities and functional limitations – is a lot wider.
+                    In 2000, a newborn child could expect to live almost 50 healthy years if he or she was born in
+                    Sicily or Sardinia, and about 51 if they in Lombardy or Piedmont. By 2013, the gap had widened to 4
+                    years: 56 in the Mezzogiorno, and 60 in the North. Life expectancy in the South has grown 30% slower
+                    than in the North.</p>
+                <div id='income_age' class='chart'></div>
+                <p>
+                    In addition, more people also report being in bad health: almost 1 in 10 people over 14 in the
+                    Mezzogiorno have reported a physical or mental health condition - twice as many as in the North.</p>
+
+
+                <h2>How to save a life</h2>
+                <p>
+                    All these factors – lifestyle, environment, prevention, quality of healthcare – have profound
+                    negative
+                    effects on healthcare outcomes. When combined, they can be deadly, resulting in a stagnating life
+                    expectancy, and in deaths that might have been prevented, with adequate planning and public health
+                    policies.</p>
+                <div id='exp_vis' class='chart'></div>
+                <p>
+                    The Italian research institute <a href='https://www.mortalitaevitabile.it' target='_blank'>Nebo
+                        Ricerche PA</a> uses national and EU data to produce data on avoidable
+                    mortality at the regional and province level. The team employs a methodology in which healthcare
+                    outcomes are weighted by age: deaths at a younger age count more towards the final score. The result
+                    is
+                    almost a health ranking - though the goal is not to shame health authorities, according to Nebo
+                    Ricerche’s scientific director Dr. Natalia Buzzi.</p>
+                <p>
+                    The institute flags public health issues and encourages the Italian NHS to critically assess its
+                    prevention and care strategies. “We want to draw attention to these issues,” Dr. Buzzi
+                    explains. “Why do some areas perform consistently worse than others, what methods can they borrow
+                    from
+                    others with significantly better rates?”.</p>
+                <p>
+                    Preventable deaths they still make up a majority of deaths up to 75 years of age. Of the 153,000
+                    deaths
+                    in 2016, 101,000 were classed as avoidable, resulting in a remarkable loss of potential life
+                    expectancy
+                    of almost 20 days per capita.</p>
+                <p>
+                    The institute identified three main areas of focus: prevention through lifestyle, prevention through
+                    early diagnosis, and prevention through care and therapy. Lifestyle is mostly down to the individual
+                    choices and opportunities, while ensuring good structures and optimal efficiency of healthcare
+                    systems
+                    is gift of healthcare authorities, and key in ensuring high-quality diagnosis and care.</p>
+                <p>The data shows a stark North-South gap in amenable deaths, or deaths that could have been prevented
+                    with
+                    medical care. These account for a third of all avoidable deaths. Predictably, the regions of the
+                    Mezzogiorno record the majority of the worst rates in the country. While the north does have
+                    isolated
+                    areas of poor performance, it should be noted that changes in the latter may not be statistically
+                    significant due to the small numbers involved.</p>
+                <p>
+                    This indicator strongly correlates with the organisation of local healthcare precincts, Dr. Buzzi
+                    notes.
+                    “The NHS’ mission is to guarantee universal care to all citizens, regardless of where they live.
+                    Instead, the data suggests there is a significant regional divide in the quality and effectiveness
+                    of
+                    the healthcare system.” And even though preventable deaths have declined in the last years, progress
+                    has
+                    been slower in the south.</p>
+                <p>
+                    As Dr. Buzzi highlights, the North-South gap in preventable deaths is consistent with several health
+                    and
+                    economic phenomena, where the South is systematically at a disadvantage. Unfortunately, while
+                    preventable deaths are becoming a priority across the European Union, the issue isn’t a high on the
+                    agenda of Italy’s politicians. Several regional governments and local health authorities are using
+                    MEVI
+                    data to shape and revise their prevention strategy; meanwhile in Rome, Nebo's reports fall on deaf
+                    ears.</p>
+                <p>Screenings and awareness campaigns may cost money, but they are still a lot cheaper than therapy.
+                    “They
+                    say an ounce of prevention is better than a pound of cure, and it’s not just a figure of speech,”
+                    emphasises Dr. Buzzi. “The budget savings for the healthcare system are enormous. Not to mention the
+                    human costs.”</p>
+                <p>
+                    Intelligence and planning could go a long way in saving at least some of these lives in the future.
+                    But
+                    without proper funding, it won’t be possible to support a proper long-term prevention strategy.</p>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+   
+    <script src='JS/commons.js'></script>
+    <script src='JS/intro_charts.js'></script>
+    <script src='JS/menu.js'></script>
+
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+Sex,cause_code,communicable_code,cause_group,cause,cause_detail,deaths_thousands,deaths,ratio16,italy2000,italy200tot,ratio
+Persons,0,All,All,All,All,639.8009724,639800.9724,1,560.4721743,560472.1743,1
+Persons,10,"Communicable, maternal, perinatal and nutritional conditions",All,All,All,31.09768488,31097.68488,0.048605248,18.89592441,18895.92441,0.033714295
+Persons,20,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,All,All,13.77420189,13774.20189,0.021528886,4.991447738,4991.447738,0.00890579
+Persons,1130,Noncommunicable diseases,Cardiovascular diseases,Ischaemic heart disease,All,112.2293308,112229.3308,0.175412879,122.9238957,122923.8957,0.219322031
+Persons,1140,Noncommunicable diseases,Cardiovascular diseases,Stroke,All,62.22931423,62229.31423,0.097263551,68.20276959,68202.76959,0.121688056
+Persons,50,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,STDs excluding HIV,Syphilis,0.010298093,10.29809281,1.60958E-05,0.016344969,16.34496867,2.91629E-05
+Persons,60,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,STDs excluding HIV,Chlamydia,0.004192886,4.192886076,6.55342E-06,0.001839087,1.839087033,3.28132E-06
+Persons,70,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,STDs excluding HIV,Gonorrhoea,0.01207834,12.07834048,1.88783E-05,0.006233909,6.233909487,1.11226E-05
+Persons,80,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,STDs excluding HIV,Trichomoniasis,0,0,0,0,0,0
+Persons,85,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,STDs excluding HIV,Genital herpes,0,0,0,0,0,0
+Persons,90,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,STDs excluding HIV,Other STDs,0.003945441,3.945441013,6.16667E-06,0.002025653,2.025652737,3.61419E-06
+Persons,680,Noncommunicable diseases,Malignant neoplasms,"Trachea, bronchus, lung cancers",All,34.18773123,34187.73123,0.053434947,31.79630005,31796.30005,0.056731273
+Persons,1180,Noncommunicable diseases,Respiratory diseases,Chronic obstructive pulmonary disease,All,31.19119723,31191.19723,0.048751406,30.07764174,30077.64174,0.053664826
+Persons,1160,Noncommunicable diseases,Cardiovascular diseases,Other circulatory diseases,All,29.82873015,29828.73015,0.046621889,21.28578608,21285.78608,0.03797831
+Persons,130,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Childhood-cluster diseases,Whooping cough,0.000466274,0.466273743,7.28779E-07,0,0,0
+Persons,140,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Childhood-cluster diseases,Diphtheria,1.61211E-05,0.016121102,2.51971E-08,0.000132182,0.13218217,2.35841E-07
+Persons,150,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Childhood-cluster diseases,Measles,0.000649739,0.649738712,1.01553E-06,0.002414971,2.414971227,4.30882E-06
+Persons,160,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Childhood-cluster diseases,Tetanus,0.020259357,20.25935691,3.16651E-05,0.042428452,42.42845161,7.57013E-05
+Persons,650,Noncommunicable diseases,Malignant neoplasms,Colon and rectum cancers,All,21.32602882,21326.02882,0.033332286,17.93688441,17936.88441,0.032003167
+Persons,800,Noncommunicable diseases,Diabetes mellitus,Diabetes mellitus,All,22.11233363,22112.33363,0.034561269,17.83072424,17830.72424,0.031813755
+Persons,950,Noncommunicable diseases,Neurological conditions,Alzheimer disease and other dementias,All,35.44271651,35442.71651,0.055396472,14.11651541,14116.51541,0.025186827
+Persons,186,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Hepatitis,Acute hepatitis A,0.273842442,273.8424415,0.000428012,0.129406748,129.4067483,0.000230889
+Persons,190,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Hepatitis,Acute hepatitis B,0.415252668,415.2526683,0.000649034,1.464321065,1464.321065,0.002612656
+Persons,200,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Hepatitis,Acute hepatitis C,0,0,0,0,0,0
+Persons,205,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Hepatitis,Acute hepatitis E,1.399295715,1399.295715,0.00218708,0.402956755,402.9567546,0.000718959
+Persons,700,Noncommunicable diseases,Malignant neoplasms,Breast cancer,All,13.82823887,13828.23887,0.021613345,12.29698939,12296.98939,0.02194041
+Persons,220,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Malaria,0.000392178,0.392178237,6.12969E-07,0,0,0
+Persons,230,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,African Trypanosomiasis,0,0,0,0,0,0
+Persons,240,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Chagas disease,0.00073845,0.738449972,1.15419E-06,0,0,0
+Persons,250,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Schistosomiasis,0,0,0,0,0,0
+Persons,260,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Leishmaniasis,0.00341909,3.419090154,5.34399E-06,0.002202343,2.202343317,3.92944E-06
+Persons,270,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,lymphatic filariasis,0,0,0,0,0,0
+Persons,280,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Onchocerciasis,0,0,0,0,0,0
+Persons,285,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Cysticercosis,0,0,0,0,0,0
+Persons,295,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Echinococcosis,0,0,0,0,0,0
+Persons,300,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Dengue,0,0,0,0,0,0
+Persons,310,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Trachoma,0,0,0,0,0,0
+Persons,315,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Yellow fever,0,0,0,0,0,0
+Persons,320,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,Rabies,0.000109474,0.109473616,1.71106E-07,0.000426898,0.426898256,7.61676E-07
+Persons,640,Noncommunicable diseases,Malignant neoplasms,Stomach cancer,All,10.77522647,10775.22647,0.016841529,12.16314281,12163.14281,0.0217016
+Persons,340,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Intestinal nematode infections,Ascariasis,0,0,0,0,0,0
+Persons,350,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Intestinal nematode infections,Trichuriasis,0,0,0,0,0,0
+Persons,360,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Intestinal nematode infections,Hookworm disease,0,0,0,0,0,0
+Persons,362,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Intestinal nematode infections,Food-bourne trematodes,0,0,0,0,0,0
+Persons,1120,Noncommunicable diseases,Cardiovascular diseases,Hypertensive heart disease,All,17.65967,17659.67,0.027601818,12.02088847,12020.88847,0.021447788
+Persons,1230,Noncommunicable diseases,Digestive diseases,Cirrhosis of the liver,All,8.787148628,8787.148628,0.013734191,11.43304053,11433.04053,0.020398944
+Persons,380,"Communicable, maternal, perinatal and nutritional conditions",Respiratory Infectious ,All,All,14.18041156,14180.41156,0.022163786,11.45313934,11453.13934,0.020434805
+Persons,390,"Communicable, maternal, perinatal and nutritional conditions",Respiratory Infectious ,Lower respiratory infections,All,14.14857656,14148.57656,0.022114028,11.43243744,11432.43744,0.020397868
+Persons,660,Noncommunicable diseases,Malignant neoplasms,Liver cancer,All,9.985236757,9985.236757,0.015606786,10.22952795,10229.52795,0.018251625
+Persons,1550,Injuries,Unintentional injuries,Falls,All,3.882928886,3882.928886,0.006068964,10.02612271,10026.12271,0.017888707
+Persons,780,Noncommunicable diseases,Malignant neoplasms,Other malignant neoplasms,All,8.907962863,8907.962863,0.013923022,9.510038169,9510.038169,0.016967904
+Persons,490,"Communicable, maternal, perinatal and nutritional conditions",Neonatal conditions,All,All,0.85231032,852.3103197,0.001332149,1.405423422,1405.423422,0.00250757
+Persons,760,Noncommunicable diseases,Malignant neoplasms,"Lymphomas, multiple myeloma",All,9.812364152,9812.364152,0.015336588,8.376566147,8376.566147,0.014945552
+Persons,670,Noncommunicable diseases,Malignant neoplasms,Pancreas cancer,All,11.55418764,11554.18764,0.018059034,8.186628253,8186.628253,0.014606663
+Persons,1530,Injuries,Unintentional injuries,Road injury,All,3.119614175,3119.614175,0.004875913,7.756789965,7756.789965,0.013839741
+Persons,740,Noncommunicable diseases,Malignant neoplasms,Prostate cancer,All,8.289983803,8289.983803,0.012957129,7.448701285,7448.701285,0.013290047
+Persons,540,"Communicable, maternal, perinatal and nutritional conditions",Nutritional deficiencies,All,All,2.272565515,2272.565515,0.003551988,1.019215258,1019.215258,0.001818494
+Persons,1270,Noncommunicable diseases,Genitourinary diseases,Kidney diseases,All,14.94006146,14940.06146,0.023351108,7.298663259,7298.663259,0.013022347
+Persons,1250,Noncommunicable diseases,Digestive diseases,Other digestive diseases,All,9.325434556,9325.434556,0.014575524,6.791440615,6791.440615,0.012117356
+Persons,790,Noncommunicable diseases,Other neoplasms,Other neoplasms,All,8.993908099,8993.908099,0.014057353,6.697886035,6697.886035,0.011950435
+Persons,1200,Noncommunicable diseases,Respiratory diseases,Other respiratory diseases,All,9.645061152,9645.061152,0.015075096,5.937613929,5937.613929,0.01059395
+Persons,770,Noncommunicable diseases,Malignant neoplasms,Leukaemia,All,6.857404142,6857.404142,0.010718027,5.685740191,5685.740191,0.010144554
+Persons,600,Noncommunicable diseases,All,All,All,584.6641196,584664.1196,0.913821868,514.9348657,514934.8657,0.918751883
+Persons,610,Noncommunicable diseases,Malignant neoplasms,All,All,173.5292487,173529.2487,0.271223796,155.0920132,155092.0132,0.276716705
+Persons,750,Noncommunicable diseases,Malignant neoplasms,Bladder cancer,All,6.421656523,6421.656523,0.01003696,5.381451887,5381.451887,0.00960164
+Persons,621,Noncommunicable diseases,Malignant neoplasms,Mouth and oropharynx cancers,Lip and oral cavity,1.914470877,1914.470877,0.002992291,1.721668544,1721.668544,0.003071818
+Persons,622,Noncommunicable diseases,Malignant neoplasms,Mouth and oropharynx cancers,Nasopharynx,0.217027981,217.027981,0.000339212,0.268844971,268.8449709,0.000479676
+Persons,623,Noncommunicable diseases,Malignant neoplasms,Mouth and oropharynx cancers,Other pharynx,1.084067026,1084.067026,0.001694382,1.088712367,1088.712367,0.001942491
+Persons,1150,Noncommunicable diseases,Cardiovascular diseases,"Cardiomyopathy, myocarditis, endocarditis",All,5.622063212,5622.063212,0.008787206,4.821353655,4821.353655,0.008602307
+Persons,1610,Injuries,Intentional injuries,Self-harm,All,4.885749744,4885.749744,0.007636359,4.474777638,4474.777638,0.007983943
+Persons,1010,Noncommunicable diseases,Neurological conditions,Other neurological conditions,All,5.317698312,5317.698312,0.008311488,3.715846889,3715.846889,0.006629851
+Persons,752,Noncommunicable diseases,Malignant neoplasms,Gallbladder and biliary tract cancer,All,3.75209902,3752.09902,0.005864478,3.493420381,3493.420381,0.006232995
+Persons,661,Noncommunicable diseases,Malignant neoplasms,Liver cancer,Liver cancer secondary to hepatitis B,1.650890302,1650.890302,0.002580319,1.570418938,1570.418938,0.002801957
+Persons,662,Noncommunicable diseases,Malignant neoplasms,Liver cancer,Liver cancer secondary to hepatitis C,5.813846127,5813.846127,0.00908696,5.386949433,5386.949433,0.009611448
+Persons,663,Noncommunicable diseases,Malignant neoplasms,Liver cancer,Liver cancer secondary to alcohol use,2.001251369,2001.251369,0.003127928,2.834783789,2834.783789,0.005057849
+Persons,664,Noncommunicable diseases,Malignant neoplasms,Liver cancer,Other liver cancer,0.519248958,519.2489579,0.000811579,0.437375794,437.3757938,0.00078037
+Persons,745,Noncommunicable diseases,Malignant neoplasms,Kidney cancer,All,4.03310074,4033.10074,0.00630368,3.341675205,3341.675205,0.00596225
+Persons,751,Noncommunicable diseases,Malignant neoplasms,Brain and nervous system cancers,All,4.568610677,4568.610677,0.007140675,3.22515021,3225.15021,0.005754345
+Persons,620,Noncommunicable diseases,Malignant neoplasms,Mouth and oropharynx cancers,All,3.215565884,3215.565884,0.005025885,3.079225882,3079.225882,0.005493985
+Persons,691,Noncommunicable diseases,Malignant neoplasms,Melanoma and other skin cancers,Malignant skin melanoma,2.201025618,2201.025618,0.003440172,1.553836844,1553.836844,0.002772371
+Persons,692,Noncommunicable diseases,Malignant neoplasms,Melanoma and other skin cancers,Non-melanoma skin cancer,0.992771797,992.7717974,0.001551688,0.6306661,630.6661,0.001125241
+Persons,960,Noncommunicable diseases,Neurological conditions,Parkinson disease,All,6.435101518,6435.101518,0.010057974,2.91482387,2914.82387,0.005200658
+Persons,730,Noncommunicable diseases,Malignant neoplasms,Ovary cancer,All,3.282755109,3282.755109,0.0051309,2.900795444,2900.795444,0.005175628
+Persons,814,Noncommunicable diseases,"Endocrine, blood, immune disorders","Other endocrine, blood and immune disorders",All,5.429562967,5429.562967,0.008486331,2.765869729,2765.869729,0.004934892
+Persons,690,Noncommunicable diseases,Malignant neoplasms,Melanoma and other skin cancers,All,3.193797415,3193.797415,0.004991861,2.184502944,2184.502944,0.003897612
+Persons,630,Noncommunicable diseases,Malignant neoplasms,Oesophagus cancer,All,2.041311759,2041.311759,0.003190542,2.168908896,2168.908896,0.003869789
+Persons,1242,Noncommunicable diseases,Digestive diseases,Paralytic ileus and intestinal obstruction,All,2.75188581,2751.88581,0.004301159,2.124051336,2124.051336,0.003789753
+Persons,1300,Noncommunicable diseases,Genitourinary diseases,Other urinary diseases,All,2.195967671,2195.967671,0.003432267,2.088675408,2088.675408,0.003726635
+Persons,753,Noncommunicable diseases,Malignant neoplasms,Larynx cancer,All,1.690748478,1690.748478,0.002642616,2.028402632,2028.402632,0.003619096
+Persons,185,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Hepatitis,All,2.088390825,2088.390825,0.003264126,1.996684568,1996.684568,0.003562504
+Persons,1220,Noncommunicable diseases,Digestive diseases,Peptic ulcer disease,All,0.669532145,669.5321446,0.001046469,1.825814645,1825.814645,0.003257637
+Persons,1590,Injuries,Unintentional injuries,Other unintentional injuries,All,10.20152014,10201.52014,0.015944834,1.790940854,1790.940854,0.003195414
+Persons,720,Noncommunicable diseases,Malignant neoplasms,Corpus uteri cancer,All,2.175780105,2175.780105,0.003400714,1.720006056,1720.006056,0.003068852
+Persons,1110,Noncommunicable diseases,Cardiovascular diseases,Rheumatic heart disease,All,2.232758631,2232.758631,0.003489771,1.700540154,1700.540154,0.003034121
+Persons,813,Noncommunicable diseases,"Endocrine, blood, immune disorders",Other haemoglobinopathies and haemolytic anaemias,All,2.338492939,2338.492939,0.003655032,1.349477006,1349.477006,0.00240775
+Persons,761,Noncommunicable diseases,Malignant neoplasms,"Lymphomas, multiple myeloma",Hodgkin lymphoma,0.478734407,478.7344069,0.000748255,0.401112519,401.1125192,0.000715669
+Persons,762,Noncommunicable diseases,Malignant neoplasms,"Lymphomas, multiple myeloma",Non-Hodgkin lymphoma,5.468919526,5468.919526,0.008547845,5.224180733,5224.180733,0.009321035
+Persons,763,Noncommunicable diseases,Malignant neoplasms,"Lymphomas, multiple myeloma",Multiple myeloma,3.864710219,3864.710219,0.006040488,2.751272894,2751.272894,0.004908848
+Persons,1246,Noncommunicable diseases,Digestive diseases,Gallbladder and biliary diseases,All,2.160656282,2160.656282,0.003377076,1.32450689,1324.50689,0.002363198
+Persons,1390,Noncommunicable diseases,Musculoskeletal diseases,Other musculoskeletal disorders,All,2.288378525,2288.378525,0.003576704,1.221302919,1221.302919,0.002179061
+Persons,710,Noncommunicable diseases,Malignant neoplasms,Cervix uteri cancer,All,1.152819105,1152.819105,0.00180184,1.202180729,1202.180729,0.002144943
+Persons,1190,Noncommunicable diseases,Respiratory diseases,Asthma,All,0.474870454,474.870454,0.000742216,1.147295907,1147.295907,0.002047017
+Persons,810,Noncommunicable diseases,"Endocrine, blood, immune disorders",All,All,7.873255251,7873.255251,0.012305788,4.216193736,4216.193736,0.007522575
+Persons,100,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,HIV/AIDS,All,0.802461596,802.4615956,0.001254236,1.038653373,1038.653373,0.001853176
+Persons,870,Noncommunicable diseases,Mental and substance use disorders,Drug use disorders,All,0.716113181,716.1131812,0.001119275,1.028883198,1028.883198,0.001835744
+Persons,1248,Noncommunicable diseases,Digestive diseases,Pancreatitis,All,1.10305464,1103.05464,0.001724059,1.017746218,1017.746218,0.001815873
+Persons,500,"Communicable, maternal, perinatal and nutritional conditions",Neonatal conditions,Preterm birth complications,All,0.408346804,408.3468038,0.00063824,0.904139112,904.1391116,0.001613174
+Persons,820,Noncommunicable diseases,Mental and substance use disorders,All,All,1.733521993,1733.521993,0.002709471,1.554924813,1554.924813,0.002774312
+Persons,1440,Noncommunicable diseases,Congenital anomalies,Congenital heart anomalies,All,0.510720263,510.7202633,0.000798249,0.800143465,800.1434652,0.001427624
+Persons,831,Noncommunicable diseases,Mental and substance use disorders,Depressive disorders,Major depressive disorder,0,0,0,0,0,0
+Persons,832,Noncommunicable diseases,Mental and substance use disorders,Depressive disorders,Dysthymia,0,0,0,0,0,0
+Persons,1620,Injuries,Intentional injuries,Interpersonal violence,All,0.484808246,484.8082465,0.000757749,0.7682954,768.2954004,0.0013708
+Persons,580,"Communicable, maternal, perinatal and nutritional conditions",Nutritional deficiencies,Iron-deficiency anaemia,All,1.417810277,1417.810277,0.002216018,0.765198959,765.1989589,0.001365276
+Persons,1330,Noncommunicable diseases,Skin diseases,Skin diseases,All,1.275288082,1275.288082,0.001993257,0.764194272,764.1942716,0.001363483
+Persons,370,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Other infectious diseases,All,5.598252451,5598.252451,0.008749991,0.646074004,646.0740043,0.001152732
+Persons,871,Noncommunicable diseases,Mental and substance use disorders,Drug use disorders,Opioid use disorders,0.455875855,455.8758551,0.000712528,0.916846133,916.8461331,0.001635846
+Persons,872,Noncommunicable diseases,Mental and substance use disorders,Drug use disorders,Cocaine use disorders,0.012975198,12.97519828,2.02801E-05,0.009879544,9.879544364,1.76272E-05
+Persons,873,Noncommunicable diseases,Mental and substance use disorders,Drug use disorders,Amphetamine use disorders,0.0198995,19.89950018,3.11026E-05,0.006576675,6.576675171,1.17342E-05
+Persons,874,Noncommunicable diseases,Mental and substance use disorders,Drug use disorders,Cannabis use disorders,0,0,0,0,0,0
+Persons,875,Noncommunicable diseases,Mental and substance use disorders,Drug use disorders,Other drug use disorders,0.227362628,227.3626277,0.000355365,0.095580845,95.5808453,0.000170536
+Persons,754,Noncommunicable diseases,Malignant neoplasms,Thyroid cancer,All,0.615625103,615.6251032,0.000962213,0.640990438,640.9904375,0.001143661
+Persons,1460,Noncommunicable diseases,Congenital anomalies,Other congenital anomalies,All,0.531596736,531.5967358,0.000830878,0.631450071,631.4500712,0.001126639
+Persons,1575,Injuries,Unintentional injuries,Exposure to mechanical forces,All,0.382946157,382.9461571,0.00059854,0.615253419,615.2534188,0.001097741
+Persons,1244,Noncommunicable diseases,Digestive diseases,Inflammatory bowel disease,All,1.241409165,1241.409165,0.001940305,0.555297215,555.2972148,0.000990767
+Persons,911,Noncommunicable diseases,Mental and substance use disorders,Childhood behavioural disorders,Attention deficit/hyperactivity syndrome,0,0,0,0,0,0
+Persons,912,Noncommunicable diseases,Mental and substance use disorders,Childhood behavioural disorders,Conduct disorder,0,0,0,0,0,0
+Persons,30,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Tuberculosis,All,0.334395131,334.3951312,0.000522655,0.534678385,534.6783851,0.000953978
+Persons,1350,Noncommunicable diseases,Musculoskeletal diseases,Rheumatoid arthritis,All,0.583804819,583.8048193,0.000912479,0.512269328,512.2693276,0.000913996
+Persons,940,Noncommunicable diseases,Neurological conditions,All,All,48.89241858,48892.41858,0.076418169,21.4961411,21496.1411,0.038353628
+Persons,180,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Encephalitis,All,3.697097019,3697.097019,0.005778511,0.484054322,484.0543219,0.000863655
+Persons,1570,Injuries,Unintentional injuries,Drowning,All,0.436487671,436.4876707,0.000682224,0.464145356,464.1453558,0.000828133
+Persons,970,Noncommunicable diseases,Neurological conditions,Epilepsy,All,1.145426993,1145.426993,0.001790286,0.427694995,427.694995,0.000763098
+Persons,1560,Injuries,Unintentional injuries,"Fire, heat and hot substances",All,0.236144413,236.1444127,0.00036909,0.343482171,343.4821713,0.000612844
+Persons,980,Noncommunicable diseases,Neurological conditions,Multiple sclerosis,All,0.55038553,550.38553,0.000860245,0.321259934,321.2599338,0.000573195
+Persons,510,"Communicable, maternal, perinatal and nutritional conditions",Neonatal conditions,Birth asphyxia and birth trauma,All,0.144441682,144.441682,0.00022576,0.31991711,319.9171102,0.000570799
+Persons,1540,Injuries,Unintentional injuries,Poisonings,All,0.158968541,158.9685413,0.000248466,0.302734618,302.734618,0.000540142
+Persons,860,Noncommunicable diseases,Mental and substance use disorders,Alcohol use disorders,All,0.356663931,356.6639313,0.000557461,0.299991424,299.9914238,0.000535248
+Persons,1100,Noncommunicable diseases,Cardiovascular diseases,All,All,229.801867,229801.867,0.359177114,230.9552336,230955.2336,0.412072613
+Persons,1360,Noncommunicable diseases,Musculoskeletal diseases,Osteoarthritis,All,0.421660212,421.6602124,0.000659049,0.27788793,277.8879301,0.00049581
+Persons,1290,Noncommunicable diseases,Genitourinary diseases,Urolithiasis,All,0.203184209,203.184209,0.000317574,0.259343105,259.3431054,0.000462723
+Persons,1280,Noncommunicable diseases,Genitourinary diseases,Benign prostatic hyperplasia,All,0.240957086,240.9570857,0.000376613,0.205231267,205.2312667,0.000366176
+Persons,1241,Noncommunicable diseases,Digestive diseases,Gastritis and duodenitis,All,0.113948805,113.948805,0.0001781,0.196470877,196.4708771,0.000350545
+Persons,1141,Noncommunicable diseases,Cardiovascular diseases,Stroke,Ischaemic stroke,32.92345557,32923.45557,0.051458902,39.069646,39069.646,0.069708449
+Persons,1142,Noncommunicable diseases,Cardiovascular diseases,Stroke,Haemorrhagic stroke,29.30585867,29305.85867,0.045804649,29.13312359,29133.12359,0.051979607
+Persons,170,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Meningitis,All,0.124746579,124.7465793,0.000194977,0.178231125,178.231125,0.000318002
+Persons,1450,Noncommunicable diseases,Congenital anomalies,Other chromosomal anomalies,All,0.317424225,317.4242248,0.00049613,0.175905709,175.9057092,0.000313853
+Persons,1170,Noncommunicable diseases,Respiratory diseases,All,All,41.31112884,41311.12884,0.064568718,37.16255158,37162.55158,0.066305792
+Persons,550,"Communicable, maternal, perinatal and nutritional conditions",Nutritional deficiencies,Protein-energy malnutrition,All,0.621959481,621.9594807,0.000972114,0.129037534,129.0375335,0.00023023
+Persons,1430,Noncommunicable diseases,Congenital anomalies,Down syndrome,All,0.265442658,265.4426578,0.000414883,0.127600999,127.6009988,0.000227667
+Persons,530,"Communicable, maternal, perinatal and nutritional conditions",Neonatal conditions,Other neonatal conditions,All,0.231730527,231.7305266,0.000362192,0.125023813,125.0238128,0.000223069
+Persons,1210,Noncommunicable diseases,Digestive diseases,All,All,26.19848188,26198.48188,0.040947862,25.32026991,25320.26991,0.045176676
+Persons,590,"Communicable, maternal, perinatal and nutritional conditions",Nutritional deficiencies,Other nutritional deficiencies,All,0.232750639,232.7506389,0.000363786,0.123826137,123.8261371,0.000220932
+Persons,850,Noncommunicable diseases,Mental and substance use disorders,Schizophrenia,All,0.417291069,417.2910686,0.00065222,0.114140783,114.1407835,0.000203651
+Persons,1231,Noncommunicable diseases,Digestive diseases,Cirrhosis of the liver,Cirrhosis due to hepatitis B,1.442894333,1442.894333,0.002255224,2.014455735,2014.455735,0.003594212
+Persons,1232,Noncommunicable diseases,Digestive diseases,Cirrhosis of the liver,Cirrhosis due to hepatitis C,4.656312276,4656.312276,0.007277751,5.953481133,5953.481133,0.01062226
+Persons,1233,Noncommunicable diseases,Digestive diseases,Cirrhosis of the liver,Cirrhosis due to alcohol use,1.571892186,1571.892186,0.002456846,2.158195263,2158.195263,0.003850673
+Persons,1234,Noncommunicable diseases,Digestive diseases,Cirrhosis of the liver,Other liver cirrhosis,1.116049833,1116.049833,0.00174437,1.306908399,1306.908399,0.002331799
+Persons,811,Noncommunicable diseases,"Endocrine, blood, immune disorders",Thalassaemias,All,0.104643416,104.6434164,0.000163556,0.10045324,100.4532398,0.00017923
+Persons,1580,Injuries,Unintentional injuries,Natural disasters,All,0.249999973,249.9999733,0.000390746,0.097831593,97.83159256,0.000174552
+Persons,742,Noncommunicable diseases,Malignant neoplasms,Testicular cancer,All,0.10657287,106.5728699,0.000166572,0.094783783,94.78378325,0.000169114
+Persons,920,Noncommunicable diseases,Mental and substance use disorders,Idiopathic intellectual disability,All,0.156324691,156.3246913,0.000244333,0.077065891,77.06589107,0.000137502
+Persons,520,"Communicable, maternal, perinatal and nutritional conditions",Neonatal conditions,Neonatal sepsis and infections,All,0.067791307,67.79130745,0.000105957,0.056343388,56.3433876,0.000100528
+Persons,1240,Noncommunicable diseases,Digestive diseases,Appendicitis,All,0.045411848,45.41184819,7.09781E-05,0.051901582,51.90158218,9.26033E-05
+Persons,1020,Noncommunicable diseases,Sense organ diseases,Sense organ diseases,All,0.068876915,68.87691542,0.000107654,0.046922331,46.92233132,8.37193E-05
+Persons,1260,Noncommunicable diseases,Genitourinary diseases,All,All,17.60778991,17607.78991,0.02752073,9.895792404,9895.792404,0.017656171
+Persons,1380,Noncommunicable diseases,Musculoskeletal diseases,Back and neck pain,All,0.254782288,254.7822876,0.000398221,0.045478791,45.47879109,8.11437E-05
+Persons,1271,Noncommunicable diseases,Genitourinary diseases,Kidney diseases,Acute glomerulonephritis,0.005750334,5.750333504,8.98769E-06,0.004975363,4.975363082,8.87709E-06
+Persons,1272,Noncommunicable diseases,Genitourinary diseases,Kidney diseases,Chronic kidney disease due to diabetes,2.781771779,2781.771779,0.004347871,0.997220319,997.2203192,0.00177925
+Persons,1273,Noncommunicable diseases,Genitourinary diseases,Kidney diseases,Other chronic kidney disease,12.15253935,12152.53935,0.01899425,6.296467576,6296.467576,0.01123422
+Persons,120,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Childhood-cluster diseases,All,0.02139149,21.39149046,3.34346E-05,0.044975605,44.97560501,8.02459E-05
+Persons,1320,Noncommunicable diseases,Genitourinary diseases,Gynecological diseases,All,0.027619485,27.61948481,4.31689E-05,0.043879366,43.879366,7.829E-05
+Persons,1410,Noncommunicable diseases,Congenital anomalies,Neural tube defects,All,0.017295709,17.29570932,2.7033E-05,0.04023135,40.23134964,7.17812E-05
+Persons,110,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Diarrhoeal diseases,All,1.072292849,1072.292849,0.001675979,0.039023495,39.02349532,6.96261E-05
+Persons,1505,Noncommunicable diseases,Sudden infant death syndrome,Sudden infant death syndrome,All,0.018045623,18.0456228,2.82051E-05,0.038326341,38.32634068,6.83822E-05
+Persons,420,"Communicable, maternal, perinatal and nutritional conditions",Maternal conditions,Maternal conditions,All,0.0181956,18.19559979,2.84395E-05,0.02669865,26.69865005,4.7636E-05
+Persons,1340,Noncommunicable diseases,Musculoskeletal diseases,All,All,3.570810732,3570.810732,0.005581127,2.066022811,2066.022811,0.003686218
+Persons,40,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,STDs excluding HIV,All,0.03051476,30.51476038,4.76941E-05,0.026443618,26.44361793,4.7181E-05
+Persons,890,Noncommunicable diseases,Mental and substance use disorders,Eating disorders,All,0.017354474,17.35447447,2.71248E-05,0.021701015,21.70101473,3.87192E-05
+Persons,1470,Noncommunicable diseases,Oral conditions,Oral conditions,All,0.034249658,34.24965769,5.35317E-05,0.021403271,21.40327109,3.81879E-05
+Persons,400,"Communicable, maternal, perinatal and nutritional conditions",Respiratory Infectious ,Upper respiratory infections,All,0.022951477,22.95147681,3.58728E-05,0.016449018,16.44901842,2.93485E-05
+Persons,840,Noncommunicable diseases,Mental and substance use disorders,Bipolar disorder,All,0.069774646,69.77464631,0.000109057,0.013142502,13.14250183,2.3449E-05
+Persons,1400,Noncommunicable diseases,Congenital anomalies,All,All,1.642894692,1642.894692,0.002567821,1.776266068,1776.266068,0.003169231
+Persons,1370,Noncommunicable diseases,Musculoskeletal diseases,Gout,All,0.022184888,22.18488759,3.46747E-05,0.009083842,9.083842468,1.62075E-05
+Persons,410,"Communicable, maternal, perinatal and nutritional conditions",Respiratory Infectious ,Otitis media,All,0.008883514,8.883514451,1.38848E-05,0.004252875,4.252874594,7.58802E-06
+Persons,210,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Parasitic and vector diseases,All,0.004659192,4.659191979,7.28225E-06,0.002629242,2.629241573,4.69112E-06
+Persons,560,"Communicable, maternal, perinatal and nutritional conditions",Nutritional deficiencies,Iodine deficiency,All,4.51184E-05,0.045118425,7.05195E-08,0.001152629,1.152628935,2.05653E-06
+Persons,1630,Injuries,Intentional injuries,Collective violence and legal intervention,All,9.90927E-10,9.90927E-07,1.54881E-12,0.001010526,1.010526299,1.80299E-06
+Persons,1420,Noncommunicable diseases,Congenital anomalies,Cleft lip and cleft palate,All,0.000415101,0.4151012,6.48797E-07,0.000934474,0.934473816,1.6673E-06
+Persons,812,Noncommunicable diseases,"Endocrine, blood, immune disorders",Sickle cell disorders and trait,All,0.000555928,0.555928484,8.68908E-07,0.000393761,0.393760503,7.02551E-07
+Persons,330,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Intestinal nematode infections,All,0,0,0,0,0,0
+Persons,1510,Injuries,All,All,All,24.03916795,24039.16795,0.037572884,26.64138425,26641.38425,0.047533821
+Persons,1520,Injuries,Unintentional injuries,All,All,18.66860996,18668.60996,0.029178777,21.39730069,21397.30069,0.038177276
+Persons,365,"Communicable, maternal, perinatal and nutritional conditions",Infectious and parasitic diseases,Leprosy,All,0,0,0,0,0,0
+Persons,570,"Communicable, maternal, perinatal and nutritional conditions",Nutritional deficiencies,Vitamin A deficiency,All,0,0,0,0,0,0
+Persons,755,Noncommunicable diseases,Malignant neoplasms,Mesothelioma,All,1.754441204,1754.441204,0.002742167,0,0,0
+Persons,830,Noncommunicable diseases,Mental and substance use disorders,Depressive disorders,All,0,0,0,0,0,0
+Persons,880,Noncommunicable diseases,Mental and substance use disorders,Anxiety disorders,All,0,0,0,0,0,0
+Persons,900,Noncommunicable diseases,Mental and substance use disorders,Autism and Asperger syndrome,All,0,0,0,0,0,0
+Persons,910,Noncommunicable diseases,Mental and substance use disorders,Childhood behavioural disorders,All,0,0,0,0,0,0
+Persons,930,Noncommunicable diseases,Mental and substance use disorders,Other mental and behavioural disorders,All,0,0,0,0,0,0
+Persons,1600,Injuries,Intentional injuries,All,All,5.370557992,5370.557992,0.008394107,5.244083565,5244.083565,0.009356546
+Persons,990,Noncommunicable diseases,Neurological conditions,Migraine,All,0.001089721,1.08972121,1.70322E-06,0,0,0
+Persons,1000,Noncommunicable diseases,Neurological conditions,Non-migraine headache,All,0,0,0,0,0,0
+Persons,1310,Noncommunicable diseases,Genitourinary diseases,Infertility,All,0,0,0,0,0,0
+,,,,,,,2641707.55,,,2330366.455,
+,,,,,,,,,,,
+,,,,,,,,,,,

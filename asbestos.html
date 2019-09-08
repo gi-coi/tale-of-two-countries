@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <script src='JS/d3.v4.min.js'></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-format.v1.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.2/d3-annotation.min.js'></script>
     <meta name="description" content="Intro">
-    <title>Healthcare migration</title>
+    <title>Asbestos - A Tale of Two Countries</title>
+    <!--PURE CSS STYLESHEET-->
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
         integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js'></script>
 
 
-
-    <script src='JS/sankey.js'></script>
-
-
-
-    <!--[if lte IE 8]>
-            <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/side-menu-old-ie.css">
-        <![endif]-->
-    <!--[if gt IE 8]><!-->
     <link rel="stylesheet" href="CSS/style.css">
-    <!--<![endif]-->
-    <!--[if lt IE 9]>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <![endif]-->
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <!--MAP LAYOUT-->
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+
+
+
 
 </head>
 
@@ -41,7 +41,8 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="topnav" id="navigationBar">
             <a href="index.html">Home</a>
-            <a href="#">The project</a>
+            <a href="project.html">The project</a>
+            <a href='explore_data.html'>The data</a>
             <div class="dropdown">
                 <button class="dropbtn">Explore
                     <i class="fa fa-caret-down"></i>
@@ -79,6 +80,8 @@
                     analyst at Enichem, a chemical company based in Ottana. It was a great opportunity: the job was
                     prestigious, it was close to home, and the pay was good. He worked there for forty years, until the
                     plant ceased production in 2003.</p>
+
+                <div id='ottana' class='mapVis'></div>
                 <p>
                     Luigi would retire 5 years later in 2008, ready to settle down. He could finally spend his days with
                     his
@@ -209,7 +212,61 @@
                     thirty
                     years, workers were unknowingly and consistently exposed to a wide range of toxic substances on a
                     daily
-                    basis. One of these was asbestos – a deadly carcinogen. Workers had few or no protections and were
+                    basis. One of these was asbestos – a deadly carcinogen.</p>
+                <button class="readMore"><span class='arrow'>⮞</span> Click to read more: What is asbestos?</button>
+                <div class="collapsed">
+                    <p>
+                        In the 1970s, Italy was the fifth largest producer of asbestos in the world. One decade later,
+                        the
+                        government began restricting its use, before banning it completely in 1992. Its risks had been
+                        known
+                        for years. Regional governments were requested to formulate plans to map sites where asbestos
+                        had
+                        been used and provide for its abatement.</p>
+                    <p>
+                        But asbestos didn’t just go away. It is still in many buildings, roofs, pipes, chimneys. It’s in
+                        the
+                        air we breathe, and in the water we drink. It may be in the makeup and personal care products,
+                        because talc often contains asbestos. And it changed the lives of thousands of people, who
+                        grapple
+                        with the effects of the killer fibre.</p>
+                    <p>
+                        Asbestos is a known human carcinogen, recognised by the International Agency for Research on
+                        Cancer
+                        (IARC). Exposure to it is strongly correlated to several asbestos-specific diseases, like
+                        asbestosis
+                        or mesothelioma – a rare and aggressive cancer affecting the lining in the chest and abdomen. It
+                        also increases the risk for lung, larynx and ovary cancer.</p>
+                    <p>
+                        The dangers of asbestos lie in its microscopic fibres. When these are released into the air,
+                        they
+                        can be inhaled or ingested. Due to their structure, they tend to accumulate inside the body,
+                        especially in the lungs and the respiratory system. They cause severe long-term health problems.
+                        As
+                        asbestos was used everywhere until very recently, everyone has probably been exposed to its
+                        fibres
+                        at some point in their lives.</p>
+                    <p>
+                        It is also a silent killer. It has a long period of latency, meaning its effects can be felt
+                        twenty,
+                        or even forty years after initial exposure. It also tends to build up in the body, so that even
+                        very
+                        low, but constant, levels of exposure can constitute a significant health hazard even without
+                        direct
+                        exposure in high-risk settings.</p>
+                    <p>
+                        There is no “safe” asbestos. The International Agency for Research on Cancer (IARC), found no
+                        evidence of a safe level of exposure. Nonetheless, several countries – including the U.S., with
+                        limitations – still allow it. And healthcare and environmental authorities still make decisions
+                        based on safety thresholds. And these decisions can make a difference in the lives of workers
+                        and
+                        their family. They can mean having free medical care, or being left alone without any support.
+                        It
+                        can mean receiving compensation and disability benefits, or fighting to get them.</p>
+
+                </div>
+
+                <p>Workers had few or no protections and were
                     never
                     informed of the risks. They were reassured with regular medical check-ups at the factory, no reason
                     to
@@ -488,101 +545,151 @@
                     considered, their work was not considered an occupational hazard. The regional health provider
                     eventually relented in 2016 and the workers of Ottana are now considered part of the scheme. More
                     than ____ former workers are currently enrolled in this programme.</p>
-<p>
-                What difference does it make? “It is a crucial safeguard,” says Ms. Sabina Contu, AIEA’s president. AIEA
-                lobbied heavily to achieve this result. “These tests can save lives. They improve life expectancy and
-                prevention outcomes. If someone develops cancer, they can catch it early and immediately begin
-                treatment. Truth be told, it is not a cure-all. The damage can’t be undone. Some people can gain a few
-                years, nothing more. But even then, their living standards improve. That’s why it became my first goal
-                three years ago, when my organisation began working on this case in earnest.”</p>
+                <div id='asbestos_time' class='chart'></div>
+                <p>
+                    What difference does it make? “It is a crucial safeguard,” says Ms. Sabina Contu, AIEA’s president.
+                    AIEA
+                    lobbied heavily to achieve this result. “These tests can save lives. They improve life expectancy
+                    and
+                    prevention outcomes. If someone develops cancer, they can catch it early and immediately begin
+                    treatment. Truth be told, it is not a cure-all. The damage can’t be undone. Some people can gain a
+                    few
+                    years, nothing more. But even then, their living standards improve. That’s why it became my first
+                    goal
+                    three years ago, when my organisation began working on this case in earnest.”</p>
                 <h2>Enter AIEA: Ottana takes centre stage</h2>
                 <p>
-                With AIEA’s contribution, the case of Ottana has gained notoriety. The story, which had
-                received minimal media coverage in the past, found its way into mainstream political debate. In November
-                2015, a complaint filed by AIEA prompted a criminal investigation on the matter. The police seized the
-                whole industrial district for further investigation, as well as documents and reports. ARPAS, the
-                regional environment protection agency, inspected the site and flagged 18 areas that either contained
-                asbestos or needed further investigation.</p>
+                    With AIEA’s contribution, the case of Ottana has gained notoriety. The story, which had
+                    received minimal media coverage in the past, found its way into mainstream political debate. In
+                    November
+                    2015, a complaint filed by AIEA prompted a criminal investigation on the matter. The police seized
+                    the
+                    whole industrial district for further investigation, as well as documents and reports. ARPAS, the
+                    regional environment protection agency, inspected the site and flagged 18 areas that either
+                    contained
+                    asbestos or needed further investigation.</p>
                 <p>
-                AIEA also lobbied the regional and national parliaments to address the issue. In January 2017, widows of
-                former Enichem workers travelled to Rome with the mayors of three neighbouring villages: Ottana, Orani
-                and Orotelli. They met the speaker of the lower house of Parliament, Ms. Laura Boldrini, who took the
-                case to heart. A special parliamentary commission set out to investigate workplace security and health
-                hazards at several industrial sites in Sardinia – including Ottana was called. Finally, a breakthrough.
-                It wasn’t much, but it raised hopes.</p>
+                    AIEA also lobbied the regional and national parliaments to address the issue. In January 2017,
+                    widows of
+                    former Enichem workers travelled to Rome with the mayors of three neighbouring villages: Ottana,
+                    Orani
+                    and Orotelli. They met the speaker of the lower house of Parliament, Ms. Laura Boldrini, who took
+                    the
+                    case to heart. A special parliamentary commission set out to investigate workplace security and
+                    health
+                    hazards at several industrial sites in Sardinia – including Ottana was called. Finally, a
+                    breakthrough.
+                    It wasn’t much, but it raised hopes.</p>
                 <p>
-                Based on the evidence submitted by families and organisations, the commission concluded former workers
-                had been exposed to asbestos and were therefore entitled to inability pensions. INAIL had been wrong all
-                along: asbestos was there, and it was killing people.</p>
+                    Based on the evidence submitted by families and organisations, the commission concluded former
+                    workers
+                    had been exposed to asbestos and were therefore entitled to inability pensions. INAIL had been wrong
+                    all
+                    along: asbestos was there, and it was killing people.</p>
                 <p>
-                In mid-2018 two commissions were set up by the regional assembly: one to investigate the economic and
-                environmental disaster in Ottana, and one to examine the presence of asbestos in Sardinia. In the wake
-                of these political movements, INAIL finally recognised asbestos exposure in late 2018. The cases for
-                compensations are scheduled to conclude by the end of 2019.</p>
+                    In mid-2018 two commissions were set up by the regional assembly: one to investigate the economic
+                    and
+                    environmental disaster in Ottana, and one to examine the presence of asbestos in Sardinia. In the
+                    wake
+                    of these political movements, INAIL finally recognised asbestos exposure in late 2018. The cases for
+                    compensations are scheduled to conclude by the end of 2019.</p>
                 <p>
-                “I’m a very hands-on kind of person. I set the goals for this case and we’re getting there. I wanted the
-                health surveillance, and we got that. I wanted the victims and their relatives to receive benefits, and
-                we’re getting there. I fought for compensation, and that is coming as well. We didn’t try to barter our
-                way through it, we just resorted to the law and the scientific evidence available. When an office
-                bureaucrat is confronted with the law, there isn’t much they can’t do. And if they don’t agree, a judge
-                in court will.” A rigorous case, according to Ms. Contu, is the secret behind the successful political
-                and legal battle.</p>
+                    “I’m a very hands-on kind of person. I set the goals for this case and we’re getting there. I wanted
+                    the
+                    health surveillance, and we got that. I wanted the victims and their relatives to receive benefits,
+                    and
+                    we’re getting there. I fought for compensation, and that is coming as well. We didn’t try to barter
+                    our
+                    way through it, we just resorted to the law and the scientific evidence available. When an office
+                    bureaucrat is confronted with the law, there isn’t much they can’t do. And if they don’t agree, a
+                    judge
+                    in court will.” A rigorous case, according to Ms. Contu, is the secret behind the successful
+                    political
+                    and legal battle.</p>
                 <p>
-                AIEA estimates more than 200 Ottana employees have died from asbestos-related diseases since the 1990s.
-                What is worse, casualties are expected to peak in the next five years. The figure, of course, doesn’t
-                include all the workers who may have developed other conditions. After all, they were exposed to several
-                carcinogens and radiations, with minimal controls. “The possible downside – let’s call it that way – of
-                our rigorous approach, is some of the workers will never get compensation, because there is no
-                conclusive scientific evidence yet. I came across a few rare diseases, which are most likely linked to
-                the work environment, but we can’t make a strong case. They’re also victims of this system.”</p>
+                    AIEA estimates more than 200 Ottana employees have died from asbestos-related diseases since the
+                    1990s.
+                    What is worse, casualties are expected to peak in the next five years. The figure, of course,
+                    doesn’t
+                    include all the workers who may have developed other conditions. After all, they were exposed to
+                    several
+                    carcinogens and radiations, with minimal controls. “The possible downside – let’s call it that way –
+                    of
+                    our rigorous approach, is some of the workers will never get compensation, because there is no
+                    conclusive scientific evidence yet. I came across a few rare diseases, which are most likely linked
+                    to
+                    the work environment, but we can’t make a strong case. They’re also victims of this system.”</p>
 
                 <h2>What is left behind</h2>
                 <p>
-                Very little is known about the long-term impacts of industrial activity on the residents in the area.
-                It’s almost impossible to establish how many people suffered from chemical exposure to asbestos or other
-                hazardous chemicals. One study on a cement asbestos plan in Apulia estimated people who were exposed to
-                asbestos outside of work (including family members) were twice as likely to develop asbestos-related
-                diseases. In Ottana, the water from the river was used in farming and agriculture, the fine dust
-                pollution spread for miles. Multiple studies carried out in recent years found the groundwater at
-                several sites is still heavily polluted with numerous carcinogens.</p>
+                    Very little is known about the long-term impacts of industrial activity on the residents in the
+                    area.
+                    It’s almost impossible to establish how many people suffered from chemical exposure to asbestos or
+                    other
+                    hazardous chemicals. One study on a cement asbestos plan in Apulia estimated people who were exposed
+                    to
+                    asbestos outside of work (including family members) were twice as likely to develop asbestos-related
+                    diseases. In Ottana, the water from the river was used in farming and agriculture, the fine dust
+                    pollution spread for miles. Multiple studies carried out in recent years found the groundwater at
+                    several sites is still heavily polluted with numerous carcinogens.</p>
                 <p>
-                Studies on residents offered contradicting conclusions. The incidence of lung cancer appears to be above
-                average, according to research presented in 2015. A regional cancer database could offer a clearer
-                picture, but the project, which started in 2016, hasn’t been concluded. A recent parliamentary
-                inspection, however, has raised alarm on the state of the plant. The regional environmental agency
-                disputed these claims, maintaining actual contamination levels were lower.</p>
-                
+                    Studies on residents offered contradicting conclusions. The incidence of lung cancer appears to be
+                    above
+                    average, according to research presented in 2015. A regional cancer database could offer a clearer
+                    picture, but the project, which started in 2016, hasn’t been concluded. A recent parliamentary
+                    inspection, however, has raised alarm on the state of the plant. The regional environmental agency
+                    disputed these claims, maintaining actual contamination levels were lower.</p>
+
 
                 <h2>Ottana’s future: moving away from toxic industries</h2>
                 <p>
-                Years of industrial activity have left their mark on Ottana. For better or for worse, they have turned
-                the rural village into the industrial community it is today. “Someone who didn’t grow up here might look at those huge
-                chimneys and see death. For us, there is more to it than that. Those two towers have become a symbol –
-                of death, yes, but also prosperity, jobs, a better life for our children. For a long time, when we had
-                to choose between health and jobs, we chose the jobs. Now, that choice is unacceptable. I don’t want to
-                make the same mistake. What happened in the last forty years cannot happen again.”</p>
+                    Years of industrial activity have left their mark on Ottana. For better or for worse, they have
+                    turned
+                    the rural village into the industrial community it is today. “Someone who didn’t grow up here might
+                    look at those huge
+                    chimneys and see death. For us, there is more to it than that. Those two towers have become a symbol
+                    –
+                    of death, yes, but also prosperity, jobs, a better life for our children. For a long time, when we
+                    had
+                    to choose between health and jobs, we chose the jobs. Now, that choice is unacceptable. I don’t want
+                    to
+                    make the same mistake. What happened in the last forty years cannot happen again.”</p>
                 <p>
-                The collapse of the industrial dream has left the local economy in shambles and attracting new investors
-                is proving difficult to reconcile with the need to protect citizens and restore the environment. Being
-                an industrial town again isn’t impossible, but administrators need to be cautious.</p>
+                    The collapse of the industrial dream has left the local economy in shambles and attracting new
+                    investors
+                    is proving difficult to reconcile with the need to protect citizens and restore the environment.
+                    Being
+                    an industrial town again isn’t impossible, but administrators need to be cautious.</p>
                 <p>
-                Mr. Saba was elected mayor in 2015 on an environmental-friendly platform. The previous administration –
-                of which he was deputy mayor – fought against plans to convert a closed thermal power plant to a coal
-                plant, endorsed by the regional government. “The project… is a step back, a decision that damages us and
-                was made without involving us,” then-mayor Mr. Gian Paolo Marras had <a href='http://www.lanuovasardegna.it/nuoro/cronaca/2013/06/26/news/carbone-a-ottana-il-sindaco-marras-respinge-il-progetto-1.7326585' target='_blank'>declared</a> in 2013.</p>
+                    Mr. Saba was elected mayor in 2015 on an environmental-friendly platform. The previous
+                    administration –
+                    of which he was deputy mayor – fought against plans to convert a closed thermal power plant to a
+                    coal
+                    plant, endorsed by the regional government. “The project… is a step back, a decision that damages us
+                    and
+                    was made without involving us,” then-mayor Mr. Gian Paolo Marras had <a
+                        href='http://www.lanuovasardegna.it/nuoro/cronaca/2013/06/26/news/carbone-a-ottana-il-sindaco-marras-respinge-il-progetto-1.7326585'
+                        target='_blank'>declared</a> in 2013.</p>
                 <p>Documents of one
-                of the meetings between the local administrations, members of the national and regional governments,
-                trade unions and Confindustria – the national employment federation – reveal Ottana’s mayor was under
-                significant pressure. The deputy minister for economic development, for example, deplored the mayor’s
-                opposition to the coal plant, which “will jeopardise the future of the company and of the workers.” Coal
-                for jobs: that was the bargain. A deal Mr. Marras rejected, and so did citizen groups and the
-                <a href='https://ricerca.gelocal.it/lanuovasardegna/archivio/lanuovasardegna/2013/09/29/NZ_40_03.html' target='_blank'>neighbouring administrations</a>. The plan was eventually shelved.</p>
-                
-                
-                
-                
+                    of the meetings between the local administrations, members of the national and regional governments,
+                    trade unions and Confindustria – the national employment federation – reveal Ottana’s mayor was
+                    under
+                    significant pressure. The deputy minister for economic development, for example, deplored the
+                    mayor’s
+                    opposition to the coal plant, which “will jeopardise the future of the company and of the workers.”
+                    Coal
+                    for jobs: that was the bargain. A deal Mr. Marras rejected, and so did citizen groups and the
+                    <a href='https://ricerca.gelocal.it/lanuovasardegna/archivio/lanuovasardegna/2013/09/29/NZ_40_03.html'
+                        target='_blank'>neighbouring administrations</a>. The plan was eventually shelved.</p>
+
+
+
+
                 Just like his predecessor, Mr. Saba thinks local politics should draw the line for private companies. He
-                also issued an <a href='https://www.cagliaripad.it/376003/ottana-il-sindaco-saba-il-comune-non-ha-i-mezzi-per-la-bonifica' target='_blank'>administrative ordinance</a>, forcing companies in industrial sites to reclaim the areas
+                also issued an <a
+                    href='https://www.cagliaripad.it/376003/ottana-il-sindaco-saba-il-comune-non-ha-i-mezzi-per-la-bonifica'
+                    target='_blank'>administrative ordinance</a>, forcing companies in industrial sites to reclaim the
+                areas
                 they’ve previously occupied. “I won’t waste taxpayers’ money to pay for something the private sector
                 should have dealt with. They come and go, never respect their obligations.”
                 The fight to reclaim Ottana’s industrial area has been, and still is, an uphill battle against business
@@ -602,7 +709,9 @@
                 industrialisation. She fears the movement for justice might lose momentum, now that AIEA has achieved
                 most of its goals.
                 “We’ve had to pick our battles. We dealt with asbestos, but we haven’t taken up the issue of
-                <a href='https://www.cronachenuoresi.it/2019/02/18/ottana-9mila-tonnellate-di-ceneri-di-rifiuti-tossici-in-un-terreno-agricolo-il-deputato-manca-sporge-denuncia/' target='_blank'>environmental damage</a> as a whole, for example. We’ve felt isolated in this struggle. Others should join
+                <a href='https://www.cronachenuoresi.it/2019/02/18/ottana-9mila-tonnellate-di-ceneri-di-rifiuti-tossici-in-un-terreno-agricolo-il-deputato-manca-sporge-denuncia/'
+                    target='_blank'>environmental damage</a> as a whole, for example. We’ve felt isolated in this
+                struggle. Others should join
                 us and move forward with these issues.” Politicians, organisations and citizens need to remain vigilant
                 to make sure this tragedy won’t happen again.
                 “This is a story of economic, social, medical inequality. The damage has been done, and now the time has
@@ -617,6 +726,7 @@
     <script src='JS/menu.js'>
     </script>
     <script src='JS/commons.js'></script>
+    <script src='JS/asbestos_charts.js'></script>
 
 
 </body>

@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-format.v1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.2/d3-annotation.min.js'></script>
+    <meta name="description" content="Intro">
+    <title>Healthcare migration - A Tale of Two Countries</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+        integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js'></script>
+
+
+<!--Jason Davies Sankey plugin https://github.com/d3/d3-plugins/blob/master/sankey/sankey.js-->
+    <script src='JS/sankey.js'></script>
+
+
+
+    <!--[if lte IE 8]>
+            <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/side-menu-old-ie.css">
+        <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="layout">
+        <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <div class="topnav" id="navigationBar">
+                    <a href="index.html">Home</a>
+                            <a href="project.html">The project</a>
+                            <a href='explore_data.html'>The data</a>
+                    <div class="dropdown">
+                      <button class="dropbtn">Explore 
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="intro.html">Life expectancy</a>
+                        <a href="asbestos.html">Asbestos</a>
+                        <a href="csections.html">C-sections</a>
+                        <a href="healthcare_migration.html">Healthcare migration</a>
+                      </div>
+                    </div> 
+                  
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                  </div>
+                
+
+        <div id="main">
+            <div class="header">
+                <h1>Meet Italy's "healthcare tourists"</h1>
+                <h2>More than 300,000 Southern patients forced to migrate to receive treatment</h2>
+            </div>
+
+            <div class="content">
+
+                <p>
+
+                    Luca (not his real name) is a 10-year-old boy who lives in southern Italy. One day, his joints
+                    started to hurt, and before long he was unable to move. Diagnosing him was not straightforward, his
+                    doctor explains. “First of all, I ordered an x-ray. The nearest hospital turned him away, because
+                    the waiting lists were too long. It’s <a href='https://www.camera.it/parlam/leggi/05266l.htm'
+                        target='_blank'>illegal</a>, but when you’re the patient there isn’t much you can
+                    do.”
+                </p>
+                <p>
+                    Luca would wait a month before finally getting x-rays at a hospital 150 kilometres away from his
+                    home. For a whole month Luca was on painkillers - his arms hurt so much he could barely move them.
+                    As a result of the X-ray doctors diagnosed he needed surgery but, there was another problem. “The
+                    doctors at that hospital refused to operate on him… they wouldn’t even say why. Apparently, no
+                    hospital in the region could treat him.”</p>
+                <p>
+                    They advised Luca travel to a hospital in the North-West of Italy. His mother immediately booked the
+                    plane tickets. Luca would be admitted there, but doctors requested new scans. Luca’s family was told
+                    the ones they already had were faulty. After repeating the x-rays, he was finally sent to surgery.
+                </p>
+                <p>
+                    Luca is recovering, luckily he already feels a lot better; but it took two months, three different
+                    hospitals, two sets of x-rays and a 600-kilometre trip to across the country to receive treatment.
+                    “It’s disheartening,” his doctor comments. “This boy was in constant pain, and yet he couldn’t get
+                    the help he needed. He was caught up in a net of inefficiency and time-consuming bureaucracy. It’s
+                    unacceptable.”</p>
+                <p>
+                    Luca is one of about 500,000 patients who each year travel from the Mezzogiorno to the rest of the
+                    country to receive medical treatment. They are healthcare migrants: residents compelled to use
+                    healthcare services in a different region.</p>
+
+                <h2>Low quality and mistrust are the biggest 'push' factors</h2>
+                <p>
+                    Healthcare migration in Italy is partly the product of the historical migration flows, but it
+                    evolved into a separate phenomenon.
+
+                </p>
+                <button class="readMore"><span class='arrow'>⮞</span> Click to read more: the Italian diaspora</button>
+                <div class="collapsed">
+                   <p> 
+                    Italy is now known as an immigration hub, but this was not always the case. In the early 20th
+                    century, Italy was a land of emigration, and in many ways, it still is.</p>
+                    <p>What became known as the
+                    “Italian diaspora” emerged shortly after unification. Between 1876 and 1914, almost 14 million
+                    people, mostly from the North-east, moved to continental Europe. By 1913, Southern Italy had
+                    overtaken and accounted for 47 percent of outflows. Most emigration from the Mezzogiorno, however,
+                    was transatlantic – mostly North and South America and Australia.</p>
+                    <p>At this stage, migrants tended to
+                    be men, young and low-skilled leaving the country to find better economic conditions. Most emigrants
+                    were initially employed in mining and construction and would eventually be joined by high-skilled
+                    workers, often with their families.</p>
+                    <p>
+                    The post-World War 2 economic expansion prompted a fresh wave of internal migration. Between 1952
+                    and 1970, the average income per capita grew 130%. The North benefited the most from this
+                    accelerated growth, with the Mezzogiorno pegging behind.</p>
+                    <p>At least 9 million people moved from the
+                    South to the North of Italy during this time, chasing the promise of the “economic miracle”. Many
+                    immigrated illegally, due to a fascist-era anti-urbanisation law abolished in 1961.</p>
+                    <p>Far from
+                    stemming migration, this law only made it covert. Entire families left the Mezzogiorno and settled
+                    in the industrial North – especially the so-called Industrial Triangle area between Turin, Milan and
+                    Genoa.</p>
+
+
+                </div>
+                <p>
+                    According to the Italian <a href='https://www.quotidianosanita.it/allegati/allegato2421529.pdf'
+                        target='_blank'>research institute CENSIS</a>, 1.5 million people were involved in healthcare
+                    migration. Of these, around 950,000 were patients, and 825,000 family members or friends
+                    accompanying
+                    them. Only <a
+                        href='http://www.casamica.it/wordpress/wp-content/uploads/2017/03/Ricerca-Casamica-Censis.pdf'
+                        target='_blank'>a minority</a> are “accidental” healthcare migrants: tourists, or people who
+                    moved
+                    but
+                    didn’t change their residence, fall in this category. Over 96% are people like Luca and his
+                    mother: people who are forced to travel to receive treatment.
+                </p>
+                <p>
+                    The map of healthcare migration flows bears a striking resemblance to the history of Italian
+                    migrations.
+                    In addition to cross-border flows within the same area, at least 179,000 people moved from the South
+                    to the
+                    North
+                    in 2017; 152,000 from the South to the centre; 82,000 from the Centre to the North. CENSIS estimates
+                    suggest the numbers might be higher.</p>
+
+                <div id='migrationFlow' class='chart'></div>
+
+                <p>
+                    In total, around half a million people from the Mezzogiorno travelled for their medical care in
+                    2017.
+                    The North-South route, on the other hand, is almost non-existent. This pattern is consistent with
+                    many
+                    migration flows in Italy. Given the disparities in the Italian healthcare system, this isn’t a
+                    surprise.
+                    Patients at hospitals in the South report consistently lower satisfaction rates than those
+                    hospitalised
+                    in the north. More than that, people don’t trust the public system and the quality of the services
+                    it
+                    provides.</p>
+                <p>
+                    “No, I don’t trust my local hospital so much, even though I don’t really go there that often,” says
+                    Claudia, 28, from Orani, Sardinia. “I realise it isn’t rational, but I guess negative memories or
+                    rumours stick more than happy endings. When your health is at stake, you don’t really want to take
+                    any
+                    chances. You may come across a good and caring doctor, or you may fall into the hands of someone who
+                    doesn’t care about you, doesn’t talk to you, doesn’t help you through your journey there. I’ve felt
+                    estranged – as if I wasn’t more than a number. And yet, my mum ended up in hospital last year, and
+                    she
+                    had a wonderful experience. It’s an irrational fear sometimes, it’s an instinct. You hear so many
+                    stories you end up losing trust in the doctors, in the system as a whole.”</p>
+                <p>
+                    The feeling of abandonment and mistrust is what pushes people to book a plane ticket or board their
+                    car,
+                    and travel hundreds of kilometres to find better treatments. The professional relationship between a
+                    patient and the medical staff is imbued with new resentments and emotions, especially when someone’s
+                    health is on the line. Southern patients’ experiences with and feelings towards the local healthcare
+                    system are one of the biggest ‘push’ factors in healthcare migration.</p>
+                <h2>Who is migrating?</h2>
+
+                <p>
+                    Giampietro calls himself a ‘healthcare tourist’.</p>
+                <p>
+                    “If you don’t laugh about it, what can you do?”. Giampietro, who is 27, has migrated across
+                    hospitals
+                    for most of his life. He has a chronic condition called cystic fibrosis, which requires constant
+                    monitoring and extensive care. When he was 15, he was admitted to the hospital in Nuoro, Sardinia,
+                    for a
+                    particularly aggressive chest infection. The doctors were puzzled. As he got worse, they eventually
+                    advised he and his family visit a specialist centre in Verona, in the north-west of Italy.</p>
+                <p>
+                    “I go there every year, twice a year now. I stay there for a couple of weeks at a time, I run all
+                    the
+                    tests, do my daily physiotherapy. I quite like it there, it’s like a small community. You get to
+                    know
+                    all the doctors and the nurses there, you become friends with other patients.”</p>
+                <p>
+                    Giampietro is a textbook healthcare migrant. Though cancer patients are a majority (43%), followed
+                    by
+                    patients with heart conditions (26%), those with chronic illnesses account for about a quarter of
+                    admissions (24%). Healthcare migrants <a
+                        href='https://www.quotidianosanita.it/allegati/allegato2421529.pdf' target='_blank'>cite</a> the
+                    quality of care and long waiting lists as the main
+                    reasons to migrate. According to a <a
+                        href='http://www.cergas.unibocconi.it/wps/wcm/connect/4d672e28-8ab7-4ebc-94ad-c34803eeee23/CERGAS_Mappatura+Mobilit%C3%A0.pdf?MOD=AJPERES&CVID=lPG38C3&CVID=lPG38C3&CVID=lPG38C3&CVID=lPG38C3'
+                        target='_blank'>2014 study</a> by CERGAS at the Bocconi university, they are also more
+                    likely to access private healthcare. While private and contracted facilities received about a
+                    quarter of
+                    all resident admissions, they accounted for nearly half of long-distance migrants’ admissions.</p>
+                <p>
+                    The framing of healthcare migration as a choice or “tourism” is inflammatory. After all, Italy
+                    should
+                    provide universal public healthcare for all citizens. Healthcare mobility is the pragmatic
+                    expression of
+                    a right enshrined in law: to guarantee citizens’ freedom to express their right to access to the
+                    highest
+                    level of care available.</p>
+                <p>
+                    With twenty regional healthcare systems offering widely different services and quality standards,
+                    healthcare migration has become a necessity, rather than a choice for some. Some hospitals have been
+                    forced to turn away patients like Luca, unable to provide the required care.</p>
+                <p>
+                    People with chronic conditions like Giampietro also struggle to receive appropriate care near their
+                    home. There are 20 cystic fibrosis centres in Italy – one for each region – but not all of them are
+                    equipped to deal with many complications of the condition. “With cystic fibrosis, every patient is
+                    unique. There are few of us living in Sardinia, and when I was first diagnosed, doctors were
+                    unfamiliar
+                    with cases like mine. They studied the theory, they read it on the books, but they had had few
+                    opportunities to put that knowledge into practice. Until a few years ago, my regional centre didn’t
+                    even
+                    have a physiotherapist, who is crucial for us.”</p>
+                <p>
+                    As a result of these disparities, patients tend to converge around centralised treatment locations,
+                    such
+                    as Verona, while the others treatment centres languish. Giampietro enjoys his time in Verona: it’s a
+                    pleasant break from daily life in Sardinia, a home away from home. “I do love it in Verona, and I’ve
+                    learnt to make the most of my time there. I’m also lucky because my health allows me to travel
+                    around,
+                    go to concerts and exhibitions, hop on a train and visit cities nearby. But for others, it is a
+                    source
+                    of unnecessary trauma and expenses.”</p>
+                <h3>A necessity… or a privilege?</h3>
+                <p>
+                    Healthcare migration is a cumbersome and stressful journey, for many – but it’s also an expensive
+                    one.
+                    Italian healthcare is free or requires a relatively small contribution – called “ticket”, but with
+                    transport, board and lodging and more on top of medical costs, expenses can add up quickly. During
+                    this
+                    time, they often have to take breaks from their job, in some cases becoming unemployed. </p>
+                <p>Costs vary
+                    significantly depending on the facility – public or private –, the length of the stay, the type of
+                    procedures required. Cancer patients, for example, may spend upwards of €1,700 per journey, and up
+                    to
+                    €7,000 a year, according to CENSIS. Chronic patients are also faced with high expenses, especially
+                    if
+                    they travel from isolated areas, like Sardinia. “I travel with my mum, and we spend €400 to €500
+                    just
+                    for the plane tickets, if we’re lucky. In total, we spend €1,000, €1,500 every time. We go there
+                    twice,
+                    so €2,000 to €3,000 a year.”</p>
+                <p>
+                    In some cases, patients are entitled to partial refunds. When a given local health service is unable
+                    to
+                    provide a procedure, patients forced to travel to another region can seek compensation to cover the
+                    costs – but it is not guaranteed. “I work in Sardinia, where hospitals aren’t always equipped to
+                    treat
+                    more complex cases. I’ve had to send several patients to the mainland to receive treatment,”
+                    explains a
+                    paediatrician who spoke on condition of anonymity. “Sometimes the hospital staff themselves suggest
+                    parents take their children to another region. In that case, you can have a refund. But I know some
+                    parents who don’t apply for it, even if they’re entitled to it. Sometimes, especially when you’re a
+                    parent and you would do anything to make your child feel better, you’re not even thinking about
+                    bureaucracy. You don’t have time to walk into an office and file your request.”</p>
+
+                <h2>Reinforcing inequalities</h2>
+                <p>
+                    Healthcare mobility should encourage competition between regional healthcare systems. Less
+                    attractive
+                    providers should be compelled to invest more money into their services, improve their quality and
+                    treat
+                    more patients. When a resident in one region receives healthcare in another region, the latter
+                    accumulates a transfer of credit from the resident’s home region. Regional governments settle these
+                    flows through political and technical agreements.</p>
+                <div id='dotMobility' class='chart'></div>
+                <p>
+                    This market system should work in theory, but in practice, it reinforces existing imbalances.
+                    Regional
+                    healthcare services in the Mezzogiorno <a
+                        href='http://www.quotidianosanita.it/regioni-e-asl/articolo.php?articolo_id=60080'
+                        target='_blank'>owed</a> nearly €1.2 billion in mobility debts in 2018, following a
+                    political settlement between regional governments. This compares to the significantly smaller net
+                    deficit of the Centre – €263 million – and almost mirrors the North’s net €1.1 billion surplus. The
+                    North funnels healthcare funding from the rest of Italy’s regional budgets.</p>
+                <p>
+                    Only 7 out of 20 providers recorded a surplus: five of them are in the North, two – Tuscany and
+                    Umbria –
+                    in the Centre, and only one – Molise – is in the South. Together, they held mobility credit for more
+                    than €2.8 billion – 60% of all total mobility credit generated in the country. Lombardy alone
+                    accumulated nearly €1.2 billion in credit and had the largest net migration surplus.</p>
+                <p>
+                    The regions with the highest mobility debt, (with the exception of Lazio) are all in the
+                    Mezzogiorno.
+                    Calabria’s deficit exceeds €302 million, and Campania’s is over €290 million.</p>
+                <div id='barMobility' class='chart'></div>
+                <p>
+                    The healthcare mobility market was worth around €4.6 billion in 2018 for hospitals, up from €3.9
+                    billion
+                    in 2013. This would indicate patients are moving more or need costlier procedures.</p>
+
+                <p>
+                    In the absence of mechanisms to redress healthcare inequalities, the mobility credit system
+                    reinforces
+                    these disparities, benefiting richer, more attractive regions, and draining resources from those
+                    that
+                    are already underfunded.</p>
+                <p>
+                    With more resources in their budgets, these providers get additional funding on top of what they
+                    receive
+                    from the government. This can give providers the ability to <a
+                        href='https://www.camera.it/temiap/2019/05/29/OCD177-4031.pdf' target='_blank'>circumvent public
+                        expenditure limits</a>,
+                    redistribute resources, recruitment, upgrade services and facilities, or provide highly specialised
+                    care. According to a <a
+                        href='http://www.ipres.it/it/component/k2/item/30-la-finanza-territoriale-rapporto-2018'
+                        target='_blank'>2018 study</a>, regional healthcare systems in the Mezzogiorno rely more on
+                    public
+                    funding than in the North, because they earn less from other sources – like interregional mobility.
+                </p>
+
+                <p>
+                    Healthcare migration creates a vicious cycle for regional healthcare systems in the Mezzogiorno.
+                    They
+                    are charged with a double expenditure, having to fund their own providers while paying for services
+                    in
+                    other regions. They are forced to cut budgets for equipment, clinics, staff. This in turn means they
+                    become less attractive among residents. What is more, they are allocated less bedspace because they
+                    have
+                    negative net migration.</p>
+                <p>
+                    Hospital beds have been <a href='https://www.programmazionesanitaria.it/' target='_blank'>slashed by
+                        75%</a> since 1981. Between 2010 and 2017 alone, the <a
+                        href=' http://www.dati.salute.gov.it/dati/dettaglioDataset.jsp?menu=dati&idPag=96'
+                        target='_blank'>total number of
+                        hospital beds</a> was cut by almost 33,000 – 28,000 of which in the public sector. Calabria and
+                    Apulia cut
+                    more than 25% of their hospital beds. If the healthcare migrants trend continues to grow, the
+                    Mezzogiorno, the gap will worsen.</p>
+
+                <p>
+                    In 2017, the Regions and Autonomous Provinces’ Conference – a coordination mechanism between
+                    regional
+                    governments – <a
+                        href='http://www.quotidianosanita.it/governo-e-parlamento/articolo.php?articolo_id=48157'
+                        target='_blank'>agreed to introduce</a> some form of compensation in overall funding to account
+                    for material
+                    deprivation and lower-than-average life expectancy. Some local governments, however, are advocating
+                    for
+                    stronger performance-based rewards, which go in the opposite direction.</p>
+                <p>
+
+                    Patients and their families end up suffering from this unequal mechanism. While some hospitals go
+                    deserted, others are over capacity. The Verona centre, for example, is not accepting new patients
+                    for
+                    the time being, which means people like Giampietro, with more severe forms of cystic fibrosis, will
+                    have
+                    to migrate elsewhere.</p>
+                <p></p>
+                Cystic fibrosis is also an example of how inequalities can be overcome, with the right people. According
+                to Dr. Carlo Castellani, specialist and director of the cystic fibrosis centre at the Gaslini hospital
+                in Genoa, standards have vastly improved in the last twenty years. “Some centres made a political and
+                strategic choice – networking with the latecomers, those facilities with fewer capabilities and
+                expertise, to nurture that knowledge in-house. In time, these centres caught up with their more
+                established partners, and they are now able to guarantee the same level of care. Now more and more
+                patients are returning to the centres in their region.”</p>
+                <p>
+                    Some procedures, like lung transplant, are still rare in parts of the South; but as Dr. Castellani
+                    is
+                    keen to underline, it isn’t a reflection on doctors’ skills and performance. “There are cultural and
+                    social issues at play, like a very low number of donors in this case. The most significant problem
+                    is
+                    the lack of resources, which makes it impossible to plan radical overhauls and invest in
+                    innovation.”
+                    Giampietro, as someone with a chronic disease, is a so-called “expert patient”: he’s become very
+                    good at
+                    being his own doctor, in many ways. He also believes networking is key to improve care.</p>
+                <p>
+                    “For hospitals dealing with diseases like ours, it isn’t enough to study the subject in the books.
+                    You
+                    need to build a medical culture around it… It takes initiative from doctors, and willingness to grow
+                    talent and expertise in this subject. There are about 5,000 of us [with cystic fibrosis] in Italy.
+                    With
+                    well-functioning regional centres, each of us could receive care without having to travel long
+                    distances
+                    with our families.”</p>
+                <p>
+                    These knowledge networks benefit both doctors and patients. But these efforts alone cannot close the
+                    healthcare gap. A strong political commitment is needed from both the national and the regional
+                    governments. “We need a broader network with a strategic direction, and that can only come from the
+                    government,” explains Dr. Castellani. And of course we need more investments, because the healthcare
+                    system is starved for money, in the North and South alike."</p>
+
+
+            </div>
+        </div>
+    </div>
+    <script src='JS/menu.js'></script>
+    <script src='JS/commons.js'></script>
+    <script src='JS/migration_charts.js'></script>
+
+</body>
+
+</html>
