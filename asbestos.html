@@ -1,63 +1,624 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">    <title>Asbestos</title>    
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    
-    
-    
-        <!--[if lte IE 8]>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src='JS/d3.v4.min.js'></script>
+    <script src="https://d3js.org/d3-format.v1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.2/d3-annotation.min.js'></script>
+    <meta name="description" content="Intro">
+    <title>Healthcare migration</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+        integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js'></script>
+
+
+
+    <script src='JS/sankey.js'></script>
+
+
+
+    <!--[if lte IE 8]>
             <link rel="stylesheet" href="/combo/1.18.13?/css/layouts/side-menu-old-ie.css">
         <![endif]-->
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="CSS/style.css">
-        <!--<![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!--<![endif]-->
     <!--[if lt IE 9]>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
     <![endif]-->
 
 </head>
+
 <body>
 
-<div id="layout">
-    <!-- Menu toggle -->
-    <a href="#menu" id="menuLink" class="menu-link">
-        <!-- Hamburger icon -->
-        <span></span>
-    </a>
+    <div id="layout">
+        <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="topnav" id="navigationBar">
+            <a href="index.html">Home</a>
+            <a href="#">The project</a>
+            <div class="dropdown">
+                <button class="dropbtn">Explore
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="intro.html">Life expectancy</a>
+                    <a href="asbestos.html">Asbestos</a>
+                    <a href="csections.html">C-sections</a>
+                    <a href="healthcare_migration.html">Healthcare migration</a>
+                </div>
+            </div>
 
-    <div id="menu">
-        <div class="pure-menu">
-            <a class="pure-menu-heading" href="#">MENU</a>
-
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
-
-                <li class="pure-menu-item menu-item-divided pure-menu-selected">
-                    <a href="#" class="pure-menu-link">Services</a>
-                </li>
-
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="main">
-        <div class="header">
-            <h1>Dissertation</h1>
-            <h2>This is the landing page</h2>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
         </div>
 
-        <div class="content">
+
+        <div id="main">
+            <div class="header">
+                <h1>“They brought jobs, but they also brought death”</h1>
+                <h2>Sardinia’s environmental timebomb is killing hundreds</h2>
+            </div>
+
+            <div class="content">
+                <p>
+                    Ottana is a remote hamlet in the heart of Sardinia. At first glance, it looks just like any other
+                    village
+                    in the area: a few houses built around a main road and a central square, small shops, café bars with
+                    tables outside, a medieval church. But driving there from the highway, these aren’t the first thing
+                    you
+                    see. Two tall chimneys, stranded in the yellow plain, dominate Ottana’s unusual skyline. They are a
+                    reminder of the town’s industrial past, and of its painful present.</p>
+                <p>
+                    Luigi was born in 1950 in Orani, another tiny village twenty minutes from Ottana. By 1973
+                    he had moved to Turin for work, but saw an unusual opportunity back home. He applied for a job as an
+                    analyst at Enichem, a chemical company based in Ottana. It was a great opportunity: the job was
+                    prestigious, it was close to home, and the pay was good. He worked there for forty years, until the
+                    plant ceased production in 2003.</p>
+                <p>
+                    Luigi would retire 5 years later in 2008, ready to settle down. He could finally spend his days with
+                    his
+                    family and do the things he loved, like fishing with his sons. “He wasn’t used to sitting around,”
+                    his
+                    wife, Gina, remembers. “He liked being outside, going places. When he retired, I told him, ‘Go out,
+                    do
+                    whatever you want, enjoy it!’.</p>
+                <p>
+                    But it wasn’t meant to be. In 2011 Luigi began complaining about a pain in his chest. For a smoker
+                    like
+                    him, coughing wasn’t unusual, but this time it felt different. At first, Luigi brushed it off, took
+                    some
+                    painkillers, did some inhalations. His GP advised tests, but the man was stubborn. It would take a
+                    lot
+                    of convincing before he went to the hospital.</p>
+                <p>
+                    “Dispiachiu”, that’s how he felt when he came back home. In Sardinian, the word is emotionally
+                    charged.
+                    It means sad, sorry, apologetic. Luigi was sorry to disrupt his family’s happiness. Sorry to cause
+                    his
+                    wife, Gina, so much pain. And sad, because deep down inside, he’d always known this would happen.
+                </p>
+                <p>
+                    “He was scared of going to the hospital because he knew they’d find something. He knew something was
+                    off
+                    at that plant.”, says Gina. That job had been all his life; in the end, it became his death, too.
+                </p>
+                <p>
+                    Luigi died from cancer one year later. At least 200 workers and former workers at the Ottana
+                    factories
+                    have suffered the same fate. Their families are now fighting a legal battle to receive
+                    compensation.<br>
+                    “You know, this factory was a big deal for all of us. They brought jobs, hundreds of them.” Gina
+                    sighs.
+                    “But they also brought death.”</p>
+
+                <h2>"When they came, people hailed them as a blessing"</h2>
+
+                <p>
+
+                    Ottana’s industrial dream began in the early 1970s, poverty was rife in the area. Sardinia was known
+                    to
+                    outsiders as a backwater, full of bandits and violent crime.</p>
+                <p>
+                    The government saw rapid industrialisation as a solution to the island’s systemic economic and
+                    social
+                    problems. By generating jobs and economic turnover for the whole area, it was argued, many of
+                    Sardinia’s
+                    ills, including banditry and crime, would be cured. Industrialisation was the antidote to a toxic,
+                    anachronistic and backward culture. It was time to uproot a system that only produced poverty and
+                    widespread violence.</p>
+                <p>
+                    With the “Piano di rinascita” (Rebirth plan), the government covered the costs of basic
+                    infrastructure,
+                    while, state-owned corporations like ENI implemented the industrial strategy.</p>
+                <p>
+                    The initiative promised to create at least 14,000 jobs, bringing prosperity and progress to the
+                    remote
+                    region. With the prospect of economic prosperity came hope that Sardinia could finally reach its
+                    potential. “When they came, people hailed them like a blessing.” Piera, 65, was married to Quirico
+                    Ferreri, an analyst at Enichem who died from lung cancer in 2016. <br>“They’d promised an airport,
+                    you know,
+                    a railway, but they didn’t do any of these things. I wish they’d built an airport and then left; we
+                    would be better off now.” When the first factories opened in 1973, dozens of farmers sold their
+                    cattle
+                    and their land in exchange for a secure job and a fixed salary. Many others left their previous jobs
+                    in
+                    the mainland to work there like Luigi.</p>
+                <p>
+                    The march for economic and social progress was stumbling by the end of the decade, when the first
+                    domino
+                    fell. Metallurgica del Tirso, a metallurgical factory folded, leaving 450 workers out of work. The
+                    biggest employer, Enichem – a petrochemical company, and part of the ENI group – held on until the
+                    early
+                    2000s. Enichem employed 2,800 people in the early 1980s; only 510 – 200 of whom were being made
+                    redundant – in 2000. By 2003 Enichem had shut down all operations in Sardinia.</p>
+                <p>
+                    The 1990s: that’s is when the first phase of privatisations began. Local newspapers call it the age
+                    of
+                    the “spezzatino”. Much like a delicious dish, Enichem split up and sold off its facilities and
+                    machinery. The Italian government contributed almost €200 million to attract new sponsors.
+                    Twenty-nine
+                    companies answered the call: many of them from overseas, such as U.S. owned Dow Chemical, and Saudi
+                    PIC.</p>
+                <p>
+                    Most of them would leave as soon as the money ran dry, taking hundreds of jobs away with them.
+                    There
+                    are now 69 [trova quante imprese ci sono adesso, quante attive] … Nice.</p>
+
+                <h2>The cathedral in the desert</h2>
+                <p>
+                    The story of Ottana is common amongst other villages and towns in the Mezzogiorno: a superficial
+                    blast
+                    of public money to build factories in the middle of nowhere, only to collapse under the weight of
+                    their
+                    own unsustainability. In Italian, they’re called “cattedrali nel deserto”, or “cathedrals in the
+                    desert”: ambitious projects with no integrated network of demand around them. The prospect of
+                    developing these sites to viability is low. Transport and energy costs are high, raw materials need
+                    to
+                    be shipped from the mainland, roads are in bad shape. In the case of Ottana, the “desert” is a
+                    literal
+                    one.</p>
+                <p>
+                    From the highway the industrial area of Ottana sits in front of the town. The closed factories give
+                    the
+                    impression of a burgeoning industry, but there are no trucks on the roads. The industrial park
+                    straddles
+                    three municipalities – Ottana, Bolotana, and Noragugume – home to no more than 6,000 people. The
+                    park is
+                    a labyrinthian collection of dusty roads leading to landfills and abandoned factories.<br>Many of
+                    them were
+                    left derelict for so long they now at risk of collapse. Enichem was the largest plant in the area
+                    and
+                    owned most of the site. The gates of the main plant are closed, now. They, too, have almost become a
+                    symbol. Workers, citizens, trade unions stage demonstrations there. Across the gates hung a banner –
+                    “Politicians are jackals”.</p>
+                <p>
+                    A helmet lies abandoned near the empty parking lot. A dingy discoloured sign points to a cavernous
+                    abandoned canteen. Hundreds of workers used to gather daily for a bite and a chat with their
+                    colleagues.
+                    In a day of a vicious heat, with temperatures exceeding 40° C, the sense of hopelessness and despair
+                    is
+                    palpable.</p>
+                <p>
+                    The real tragic legacy of “The Rebirth Plan” stretches far beyond the story of poorly conceived
+                    industrial projects. It is also one of labour law violations, injustice, and death. For more than
+                    thirty
+                    years, workers were unknowingly and consistently exposed to a wide range of toxic substances on a
+                    daily
+                    basis. One of these was asbestos – a deadly carcinogen. Workers had few or no protections and were
+                    never
+                    informed of the risks. They were reassured with regular medical check-ups at the factory, no reason
+                    to
+                    worry, or so they thought.</p>
+                <p>
+                    In the 1990s some workers had begun to develop rare and aggressive forms of cancer. By the early
+                    2000s
+                    enough cases had accumulated to raise suspicions about the veracity of the safety measures taken by
+                    the
+                    companies. It would be the start of a long legal battle.</p>
+
+                <h2>More than 1,000 compensation claims rejected</h2>
+                <p>
+                    In 2003 Gianpaolo was sent to the hospital with excruciating back pain. Like Luigi, he had worked at
+                    Enichem since the factory opened in the early 1970s. Gianpaolo had a critical role at the factory -
+                    he
+                    cleaned the machinery and sewage wells. In 2004, the occupational physician diagnosed him with
+                    chemical
+                    poisoning caused at least in part by the workplace and advised he should leave his job as soon as
+                    possible. Before Gianpaolo could take some time off, the factory shut down - he and his colleagues
+                    were
+                    fired.</p>
+                <p>
+                    Around the same time, both he and Luigi applied for compensation for the chemical and asbestos
+                    exposure
+                    in the workplace. INAIL – the state insurance provider – would reject their claims in 2006.</p>
+                <p>
+                    The dye, however, was cast. In 2011, doctors found a tumour in Luigi’s lungs. He died in 2012, at 62
+                    years old. One year later, Gianpaolo was diagnosed with throat cancer. His struggle lasted almost
+                    two
+                    years. He, too, was 62 when he died in 2014.</p>
+                <p>
+                    According to the insurance provider, asbestos hadn’t killed them. INAIL based its decisions on a
+                    2003
+                    report, which acknowledged the presence of asbestos, but stated it was below the threshold required
+                    to
+                    grant pension benefits to former workers.<br>“The plant was inspected after some of the material had
+                    already been removed. INAIL maintained the factory didn’t make asbestos, which is true, but it was
+                    everywhere at the plant” points out Giovannino Marteddu. He worked as a contractor at Enichem from
+                    1974
+                    to 1990 and today he’s the mayor of Orotelli, a nearby village. His company worked directly with
+                    asbestos fibres.</p>
+                <p>
+                    Of 1,081 requests for benefits made up to 2017, 1,066 were rejected on these grounds. Even when
+                    workers
+                    developed mesothelioma – which is directly correlated to asbestos exposure –, the insurance
+                    provider,
+                    while granting compensation for these cases, kept denying there were dangers at the factory. The
+                    wall of
+                    rejections and bureaucracy didn’t stop workers and their families. Requests piled up, and new cases
+                    came
+                    to light.</p>
+                <h2>
+                    “We didn’t know any better, but we were all complicit”: daily life at the plant</h2>
+                <p>
+                    The industrial zone of Ottana had been a blessing for a deprived, malaria-stricken area. “They had
+                    made
+                    so many promises, and of course we welcomed them here. People needed those jobs.”, explains Gianni
+                    (not
+                    his real name), a local resident. Everyone talks about “them”, the faceless, nameless employers.
+                    Under
+                    several names, it was always the same company – ENI, the state-controlled oil and gas giant. As
+                    industry
+                    leader, Enichem had significant leverage: jobs, hundreds of jobs. Short-lived superficial glimmers
+                    of
+                    hope – but all that glitters isn’t gold.</p>
+                <p>
+                    Slowly but surely, the plant slowly ate the workers away. “I’ve seen Luigi change in those thirty
+                    years.
+                    When he began work, he was fine. But years went by, and he felt worse and worse… That cough never
+                    went
+                    away. That job drained him. And then it killed him.”, says Gina.</p>
+                <p>
+                    Just like Gina, the community began to develop a sense something was happening to them. They grew to
+                    realise that the factory, and everything around it, was potentially smothered in poisonous
+                    chemicals.
+                    Obfuscated records make it difficult to investigate conditions during those years at the plant.
+                    Serious
+                    doubts have been raised as to whether toxic waste was disposed of correctly, in the absence of
+                    supporting documents. Sometimes, workers were allowed to take home discarded objects. “They received
+                    these blue plastic containers, airtight lid and all. I know people who fermented wine in those
+                    barrels!
+                    Wine! God knows what had been in there before. We didn’t know any better… But I think in the end, we
+                    were all complicit. We should have known. We didn’t ask enough questions.”</p>
+                <p>
+                    The two main disposal routes were air and water, as confirmed by the mayor of Ottana. Sewage waters
+                    and
+                    liquid waste ended up in the Tirso river and made their way to the lake Omodeo, the largest
+                    artificial
+                    basin in Europe. The chimneys emitted polluting dusts that contaminated the air for miles.</p>
+                <p>
+                    Several workers recalled large holes in the ground, where management dumped toxic waste and empty
+                    barrels, before covering everything with a plastic tarp before burying it. These claims haven’t been
+                    proven in subsequent inspections, but health authorities have cordoned off a small area that had
+                    been
+                    used as an illegal landfill. This area is still owned by Enichem – now called Syndial – and it’s
+                    still
+                    contaminated. It’s impossible to investigate the extent of the contamination without risking further
+                    poisoning of the soil or groundwater.</p>
+                <h3>
+                    “There is dust everywhere”</h3>
+                <p>
+                    “Every year, they organised a Christmas lunch for workers and the families. We all went – my
+                    husband,
+                    our children and I went there every year. When I got off the car, this foul smell hit me
+                    immediately. It
+                    didn’t have a specific source, it was everywhere. I couldn’t wait to be inside just so I could
+                    escape
+                    that awful smell.” Gina shudders remembering all the times her husband warned about the dangers at
+                    the
+                    plant.</p>
+                <p>
+                    “There was a cherry tree near the factory, but no one ever picked the fruits off of it. And when he
+                    went
+                    fishing with our sons, they never brought the fish home to cook them.”</p>
+                <p>
+                    “I remember when Luigi brought home his coveralls. I took them outside and shook them off before
+                    washing
+                    them. ‘They’re so dusty’, I told Luigi. He answered, ‘You should see it at the plant. There is dust
+                    everywhere. On our hands and faces, on the floor, floating in the air… It’s everywhere.” That dust
+                    was
+                    asbestos. There was no real separation between departments. The dust floated through the grids and
+                    the
+                    aeration units, reaching every corner of the plant.</p>
+                <p>
+                    In addition to this, pieces of safety equipment, like gloves, suits and jackets, were made of
+                    asbestos.
+                    Workers used them because they were heat-resistant. In many cases, workers worked with hazardous
+                    substances without the required protective clothing.<br>Luigi handled asbestos sheets with a cutter
+                    and his
+                    hands. Gianpaolo cleaned sewage with nothing but a paper mask covering his nose and mouth. Once, he
+                    fell
+                    into a well he was cleaning and spent three hours down there before he was eventually rescued. No
+                    matter
+                    how much he scrubbed, the smell of the sludge persisted for more than a month. Another time, a pipe
+                    blew
+                    up and he got third-degree burns on his chest.</p>
+
+                <h3>A broken promise</h3>
+                <p>
+                    “I had just turned 18 when I was hired,” says Giovannino Marteddu. “I was overjoyed when I received
+                    my
+                    first paycheck. I was young and inexperienced, of course I didn’t take any precautions. None of us
+                    did.
+                    We handled asbestos fibres with our bare hands, coated and uncoated the pipes, changed the gaskets…
+                    I
+                    worked for a contractor, so I knew all the units as the back of my hand. I saw the motes floating in
+                    the
+                    air, through the light. The worst unit was the lab, because it was smaller and secluded. You’d think
+                    larger rooms would be more dangerous because there is more dust, but that’s not the case. In the
+                    lab,
+                    the air was thicker, the dust was more concentrated. That’s why so many people died there.” </p>
+                <p>The lab –
+                    unit AT05 – is where Quirico, Luigi and Gianpaolo worked. Their supervisor, Giovannino Moro, died
+                    from
+                    mesothelioma in the early 2000s. Of the 32 analysts working there, 18 have died, and most of the
+                    survivors are sick.</p>
+                <p>
+                    “What is Enichem? For hundreds of people, it was a broken promise,” says Ms. Sabina Contu, regional
+                    president of AIEA (Associazione Italiana Esposti Amianto), an NGO that advocates for people who have
+                    been exposed to asbestos. “The factory gave a lot to this area. It gave jobs, yes, but it also
+                    formed a
+                    mindset. It created a work culture. For the workers, it became life, and a way to support their
+                    families. Sadly, no one ever protected them from the side effects of these industrial activities.”
+                </p>
+                <p>
+                    Enichem was the promise of steady income for a land that was starved for industrial progress. It
+                    made
+                    tens of people able to afford a home and a comfortable life they could never have accessed
+                    otherwise.
+                    Entire new neighbourhoods were born out of this newfound, albeit fleeting, prosperity. But many more
+                    of
+                    Enichem’s promises failed to materialise. It’s tempting to think what could have been Sardinia were
+                    to
+                    become a thriving industrial economy. However, would that have changed anything for factory workers.
+                    Would they have been protected, if the company had made more money?</p>
+                <p>
+                    Several workers remember the day when “the Americans” came to visit the plants. “The wore masks and
+                    white coveralls. They looked like astronauts,” says Giovannino. “We laughed at them, why would they
+                    be
+                    wearing masks? There was nothing to worry about. Obviously, they knew something we didn’t.” But even
+                    when workers knew or sensed something was wrong, they didn’t speak up for fear of losing their jobs.
+                    Trade union representatives never raised the issue of pollution and the health hazards for workers,
+                    at
+                    least publicly. They are now working with AIEA, but their responsibilities in covering up, or
+                    ignoring,
+                    the dangers at Enichem are unknown.</p>
+                <p>
+                    Progress came at a hefty price for factory workers at Enichem and elsewhere. But the fact Enichem
+                    was a
+                    state-owned company makes the betrayal more painful, according to Franco Saba, Ottana’s mayor.
+                    “Enichem
+                    shouldn’t have left. When they sold the plants off and fled… it’s the government that left us. The
+                    government abandoned us, even though we’re poor, even though the economy has gone back to the 1960s.
+                    And
+                    they didn’t even clean up after themselves.”</p>
+                <p>
+                    Enichem had ceased all operations in Sardinia in 2014, after selling its last facilities. It did not
+                    complete the decontamination plan, leaving the local administration to deal with the fallout. Other
+                    companies that came after Enichem followed its disastrous footsteps.<br>Mr. Paolo Clivati, owner of
+                    Ottana
+                    Energia – a thermal power plant, now closed – is under trial for polluting the river and was fined
+                    for
+                    carrying out unauthorised operations at the factory. On the night of the 14th October 2013, an
+                    experiment with liquid coal, called Cwf, led to an explosion generating an ominous dark dust cloud.
+                    The
+                    next morning, farmers in the nearby villages found their sheep and their pastures had turned black.
+                </p>
+
+                <h2>The workers’ fight for healthcare</h2>
+                <p>
+                    Having been
+                    exposed to asbestos, chemicals and radiations for years, workers should have had special attention
+                    and regular specialised check-ups. Instead, their professional risk was not recognised, unlike
+                    workers at other factories in Sardinia and the rest of the country. By the time the recognition
+                    status and compensation arrived, it was much too late for many.</p>
+                <p>
+
+                    At other ENI factories working in the same sector and with the same materials, the presence of
+                    asbestos had been ascertained. When the government had investigated <a
+                        href='http://www.associazioneitalianaespostiamianto.org/wp-content/uploads/2018/04/AIEA-prot.13_2017_stampa.pdf'
+                        target='_blank'>another one of ENI’s plants</a> – in
+                    Pisticci, Basilicata – the chemical giant had been more cooperative. The company had provided
+                    documents detailing the use of asbestos at the plant, which led 450 workers to receive disability
+                    benefits in 2005. At least 580 more cases were successfully contested by workers in court.</p>
+                <p>Pisticci
+                    and Ottana were twin plants. They were opened a couple of years apart – Pisticci in 1972, Ottana in
+                    1974; both had a roughly similar structure, and both produced synthetic fibres. Ottana was to
+                    complement and expand Pisticci’s production. However, their safety records were inexplicably treated
+                    differently by the government and the national insurance provider.<br>ENI’s ambiguous role carried a
+                    huge weight in this decision. The company consistently denied the presence of asbestos in Ottana,
+                    insisting the two plants were unrelated, despite factual evidence pointing to the contrary.
+                    Eyewitnesses, internal documents and subsequent inspections prove conclusively asbestos was widely
+                    present, and the company’s statements were inaccurate.</p>
+                <p>The two plants may be twins, but they endured
+                    two different fates: in the case of Ottana, workers ran into a bureaucratic mire. The regional
+                    insurance provider rejected most of their claims for compensation. Some of them were unaware their
+                    health had ever been jeopardised.</p>
+                <p>“I left the job in 1990 and entered politics,” recalls Giovannino,
+                    Orotelli’s mayor. “I didn’t think too much of it afterwards, until the early 2000s, when a former
+                    colleague asked me if I had applied for the occupational pension. ‘For what?’, I asked. ‘For what?
+                    For asbestos!’, he replied. I had no idea it was something I was supposed to do. I rushed to the
+                    office in Nuoro [the province capital] and applied. Luckily, I did, because that left a paper trail
+                    which later strengthened my case. But that was the first time I heard of it.”</p>
+                <p>Giovannino’s
+                    experience shows how employees were often kept in the dark about their safety in the workplace.
+                    Public awareness on the dangers of asbestos was very low, and even though the production and sale of
+                    the material had been banned since 1992. It took the Sardinian government thirteen years to
+                    translate the national provisions into regional law. In 2007, the regional government published the
+                    first asbestos abatement plan, which is still far from completion.</p>
+                <p>The belief that all was well in
+                    Ottana remained unshaken for years, even when increasing numbers of former employees reported
+                    serious health problems. Their concerns often went unaddressed and their complaints were belittled.
+                </p>
+                <p>
+                    Angela believes her husband’s case didn’t receive enough attention. “He was killed twice. First at
+                    the factory, then in the hospital.” Gianpaolo had surgery and was told he was cancer free for
+                    months. A year later, he’d find out that the tumour had metastasised, it was too late to save him.
+                    “They told us he’d beat cancer. Everyone knew he had been exposed to chemicals, but they only
+                    focused on his throat, they didn’t look elsewhere. Every symptom he had was quickly dismissed. He
+                    was shuffled between hospitals for months. He had surgery, biopsies, and tests. Why did this
+                    happen?”</p>
+                <p>Giovannino’s struggle with medicine and bureaucracy lasted for years. His diagnosis shook
+                    him deeply. “When you receive the news… I can’t explain how you feel. I felt as if all the blood had
+                    been drained from my body. Then life goes on, you learn to manage it, but still… once you have it,
+                    it never leaves. It can only get worse with time. And it does get worse. You can’t help it, just
+                    slow it down.” The insurance provider rejected his initial chest x-rays because he’d made them at a
+                    local private hospital. Even when the doctors proved his condition was asbestos-related, INAIL
+                    rejected his application. The legal back and forth which lasted three years, before the institute
+                    finally recognised Giovannino was entitled to rights.</p>
+                <p>Believe it or not, Giovannino is one of the
+                    lucky ones. Thanks to a regional health surveillance programme, he now receives free check-ups every
+                    year, as well as counselling to help him manage his condition. Many didn’t have the same luck. This
+                    system was established in 2010 to monitor people who had been exposed to asbestos in the workplace.
+                    1,170 people had applied by 2015, but Ottana workers weren’t among them. Their claims weren’t even
+                    considered, their work was not considered an occupational hazard. The regional health provider
+                    eventually relented in 2016 and the workers of Ottana are now considered part of the scheme. More
+                    than ____ former workers are currently enrolled in this programme.</p>
+<p>
+                What difference does it make? “It is a crucial safeguard,” says Ms. Sabina Contu, AIEA’s president. AIEA
+                lobbied heavily to achieve this result. “These tests can save lives. They improve life expectancy and
+                prevention outcomes. If someone develops cancer, they can catch it early and immediately begin
+                treatment. Truth be told, it is not a cure-all. The damage can’t be undone. Some people can gain a few
+                years, nothing more. But even then, their living standards improve. That’s why it became my first goal
+                three years ago, when my organisation began working on this case in earnest.”</p>
+                <h2>Enter AIEA: Ottana takes centre stage</h2>
+                <p>
+                With AIEA’s contribution, the case of Ottana has gained notoriety. The story, which had
+                received minimal media coverage in the past, found its way into mainstream political debate. In November
+                2015, a complaint filed by AIEA prompted a criminal investigation on the matter. The police seized the
+                whole industrial district for further investigation, as well as documents and reports. ARPAS, the
+                regional environment protection agency, inspected the site and flagged 18 areas that either contained
+                asbestos or needed further investigation.</p>
+                <p>
+                AIEA also lobbied the regional and national parliaments to address the issue. In January 2017, widows of
+                former Enichem workers travelled to Rome with the mayors of three neighbouring villages: Ottana, Orani
+                and Orotelli. They met the speaker of the lower house of Parliament, Ms. Laura Boldrini, who took the
+                case to heart. A special parliamentary commission set out to investigate workplace security and health
+                hazards at several industrial sites in Sardinia – including Ottana was called. Finally, a breakthrough.
+                It wasn’t much, but it raised hopes.</p>
+                <p>
+                Based on the evidence submitted by families and organisations, the commission concluded former workers
+                had been exposed to asbestos and were therefore entitled to inability pensions. INAIL had been wrong all
+                along: asbestos was there, and it was killing people.</p>
+                <p>
+                In mid-2018 two commissions were set up by the regional assembly: one to investigate the economic and
+                environmental disaster in Ottana, and one to examine the presence of asbestos in Sardinia. In the wake
+                of these political movements, INAIL finally recognised asbestos exposure in late 2018. The cases for
+                compensations are scheduled to conclude by the end of 2019.</p>
+                <p>
+                “I’m a very hands-on kind of person. I set the goals for this case and we’re getting there. I wanted the
+                health surveillance, and we got that. I wanted the victims and their relatives to receive benefits, and
+                we’re getting there. I fought for compensation, and that is coming as well. We didn’t try to barter our
+                way through it, we just resorted to the law and the scientific evidence available. When an office
+                bureaucrat is confronted with the law, there isn’t much they can’t do. And if they don’t agree, a judge
+                in court will.” A rigorous case, according to Ms. Contu, is the secret behind the successful political
+                and legal battle.</p>
+                <p>
+                AIEA estimates more than 200 Ottana employees have died from asbestos-related diseases since the 1990s.
+                What is worse, casualties are expected to peak in the next five years. The figure, of course, doesn’t
+                include all the workers who may have developed other conditions. After all, they were exposed to several
+                carcinogens and radiations, with minimal controls. “The possible downside – let’s call it that way – of
+                our rigorous approach, is some of the workers will never get compensation, because there is no
+                conclusive scientific evidence yet. I came across a few rare diseases, which are most likely linked to
+                the work environment, but we can’t make a strong case. They’re also victims of this system.”</p>
+
+                <h2>What is left behind</h2>
+                <p>
+                Very little is known about the long-term impacts of industrial activity on the residents in the area.
+                It’s almost impossible to establish how many people suffered from chemical exposure to asbestos or other
+                hazardous chemicals. One study on a cement asbestos plan in Apulia estimated people who were exposed to
+                asbestos outside of work (including family members) were twice as likely to develop asbestos-related
+                diseases. In Ottana, the water from the river was used in farming and agriculture, the fine dust
+                pollution spread for miles. Multiple studies carried out in recent years found the groundwater at
+                several sites is still heavily polluted with numerous carcinogens.</p>
+                <p>
+                Studies on residents offered contradicting conclusions. The incidence of lung cancer appears to be above
+                average, according to research presented in 2015. A regional cancer database could offer a clearer
+                picture, but the project, which started in 2016, hasn’t been concluded. A recent parliamentary
+                inspection, however, has raised alarm on the state of the plant. The regional environmental agency
+                disputed these claims, maintaining actual contamination levels were lower.</p>
+                
+
+                <h2>Ottana’s future: moving away from toxic industries</h2>
+                <p>
+                Years of industrial activity have left their mark on Ottana. For better or for worse, they have turned
+                the rural village into the industrial community it is today. “Someone who didn’t grow up here might look at those huge
+                chimneys and see death. For us, there is more to it than that. Those two towers have become a symbol –
+                of death, yes, but also prosperity, jobs, a better life for our children. For a long time, when we had
+                to choose between health and jobs, we chose the jobs. Now, that choice is unacceptable. I don’t want to
+                make the same mistake. What happened in the last forty years cannot happen again.”</p>
+                <p>
+                The collapse of the industrial dream has left the local economy in shambles and attracting new investors
+                is proving difficult to reconcile with the need to protect citizens and restore the environment. Being
+                an industrial town again isn’t impossible, but administrators need to be cautious.</p>
+                <p>
+                Mr. Saba was elected mayor in 2015 on an environmental-friendly platform. The previous administration –
+                of which he was deputy mayor – fought against plans to convert a closed thermal power plant to a coal
+                plant, endorsed by the regional government. “The project… is a step back, a decision that damages us and
+                was made without involving us,” then-mayor Mr. Gian Paolo Marras had <a href='http://www.lanuovasardegna.it/nuoro/cronaca/2013/06/26/news/carbone-a-ottana-il-sindaco-marras-respinge-il-progetto-1.7326585' target='_blank'>declared</a> in 2013.</p>
+                <p>Documents of one
+                of the meetings between the local administrations, members of the national and regional governments,
+                trade unions and Confindustria – the national employment federation – reveal Ottana’s mayor was under
+                significant pressure. The deputy minister for economic development, for example, deplored the mayor’s
+                opposition to the coal plant, which “will jeopardise the future of the company and of the workers.” Coal
+                for jobs: that was the bargain. A deal Mr. Marras rejected, and so did citizen groups and the
+                <a href='https://ricerca.gelocal.it/lanuovasardegna/archivio/lanuovasardegna/2013/09/29/NZ_40_03.html' target='_blank'>neighbouring administrations</a>. The plan was eventually shelved.</p>
+                
+                
+                
+                
+                Just like his predecessor, Mr. Saba thinks local politics should draw the line for private companies. He
+                also issued an <a href='https://www.cagliaripad.it/376003/ottana-il-sindaco-saba-il-comune-non-ha-i-mezzi-per-la-bonifica' target='_blank'>administrative ordinance</a>, forcing companies in industrial sites to reclaim the areas
+                they’ve previously occupied. “I won’t waste taxpayers’ money to pay for something the private sector
+                should have dealt with. They come and go, never respect their obligations.”
+                The fight to reclaim Ottana’s industrial area has been, and still is, an uphill battle against business
+                and bureaucracy. The Italian national government refused an application to classify Ottana as a Site of
+                National Interest (SIN) for land reclamation. This status would have placed the Ministry of Environment
+                directly in charge of the clean-up procedure. The Enichem site wasn’t large enough and did not
+                employ enough workers to qualify. This means the regional government take charge of clean-up operations,
+                but progress has been slow and funding inconsistent. This hasn’t stopped Mr. Saba.
+                “We keep lobbying with the regional government, we’re going to meetings and we’ve set our priorities. We
+                want to complete the reclamation, then we want to move forward. Attract new investors to the area,
+                entrepreneurs who provide jobs, abide by laws and respect the environment. If I run for elections again
+                and I am elected, I will even go to the EU Court of Justice if necessary.”
+                As for asbestos, most of it has been removed, according to the mayor and a report by the regional
+                environmental agency. This battle is coming to an end, but the war isn’t over, warns Ms. Sabina Contu.
+                “There’s still a lot of work to do, and we need to stay focused” explains AIEA’s president. Generous
+                payments and heartfelt promises alone will not undo all the damage caused by decades of uncontrolled
+                industrialisation. She fears the movement for justice might lose momentum, now that AIEA has achieved
+                most of its goals.
+                “We’ve had to pick our battles. We dealt with asbestos, but we haven’t taken up the issue of
+                <a href='https://www.cronachenuoresi.it/2019/02/18/ottana-9mila-tonnellate-di-ceneri-di-rifiuti-tossici-in-un-terreno-agricolo-il-deputato-manca-sporge-denuncia/' target='_blank'>environmental damage</a> as a whole, for example. We’ve felt isolated in this struggle. Others should join
+                us and move forward with these issues.” Politicians, organisations and citizens need to remain vigilant
+                to make sure this tragedy won’t happen again.
+                “This is a story of economic, social, medical inequality. The damage has been done, and now the time has
+                come to fix it. But inequality can serve a purpose: it can push us to act. When we’re aware of what’s
+                happening, and we decide to act upon it – to enforce and defend our rights – then we will truly move
+                forward. That is progress.”
+
 
             </div>
         </div>
     </div>
-    
-    <script src="JS/menu.js"></script>
-    
-    </body>
-    </html>
+    <script src='JS/menu.js'>
+    </script>
+    <script src='JS/commons.js'></script>
+
+
+</body>
+
+</html>
