@@ -45,6 +45,8 @@ d3.csv('src/mobilita_crediti.csv', function (d) {
 
 
 
+// healthcare mobility charts
+
 
 
     dotplot(data);
@@ -57,7 +59,9 @@ d3.csv('src/mobilita_crediti.csv', function (d) {
 
 const dotplot = function (data) {
 
-    // https://www.d3-graph-gallery.com/graph/lollipop_cleveland.html
+    // lollipop chart to show credit-debt gap for regional healthcare systems
+
+    // adapted from https://www.d3-graph-gallery.com/graph/lollipop_cleveland.html
 
 
 
@@ -83,6 +87,8 @@ const dotplot = function (data) {
     link.text('Conferenza delle Regioni, Quotidiano Sanità');
 
 
+
+    // overlay for interactive tooltip on hover
     const voronoi = d3.voronoi()
         .x(function (d) {
             return xScale(d.value);
@@ -201,7 +207,7 @@ const dotplot = function (data) {
 
 
     var transposed = [];
-
+// change data shape for the voronoi (flattens the data)
     data.forEach(function (d) {
         for (var key in d) {
             var obj = {};
@@ -270,6 +276,8 @@ const dotplot = function (data) {
 
 
 const barplot = function (data) {
+
+    // bars for net credit/debt, descending order
     data.forEach(function (d) {
         d.difference = d.crediti_mobilita - d.debiti_mobilita;
     })
@@ -389,9 +397,15 @@ svg.append("text")
 }
 
 
+// CHORD DIAGRAM FOR MIGRATION FLOWS
+// Chart works but some flows aren't included
 
 
-const chordChart = function() {
+/* const chordChart = function() {
+
+
+
+
     var matrixData = {
         'North':
         [4603834, 36633, 20221],
@@ -402,18 +416,7 @@ const chordChart = function() {
         
         
     } 
- /*    var matrixData = {
-        'North':
-        [4603834, 36633, 13835, 6386],
-        'Centre':
-        [81623, 2042476, 33206, 2791],
-        'South':
-        [176785, 151919, 2266996, 8101],
-        'Islands':
-        [55820, 20488, 3663, 997071]
-        
-        
-    } */
+
 
 
 var matrix = Object.values(matrixData)
@@ -551,7 +554,7 @@ group.append("text")
     
 console.log(chord(matrix))
 
-/* 
+
     group.append("text")
     .each(d => { console.log(d); d.angle = (d.startAngle + d.endAngle) / 2; })
     .attr("dy", ".35em")
@@ -562,14 +565,16 @@ console.log(chord(matrix))
     `)
     .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
     .text(d => areas[d.index]);
- */
+ 
 
 
    
 };
-
+ */
 
 const sankeyFlow = function () {
+    // sankey chart to display flows between North, Centre and Mezzogiorno
+    // adapted from https://bl.ocks.org/d3noob/013054e8d7807dff76247b81b0e29030
     var colours = d3.scaleOrdinal()
 .domain(['North', 'Centre', 'Mezzogiorno'])
 .range(['#406068', '#C4BB66', '#904935'])
@@ -590,10 +595,13 @@ d3.select('#migrationFlow')
 .append('p')
 .attr('class', 'subtitle')
 .html('Healthcare migration flows in 2017 (excluding same-area flows)')
-// append the svg object to the body of the page
+
+
+
 var svg = d3.select("#migrationFlow").append("svg")
     .attr("width", width)
     .attr("height", height)
+    .call(responsivefy)
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");

@@ -5,7 +5,8 @@ var strokeColour = '#616060';
 
 const basics = function (parent, type) {
 
-
+// builds the chart's basic elements: svg, axis groups, title and caption group
+// returns svg element, width and height
     d3.select(parent)
     .append('h3')
     .attr('class', 'chartTitle')
@@ -20,6 +21,7 @@ const basics = function (parent, type) {
         .append('svg')
         .attr('width', width)
         .attr('height', height)
+        // responsive svg on page resizing
         .call(responsivefy)
         .append('g');
 
@@ -72,11 +74,15 @@ const basics = function (parent, type) {
     return [width, height, svg]
     }
 
-    
+    // basic parser for dates
     var parseTime = d3.timeParse("%Y");
 
 
+
+
     const captionLink = function(elem, link) {
+
+      // appends a link to the caption (for sources)
       var link =  elem
         .append('a')
         .attr('href', link)
@@ -88,6 +94,8 @@ const basics = function (parent, type) {
 
 
     var readMore = document.getElementsByClassName("readMore");
+
+    // Animated arrow for the "Read more" paragraphs, toggled when the div is open/closed
 
 for (let i = 0; i < readMore.length; i++) {
   readMore[i].addEventListener("click", function() {
@@ -109,6 +117,7 @@ for (let i = 0; i < readMore.length; i++) {
 
 
 function responsivefy(svg) {
+  // credits https://bl.ocks.org/mtranggit/7689a322bbc9261f22c3317291ca506f
   // get container + svg aspect ratio
   var container = d3.select(svg.node().parentNode),
       width = parseInt(svg.style("width")),
