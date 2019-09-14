@@ -24,6 +24,7 @@
     <script src="https://d3js.org/d3-color.v1.min.js"></script>
     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 
        
@@ -71,30 +72,34 @@
                 
 
         <div id="main">
-            <div class="header">
+         <!--    <div class="header">
                 <h1>Explore the data</h1>
                 <h2>Use the interactive tool to measure Italy's healthcare gap</h2>
-            </div>
+            </div> -->
 
-            <div class="content">
-                    <div id='mapFilter'></div>
+          <!--   <div class="content"> -->
+                    <div id='mapHeader'><h1>Use the interactive tool to measure Italy's healthcare gap</h1></div>
                     <div id='mapContainer'>
+                        
                 
                         <div id='interactiveMap' class='mapVis'>
                            
                 
                         </div>
                         <div class='side'>
-                            <h2 id='regionTitle'></h2>
+                            
+                            <div id='regionBoard'>
+                                    <h2 id='regionTitle'></h2>
                             <div id='valueStatement'><p></p><div class='number'><span></span><span class='suffix'></span></div></div>
                             
                             <div id='valueComparison'><p></p><div class='number'><span></span><span class='suffix'></span></div></div>
-                
+                        </div>
+                        <div id='source' ><p class='chartCaption'>Source: <span></span></p></div>
                         </div>
                     </div>
 
 
-            </div>
+        <!--     </div> -->
         </div>
     </div>
     <script src='JS/menu.js'></script>

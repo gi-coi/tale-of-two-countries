@@ -117,8 +117,8 @@ var init = function () {
             console.log(boundaries);
 
 
-            selectMeasure = d3.select('#mapFilter')
-                .insert('select', 'svg')
+            selectMeasure = d3.select('div.side')
+                .insert('select', '#regionBoard')
                 .attr('id', 'selectMeasure');
             
 
@@ -138,9 +138,13 @@ var init = function () {
         })
 }();
 
+/* window.addEventListener('resize', sizeChange)
 
-
-
+function sizeChange() {
+    d3.select("svg").attr("transform", "scale(" + $("#interactiveMap").width()/900 + ")");
+    $("svg").height($("#interactiveMap").width()*0.618);
+}
+ */
 const measureFilter = function (data) {
    
     var measure = document.getElementById('selectMeasure')[document.getElementById('selectMeasure').selectedIndex].value;
@@ -338,7 +342,14 @@ var regionalData;
             console.log(region)
 
 
-    
+            var year = d3.map(regionalData, d => {
+                return d.year
+            }).keys();
+            
+            var source = d3.map(regionalData, d => {
+                return d.Source
+            }).keys();
+            
 
 
 
@@ -370,8 +381,7 @@ var regionalData;
 document.querySelector('#valueComparison .number span')
         .innerHTML = mean;
 
-        
-
+    document.querySelector('#source span').textContent = source + ', ' + new Date(year).getFullYear()
         
 
 
