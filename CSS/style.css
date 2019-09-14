@@ -23,6 +23,14 @@ a:hover {
 .pure-img-responsive {
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
+display: block;
+}
+
+
+figcaption {
+  font-size: .9em;
+    font-style: oblique;
 }
 
 /*
