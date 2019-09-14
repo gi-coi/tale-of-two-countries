@@ -6,10 +6,10 @@ var radius = '6';
 var strokeWidth = '1px'
 
 
-var chartTitle = d3.select('#content')
-.insert('h2', '#ottana')
+var chartTitle = d3.select('.content')
+.insert('h3', '#ottana')
 .attr('class', 'chartTitle')
-.html('Where is Ottana? Here\'s what you need to know')
+.html('Where is Ottana? Here\'s what you need to know');
 
 
 var ottanaMap = L.map('ottana').setView([40.2409,9.0293], 14);

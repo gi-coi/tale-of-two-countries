@@ -358,6 +358,10 @@ span.arrow {
   font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
 }
 
+#ottana {
+  margin: 2em auto;
+}
+
 .area {
   stroke: #3d3c3c;
   stroke-width: .1px;
