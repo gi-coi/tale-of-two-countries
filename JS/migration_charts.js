@@ -623,7 +623,7 @@ var svg = d3.select("#migrationFlow").append("svg")
 
 
 
-// load the data
+
 d3.json("src/mobility_flows.json", function(error, graph) {
 
     // Set the sankey diagram properties

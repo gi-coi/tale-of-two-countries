@@ -494,9 +494,41 @@ link.text('ISTAT, Health For All');
         .style("text-anchor", "middle")
         .text("Life expectancy (years)");
  
+   
+
+        svg
+        .selectAll('.menDot')
+    .on('mouseenter', d => {
+        
+        tooltip
+        .classed('active', true)
+        .transition()
+        .duration(100)
+        
+        //.style('opacity', .9)
+        .style('left', (d3.event.pageX) + 'px')
+
+        .style('top', (d3.event.pageY - 28) + 'px');
+      
+      tooltipLabel
+            .text(d.region + ' - Men');
+            tooltipNumber
+            .text(d.men + ' years')
     
 
-    svg
+
+    })
+    .on('mouseout', d => {
+        tooltip
+        .classed('active', false)
+        .transition()
+        .duration(100)
+      
+      
+        .style('left', -100)
+        .style('top', -100)
+    }) 
+   /*  svg
 
     .selectAll('.menDot')
     .on('click', d => {
@@ -530,11 +562,11 @@ link.text('ISTAT, Health For All');
 
             
         }
-    })
+    }) */
 
     svg
     .selectAll('.womenDot')
-    /* .on('mouseenter', d => {
+    .on('mouseenter', d => {
         
         tooltip
         .classed('active', true)
@@ -546,8 +578,13 @@ link.text('ISTAT, Health For All');
 
         .style('top', (d3.event.pageY - 28) + 'px');
       
-    tooltipText
-        .text(d.region + ' ' + d.women + ' years')
+      tooltipLabel
+            .text(d.region + ' - Women');
+            tooltipNumber
+            .text(d.women + ' years')
+    
+
+
     })
     .on('mouseout', d => {
         tooltip
@@ -558,8 +595,8 @@ link.text('ISTAT, Health For All');
       
         .style('left', -100)
         .style('top', -100)
-    }) */
-    .on('click', d => {
+    }) 
+   /*  .on('click', d => {
         if (tooltip.classed('active')) {
             tooltip.classed('active', false)
             .transition()
@@ -586,7 +623,7 @@ link.text('ISTAT, Health For All');
             tooltipNumber
             .text(d.women + ' years')
         }
-    })
+    }) */
 
 
 
