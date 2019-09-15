@@ -1,3 +1,5 @@
+/* GENERAL ELEMENT STYLING */
+
 body {
   color: #777;
   font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
@@ -26,7 +28,7 @@ p {
   color: #484848;
 }
 
-
+/* Pure css for responsive img */
 .pure-img-responsive {
   max-width: 100%;
   height: auto;
@@ -94,7 +96,6 @@ The content `<div>` is where all your content goes.
   color: #888;
 }
 
-/* Add a black background color to the top navigation */
 
 .topnav {
   background-color: #333;
@@ -181,43 +182,6 @@ The content `<div>` is where all your content goes.
   display: block;
 }
 
-/* Style the button that is used to open and close the collapsible content */
-
-.readMore {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: .5em 1.4em;
-  margin-top: 1em;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1.2em;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-
-.readMore.open, .readMore:hover {
-  background-color: #ccc;
-  transition-duration: 4s;
-  transition: ease;
-}
-
-span.arrow {
-  transition-duration: 2s;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-
-.collapsed {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  transition: linear 2s;
-}
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 
@@ -260,9 +224,60 @@ span.arrow {
   }
 }
 
+
+/* Read more - collapsible elements in the article */
+
+/* Style the button that is used to open and close the collapsible content */
+
+.readMore {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: .5em 1.4em;
+  margin-top: 1em;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.2em;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+.readMore.open, .readMore:hover {
+  background-color: #ccc;
+  transition-duration: 4s;
+  transition: ease;
+}
+
+span.arrow {
+  transition-duration: 2s;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+
+.collapsed {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  transition: linear 2s;
+}
+
+
+
+
+/* CHART STYLING */
+
+/* Annotations with d3.annotation*/
 .annotation {
   font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
 }
+
+
+
+/* Chart containers */
 
 .chart {
   width: 100vw;
@@ -274,6 +289,21 @@ span.arrow {
 .chart svg {
   display: block;
 }
+
+
+.mapVis {
+  margin: 0 auto;
+  padding: 0px;
+  min-height: 80vh;
+  background-color: white;
+  font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
+}
+
+#ottana {
+  margin: 2em auto;
+}
+
+/* Chart titles and captions */
 
 .chartCaption {
   text-align: right;
@@ -297,6 +327,10 @@ span.arrow {
   font-style: oblique;
 }
 
+
+
+/* Specific styling for sankey */
+
 .node rect {
   fill-opacity: .9;
   shape-rendering: crispEdges;
@@ -312,6 +346,10 @@ span.arrow {
   stroke: #e3e3e3;
   /*  stroke-opacity: .2; */
 }
+
+
+
+/* Axis styling */
 
 .axis, .axisText, .axisLabel {
   font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
@@ -330,6 +368,9 @@ span.arrow {
   font-size: .9em;
   color: rgb(73, 72, 72);
 }
+
+
+/* Tooltip styling */
 
 .tooltip {
   background-color: white;
@@ -350,24 +391,8 @@ span.arrow {
   opacity: .9;
 }
 
-.chart {
-  width: 100vw;
-  min-height: 70vh;
-  padding-bottom: 1em;
-  display: block;
-}
 
-.mapVis {
-  margin: 0 auto;
-  padding: 0px;
-  min-height: 80vh;
-  background-color: white;
-  font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
-}
-
-#ottana {
-  margin: 2em auto;
-}
+/* Chart styling - highlighted areas in maps */
 
 .area {
   stroke: #3d3c3c;
@@ -379,6 +404,21 @@ span.arrow {
   stroke-width: .3px;
 }
 
+
+/* Legends with svg.legend */
+.legendLinear, .legendOrdinal {
+  font-size: .9em;
+}
+
+
+
+
+
+
+/* Specific styling for interactive tool */
+
+
+/* Header block above tool */
 #mapHeader {
   width: 80em;
   margin: 3em auto 0 auto;
@@ -396,6 +436,8 @@ span.arrow {
     color: #e0e0e0;
 }
 
+
+/* Tool container */
 #mapContainer {
   /*   width: 60vw; */
   display: flex;
@@ -407,6 +449,9 @@ span.arrow {
   
   /* border: 1em solid #C9C9C9; */
 }
+
+
+/* Interactive map container */
 
 #interactiveMap {
   /* overflow: scroll;  */
@@ -426,6 +471,9 @@ span.arrow {
   border-right: none;
 }
 
+
+/* Interactive map elements */
+
 #interactiveMap .area {
   stroke: #797979;
   stroke-width: .1px;
@@ -437,12 +485,10 @@ span.arrow {
   fill: rgb(184, 88, 96)
 }
 
-#selectMeasure {
-  border-radius: .5em;
-  padding: .3em;
-  font-size: 1.1em;
-}
 
+/* Side div with measures and filters */
+
+/* Side div styling */
 .side {
   flex-grow: 2;
   width: 45%;
@@ -455,6 +501,20 @@ span.arrow {
   border: 1em solid rgb(247, 244, 244);
   background: rgba(247, 244, 244, 0.48);
 }
+
+
+/* Select element */
+
+#selectMeasure {
+  border-radius: .5em;
+  padding: .3em;
+  font-size: 1.1em;
+}
+
+
+
+/* Text styling */
+
 
 .number {
   text-align: center;
@@ -473,9 +533,6 @@ span.arrow {
   font-size: .3em;
 }
 
-.legendLinear, .legendOrdinal {
-  font-size: .9em;
-}
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 
@@ -500,6 +557,9 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 }
 
 @media (max-width: 56.25em) {
+
+
+
   #mapContainer {
     display: block;
   }
@@ -515,19 +575,5 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   #mapHeader {
     width: 100%;
   }
-
-
 }
 
-@media (max-width: 48em) {
-  /* Only apply this when the window is small. Otherwise, the following
-    case results in extra padding on the left:
-        * Make the window small.
-        * Tap the menu to trigger the active state.
-        * Make the window large again.
-    */
-  #layout.active {
-    position: relative;
-    left: 150px;
-  }
-}
