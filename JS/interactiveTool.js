@@ -6,8 +6,6 @@ var selectMeasure;
 var parseTime = d3.timeParse("%Y");
 
 
-var zoom = d3.zoom()
-    .on('zoom', zoomFunc);
 
 var measure_data;
 var regions;
@@ -18,11 +16,7 @@ var centered;
 
 
 
-var zoomFunc = function () {
-    g.attr('transform', d3.event.transform)
 
-
-}
 
 
 var l = d3.formatDefaultLocale({
@@ -47,7 +41,7 @@ var ageFormat = d3.format('.2f')
 
 
 var init = function () {
-  //  width = d3.select('#interactiveMap').node().getBoundingClientRect().width;
+    //  width = d3.select('#interactiveMap').node().getBoundingClientRect().width;
 
     height = d3.select('#interactiveMap').node().getBoundingClientRect().height;
     width = height;
@@ -64,10 +58,7 @@ var init = function () {
 
 
 
-    svg.call(zoom);
 
-    // projection = d3.geoMercator()
-    // .rotate([0, 0]);
 
     projection = d3.geoAlbers()
         .rotate([0, 0]);
@@ -77,61 +68,30 @@ var init = function () {
         .projection(projection);
 
 
-    function reset(d) {
-        active.classed('active', false)
-
-        /*     active.style("stroke", "#000"); */
-        active = d3.select(null)
-
-
-        svg.transition()
-            .duration(1300)
-            .call(zoom.transform, d3.zoomIdentity);
-    }
-
-    function zoomFunc() {
-        g.attr('transform', d3.event.transform);
-    }
-
-
-
 
     d3.queue()
         .defer(d3.json, 'src/nuts2it.json')
         .defer(d3.csv, 'src/interactive_source.csv')
-        .await(function (error, boundary_data, i_data) {
-            i_data.forEach(function (d) {
+        .await(function (error, boundary_data, data) {
+            data.forEach(function (d) {
                 d.value = +d.value;
                 d.year = parseTime(d.year);
             })
 
 
-            measure_data = i_data;
+            measure_data = data;
 
             regions = d3.map(measure_data, d => {
                 return d.geo_time
             }).keys();
 
-            console.log(measure_data);
+          
             boundaries = boundary_data;
-            console.log(boundaries);
 
 
-            selectMeasure = d3.select('div.side')
-                .insert('select', '#regionBoard')
-                .attr('id', 'selectMeasure');
-            
-
-            selectMeasure.selectAll('option')
-                .data(d3.map(i_data, d => { return d.measure }).keys())
-                .enter()
-                .append('option')
-                .text(d => { return d; })
-                .attr('value', d => { return d; })
-
-
-            document.getElementById('selectMeasure')
-                .addEventListener('change', descriptionGen);
+            measureDropdown(data);
+         
+          
 
 
             draw(boundary_data);
@@ -146,7 +106,7 @@ function sizeChange() {
 }
  */
 const measureFilter = function (data) {
-   
+
     var measure = document.getElementById('selectMeasure')[document.getElementById('selectMeasure').selectedIndex].value;
 
     var filtered = data.filter(d => {
@@ -162,26 +122,6 @@ const draw = function (boundaries) {
 
     projection.scale(1)
         .translate([0, 0]);
-
-
-    /* 
-                min = d3.min(measure_data, d => {
-                    return d.income;
-                })
-    
-    
-                max = d3.max(measure_data, d => {
-                    return d.income;
-                })
-    
-    
-    
-                colours.domain([min, max]);
-    
-    
-                income_data.forEach( d => {
-                    map.set(d.geo_time, d.income);
-                }) */
 
 
     var b = path.bounds(topojson.feature(boundaries, boundaries.objects['foo']));
@@ -207,113 +147,61 @@ const draw = function (boundaries) {
             return d.properties.id;
         })
         .attr('fill', mapFill)
-        /*
-        .attr("fill", function (d) {
-           // console.log(d);
-            if (map.get(d.properties.NUTS_ID) == undefined) {
-        
-                // if there is no data for an area, set the no. of victims to 0 and return gray shade
-                d.properties.income = 'Not available';
-                return '#e3e3e3'
-            }
-            else {
-              
-                // retrieve victims based on the key-value pairs created previously
-                return colours(d.properties.income = map.get(d.properties.NUTS_ID))
-            }
-             console.log(mp.get(d.properties.PC_NAME))
-              return colours(d.properties.victims = mp.get(d.properties.PC_NAME)) ? colours(d.properties.victims = mp.get(d.properties.PC_NAME) ) : 'gray';  
-        })*/
         .attr('d', path)
-        /*  .on('mouseenter', function (d) {
-            
-            tooltip.transition()        
-    .duration(100)      
-    .style("opacity", .9) 
-    .style("left", (d3.event.pageX) + "px")     
-    .style("top", (d3.event.pageY - 28) + "px");
-
-    tooltipText.html(d.properties.NUTS_NAME + '<br>' + format(d.properties.income));
-})                  
-
-      
-        .on("mouseout", function(d) {       
-tooltip.transition()        
-    .duration(500)      
-    .style("opacity", 0);   
-}) */
         .on('click', d => {
-            if (active.node() == null) {
-                active = d3.select('#' + d.properties.id)
-                    .classed('active', true);
-              descriptionGen();
-
-            } else {
+            /*  If another region is selected, deselect it*/
+            if (active.node() != null) {
                 active.classed('active', false);
                 active.select(null);
-                active = d3.select('#' + d.properties.id)
-                    .classed('active', true)
-
-                    descriptionGen();
             }
+
+            /* Highlight current region and display data */
+            active = d3.select('#' + d.properties.id)
+                .classed('active', true)
+
+            descriptionGen();
+
         })
-
-        descriptionGen();
-
-
-
-    // .on("click", clicked);
-
-    /* 
-    selectRegion
-    .on('change', function () {
-        var select = document.getElementById('selectRegion')
-        var value = select[select.selectedIndex].value;
-        active.classed('active', false);
-        active.select(null);
-        active = d3.select('#' + value);
-                    active.classed('active', true)
-    
-    }) */
+    /* Display data for default visualisation */
+    descriptionGen();
 
 
 }
 
 
 
-const descriptionGen = function() {
+const descriptionGen = function () {
+
+    /*   Displays the data for the selected measure on the dropdown menu */
 
     var [filtered, measure] = measureFilter(measure_data);
 
 
 
     // national average
-     mean = d3.mean(filtered, d => {
+    mean = d3.mean(filtered, d => {
         return d.value;
     });
 
 
-    console.log(mean)
-
-   
-var regionalData;
+    var regionalData;
 
 
 
 
     if (active.node() == null) {
-
+        // If no region is selected, this function will pick a random number
         var randIndex = Math.floor(Math.random() * regions.length);
 
 
         var randomRegion = regions[randIndex];
-    
-        // if no region is selected, select random region
+
+        // Select region with random index
         active = d3.select('#' + randomRegion)
             .classed('active', true);
 
-            
-     regionalData = filtered.filter(d => {
+        // extract data for thar region
+        regionalData = filtered.filter(d => {
             return d.geo_time == randomRegion;
         })
 
@@ -321,111 +209,95 @@ var regionalData;
     else {
         var regionId = active.node().getAttribute('id');
 
-        
-     regionalData = filtered.filter(d => {
+
+        regionalData = filtered.filter(d => {
             return d.geo_time == regionId;
         })
     }
 
-
-       console.log(regionalData)
-
-        var region = d3.map(regionalData, d => {
-                return d.geo_label
-            }).keys();
-    
-        var value = d3.map(regionalData, d => {
-                return d.value
-            }).keys();
-            
-           
-            console.log(region)
+    // Extract information to display on the "dashboard"
 
 
-            var year = d3.map(regionalData, d => {
-                return d.year
-            }).keys();
-            
-            var source = d3.map(regionalData, d => {
-                return d.Source
-            }).keys();
-            
+    // region name
+    var region = d3.map(regionalData, d => {
+        return d.geo_label
+    }).keys();
+
+
+    // value to display
+    var value = d3.map(regionalData, d => {
+        return d.value
+    }).keys();
+
+
+    // Source information: Year and source
+    var year = d3.map(regionalData, d => {
+        return d.year
+    }).keys();
+
+    var source = d3.map(regionalData, d => {
+        return d.Source
+    }).keys();
 
 
 
+    // Format output based on source
     if (measure.includes('income')) {
         value = format(parseFloat(value));
         mean = format(parseFloat(mean))
-        document.querySelectorAll('span.suffix').forEach( par => {
+        document.querySelectorAll('span.suffix').forEach(par => {
             par.innerText = null;
         })
     } else if (measure.includes('expectancy')) {
         value = ageFormat(value)
-        mean = ageFormat(mean) 
-        document.querySelectorAll('span.suffix').forEach( par => {
+        mean = ageFormat(mean)
+        document.querySelectorAll('span.suffix').forEach(par => {
             par.innerText = ' years';
         })
     }
-         
-        document.getElementById('regionTitle').innerText = region;
-       
 
-        document.querySelector('#valueStatement > p').innerText = measure + ' in ' + region + ' is';
 
-        document.querySelector('#valueStatement .number span')
+
+    // Fill dashboard with text
+    document.getElementById('regionTitle').innerText = region;
+
+
+    document.querySelector('#valueStatement > p').innerText = measure + ' in ' + region + ' is';
+
+    document.querySelector('#valueStatement .number span')
         .innerHTML = value;
 
 
-        document.querySelector('#valueComparison > p').innerText = 'The national average is';
+    document.querySelector('#valueComparison > p').innerText = 'The national average is';
 
-document.querySelector('#valueComparison .number span')
+    document.querySelector('#valueComparison .number span')
         .innerHTML = mean;
 
     document.querySelector('#source span').textContent = source + ', ' + new Date(year).getFullYear()
-        
 
 
-    }
-/* 
-    else {
-        var regionId = active.node().getAttribute('id');
 
-        
-        var regionalData = filtered.filter(d => {
-            return d.geo_time == regionId;
-        })
-
-        var region = d3.map(regionalData, d => {
-                return d.geo_label
-            }).keys();
-    
-        var value = d3.map(regionalData, d => {
-                return d.value
-            }).keys();
+}
 
 
-    if (measure.includes('income')) {
-        value = format(parseFloat(value));
-        console.log(value)
-        mean = format(mean)
-    } else if (measure.includes('expectancy')) {
-        value = value + ' years';
-        mean = ageFormat(mean) + ' years'
-    }
-           
-            document.getElementById('regionTitle').innerText = region;
-       
 
-       document.querySelector('#valueStatement > p').innerText = measure + ' in ' + region + ' is';
+const measureDropdown = function (data) {
 
-       document.querySelector('#valueStatement .number span')
-       .innerHTML = value;
+    // Build dropdown menu with measures available
+
+    selectMeasure = d3.select('div.side')
+    .insert('select', '#regionBoard')
+    .attr('id', 'selectMeasure');
 
 
-       document.querySelector('#valueComparison > p').innerText = 'The national average is';
+selectMeasure.selectAll('option')
+    .data(d3.map(data, d => { return d.measure }).keys())
+    .enter()
+    .append('option')
+    .text(d => { return d; })
+    .attr('value', d => { return d; })
 
-document.querySelector('#valueComparison .number span')
-       .innerHTML = mean
-    }
-
-} */
+// add event listener to update the visualisation
+document.getElementById('selectMeasure')
+    .addEventListener('change', descriptionGen);
+}
