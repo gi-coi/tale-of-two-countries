@@ -1,7 +1,7 @@
 body {
   color: #777;
   font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
-  font-size: 1.1em;
+  font-size: 1.05em;
 }
 
 h1, h2, h3, h4 {
@@ -19,6 +19,13 @@ a {
 a:hover {
   color: #6c7ae0;
 }
+
+
+p {
+  font-size: 1.1em;
+  color: #484848;
+}
+
 
 .pure-img-responsive {
   max-width: 100%;
