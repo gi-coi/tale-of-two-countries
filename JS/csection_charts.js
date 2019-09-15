@@ -9,18 +9,13 @@
 
 
 
-    var tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
 
-    var tooltipText = tooltip
-        .append('p')
-        .attr('class', 'tooltipText');
-    /* 
-            var colours = d3.scaleThreshold()
-            .range(d3.schemeYlOrRd[9])
-           
-     */
+     // created in the other anonymous function
+
+     var tooltip = d3.select('.tooltip');
+
+     var tooltipText = tooltip.select('.tooltipText')
+
 
 
     var colours = d3.scaleSequential(d3.interpolateYlOrRd);
@@ -28,6 +23,8 @@
     var map = d3.map();
 
     var init = function () {
+
+        // map basics
         width = d3.select('#csectionGlobal').node().getBoundingClientRect().width;
 
         height = d3.select('#csectionGlobal').node().getBoundingClientRect().height;
@@ -80,7 +77,7 @@
 
 
         d3.queue()
-            // map credits: https://github.com/deldersveld/topojson
+            // topojson credits: https://github.com/deldersveld/topojson
             .defer(d3.json, 'src/world-countries-sans-antarctica.json')
             .defer(d3.csv, 'src/c_section_global.csv')
             .await(function (error, boundary_data, c_data) {
@@ -93,9 +90,9 @@
                 csections_data = c_data;
 
 
-                console.log(csections_data);
+             //   console.log(csections_data);
                 boundaries = boundary_data;
-                console.log(boundaries);
+              //  console.log(boundaries);
 
 
 

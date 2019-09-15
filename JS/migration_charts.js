@@ -281,7 +281,7 @@ const barplot = function (data) {
     data.forEach(function (d) {
         d.difference = d.crediti_mobilita - d.debiti_mobilita;
     })
-    console.log(data);
+    //console.log(data);
 
 
 

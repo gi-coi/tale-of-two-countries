@@ -1,3 +1,5 @@
+// COMMON FUNCTIONS FOR ALL PAGES
+
 var radius = 6;
 var opacity = .75;
 var strokeWidth = 1.5;
@@ -38,7 +40,7 @@ const basics = function (parent, type) {
         .attr('class', 'y axis');
 
       
-    
+    // if it's a bar chart or has long labels on the side
         if (type === 'wide') {
             svg
             .attr('transform', 'translate(' + barMargin.left + ',' + barMargin.top + ')');

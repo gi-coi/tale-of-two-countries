@@ -2,33 +2,38 @@ var parseTime = d3.timeParse("%Y");
 var margin = { top: 50, bottom: 50, left: 90, right: 50 };
 
 
-var radius = '6';
-var strokeWidth = '1px'
+const leafletMap = function () {
+
+    // builds leaflet map with Ottana landmarks
+    var chartTitle = d3.select('.content')
+    .insert('h3', '#ottana')
+    .attr('class', 'chartTitle')
+    .html('Where is Ottana? Here\'s what you need to know');
+    
+    
+    var ottanaMap = L.map('ottana').setView([40.2409,9.0293], 14);
+    
+    
+    L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    ).addTo(ottanaMap);
 
 
-var chartTitle = d3.select('.content')
-.insert('h3', '#ottana')
-.attr('class', 'chartTitle')
-.html('Where is Ottana? Here\'s what you need to know');
+    // markers
+    
+    var enichem = L.marker([40.239, 9.0193]).addTo(ottanaMap)
+    .bindPopup('<strong>Enichem</strong><br>Chemical plant; 1973-1996');
+    
+    
+    var legler = L.marker([40.2499, 9.0234]).addTo(ottanaMap)
+    .bindPopup('<strong>Legler</strong><br>1990s-2007; Textiles');
+    
+    
+    var tirso = L.marker([40.2505, 9.0042]).addTo(ottanaMap)
+    .bindPopup('<strong>Metallurgica del Tirso</strong><br>Metallurgical industry; 1973-1978');
+}();
 
 
-var ottanaMap = L.map('ottana').setView([40.2409,9.0293], 14);
-
-
-L.tileLayer(
-'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-).addTo(ottanaMap);
-
-var enichem = L.marker([40.239, 9.0193]).addTo(ottanaMap)
-.bindPopup('<strong>Enichem</strong><br>Chemical plant; 1973-1996');
-
-
-var legler = L.marker([40.2499, 9.0234]).addTo(ottanaMap)
-.bindPopup('<strong>Legler</strong><br>1990s-2007; Textiles');
-
-
-var tirso = L.marker([40.2505, 9.0042]).addTo(ottanaMap)
-.bindPopup('<strong>Metallurgica del Tirso</strong><br>Metallurgical industry; 1973-1978');
 
 
 
@@ -53,9 +58,7 @@ d3.csv('src/registro_cumulativo.csv', d => {
 
     return d;
 }, function (data) {
-    console.log(data);
-
-
+  
     cumulative(data);
 })
 
@@ -65,6 +68,9 @@ d3.csv('src/registro_cumulativo.csv', d => {
 
 /// REGISTRO EX EXPOSTI - NUORO
 const cumulative = function (data) {
+
+    // bar chart with cumulative sum of workers enrolled in the healthcare surveillance programme
+    // Nuoro province
 
     var [width, height, svg] = basics('#asbestos_time');
 

@@ -1,5 +1,7 @@
 (function () {
 
+    // huge anonymous function that doesn't interfere with the other map 
+
     // map for c-section frequency in Italy
 
 
@@ -112,9 +114,7 @@
 
 
 
-                console.log(csections_data);
                 boundaries = boundary_data;
-                console.log(boundaries);
 
 
                 // c-section map
@@ -270,7 +270,7 @@
             .attr('class', 'chartCaption')
             .text('Source: ')
 
-        var link = captionLink(caption, 'http://www.google.com');
+        var link = captionLink(caption, 'https://www.osservatoriosullasalute.it/rapporto-osservasalute');
 
         link.text('Osservasalute, 2018')
 
@@ -336,15 +336,15 @@
         svg.select('.y.axis')
             .call(d3.axisLeft(yScale))
 
-            svg.append("text")
+        svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 0 - margin.left)
-            .attr("x",0 - (height / 2))
+            .attr("x", 0 - (height / 2))
             .attr("dy", "2.2em")
             .style("text-anchor", "middle")
             .attr('class', 'y axisLabel')
             .text("Rate of caesarean sections (%)");
-        
+
 
     }
 

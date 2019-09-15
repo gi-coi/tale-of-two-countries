@@ -1,6 +1,5 @@
-var radius = 6;
-var opacity = .75;
-var strokeWidth = 1.5;
+
+
 var strokeColour = '#616060';
 
 // standard margin
@@ -38,7 +37,7 @@ d3.csv('src/age_income.csv', d => {
     return d;
 
 }, data => {
-    console.log(data);
+
 
 
     scatter(data);
@@ -49,7 +48,7 @@ d3.csv('src/deaths_italy.csv', function (d) {
     d.deaths = +d.deaths;
     return d;
 }, function (data) {
-     console.log(data);
+   
 
     barchartCauses(data);
 })
@@ -128,7 +127,7 @@ var colours = d3.scaleOrdinal()
 .range(['#904935', '#C4BB66', '#406068'])
 
 
-console.log(colours.domain())
+
     var group = svg
     .selectAll('.group')
     .data(data, d => {return d.territorio;})
@@ -277,7 +276,7 @@ var filtered = data.filter(d => {
 return d.cause !== 'All' & d.cause_detail == 'All';
 })
 
-console.log(filtered);
+
 
 
 filtered = filtered.sort(function (a, b) {
