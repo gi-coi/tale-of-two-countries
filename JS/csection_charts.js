@@ -10,11 +10,11 @@
 
 
 
-     // created in the other anonymous function
+    // created in the other anonymous function
 
-     var tooltip = d3.select('.tooltip');
+    var tooltip = d3.select('.tooltip');
 
-     var tooltipText = tooltip.select('.tooltipText')
+    var tooltipText = tooltip.select('.tooltipText')
 
 
 
@@ -90,9 +90,9 @@
                 csections_data = c_data;
 
 
-             //   console.log(csections_data);
+                //   console.log(csections_data);
                 boundaries = boundary_data;
-              //  console.log(boundaries);
+                //  console.log(boundaries);
 
 
 

@@ -45,7 +45,7 @@ d3.csv('src/mobilita_crediti.csv', function (d) {
 
 
 
-// healthcare mobility charts
+    // healthcare mobility charts
 
 
 
@@ -197,17 +197,17 @@ const dotplot = function (data) {
             .tickFormat(d3.formatPrefix(".0", 1e6)))
 
 
-            svg.append("text")             
-            .attr("transform",
-                  "translate(" + (width / 2) + " ," + 
-                                 (height + margin.bottom - 18) + ")")
-            .style("text-anchor", "middle")
-            .attr('class', 'x axisLabel')
-            .text("Healthcare mobility credits/debts (€)");
+    svg.append("text")
+        .attr("transform",
+            "translate(" + (width / 2) + " ," +
+            (height + margin.bottom - 18) + ")")
+        .style("text-anchor", "middle")
+        .attr('class', 'x axisLabel')
+        .text("Healthcare mobility credits/debts (€)");
 
 
     var transposed = [];
-// change data shape for the voronoi (flattens the data)
+    // change data shape for the voronoi (flattens the data)
     data.forEach(function (d) {
         for (var key in d) {
             var obj = {};
@@ -289,26 +289,26 @@ const barplot = function (data) {
 
 
     d3.select('#barMobility .chartTitle')
-    .text('Only 7 in 20 regions have a net mobility credit; only one is in the South')
+        .text('Only 7 in 20 regions have a net mobility credit; only one is in the South')
 
-d3.select('#barMobility')
-    .insert('p', 'svg')
-    .attr('class', 'subtitle')
-    .text('Net mobility credits in 2018 in €, including adjustments from previous years');
+    d3.select('#barMobility')
+        .insert('p', 'svg')
+        .attr('class', 'subtitle')
+        .text('Net mobility credits in 2018 in €, including adjustments from previous years');
 
 
 
-var caption = d3.select('#barMobility .chartCaption');
+    var caption = d3.select('#barMobility .chartCaption');
 
-caption.html('The chart includes the Ospedale Pediatrico Bambin Gesù, owned by the Vatican State, and ACISMOM, the Order of Malta.<br>Source: ')
+    caption.html('The chart includes the Ospedale Pediatrico Bambin Gesù, owned by the Vatican State, and ACISMOM, the Order of Malta.<br>Source: ')
 
-var link = captionLink(caption, 'http://www.quotidianosanita.it/regioni-e-asl/articolo.php?articolo_id=60080');
+    var link = captionLink(caption, 'http://www.quotidianosanita.it/regioni-e-asl/articolo.php?articolo_id=60080');
 
-link.text('Conferenza delle Regioni, Quotidiano Sanità');
+    link.text('Conferenza delle Regioni, Quotidiano Sanità');
 
 
     /*  svg
-     .attr('transform', 'translate(250,' + margin.top +')'); */ 
+     .attr('transform', 'translate(250,' + margin.top +')'); */
     data.sort(function (a, b) {
         return d3.ascending(a.difference, b.difference)
     })
@@ -383,17 +383,17 @@ link.text('Conferenza delle Regioni, Quotidiano Sanità');
             .tickFormat(d3.formatPrefix(".0", 1e6)))
 
 
-// x axis label
-     
-svg.append("text")             
-.attr("transform",
-      "translate(" + (width / 2) + " ," + 
-                     (height + margin.bottom - 18) + ")")
-.style("text-anchor", "middle")
-.attr('class', 'x axisLabel')
-.text("Healthcare mobility credits/debts (€)");
+    // x axis label
 
-        
+    svg.append("text")
+        .attr("transform",
+            "translate(" + (width / 2) + " ," +
+            (height + margin.bottom - 18) + ")")
+        .style("text-anchor", "middle")
+        .attr('class', 'x axisLabel')
+        .text("Healthcare mobility credits/debts (€)");
+
+
 }
 
 
@@ -576,46 +576,46 @@ const sankeyFlow = function () {
     // sankey chart to display flows between North, Centre and Mezzogiorno
     // adapted from https://bl.ocks.org/d3noob/013054e8d7807dff76247b81b0e29030
     var colours = d3.scaleOrdinal()
-.domain(['North', 'Centre', 'Mezzogiorno'])
-.range(['#406068', '#C4BB66', '#904935'])
+        .domain(['North', 'Centre', 'Mezzogiorno'])
+        .range(['#406068', '#C4BB66', '#904935'])
 
 
-var width = d3.max([d3.select('#migrationFlow').node().getBoundingClientRect().width, 800]);
-var height = d3.max([d3.select('#migrationFlow').node().getBoundingClientRect().height, 800]);
-
-
-
-d3.select('#migrationFlow')
-.append('h3')
-.attr('class', 'chartTitle')
-.html('The Southern diaspora: at least 330,000 Southern patients migrate for healthcare');
-
-
-d3.select('#migrationFlow')
-.append('p')
-.attr('class', 'subtitle')
-.html('Healthcare migration flows in 2017 (excluding same-area flows)')
+    var width = d3.max([d3.select('#migrationFlow').node().getBoundingClientRect().width, 800]);
+    var height = d3.max([d3.select('#migrationFlow').node().getBoundingClientRect().height, 800]);
 
 
 
-var svg = d3.select("#migrationFlow").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .call(responsivefy)
-  .append("g")
-    .attr("transform", 
-          "translate(" + margin.left + "," + margin.top + ")");
+    d3.select('#migrationFlow')
+        .append('h3')
+        .attr('class', 'chartTitle')
+        .html('The Southern diaspora: at least 330,000 Southern patients migrate for healthcare');
 
 
-          width = width - margin.left - margin.right;
+    d3.select('#migrationFlow')
+        .append('p')
+        .attr('class', 'subtitle')
+        .html('Healthcare migration flows in 2017 (excluding same-area flows)')
 
-          height = height - margin.top - margin.bottom;
 
 
-        var caption =  d3.select('#migrationFlow')
-          .append('p')
-          .attr('class', 'chartCaption')
-          .html('Source: ')
+    var svg = d3.select("#migrationFlow").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .call(responsivefy)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+
+    width = width - margin.left - margin.right;
+
+    height = height - margin.top - margin.bottom;
+
+
+    var caption = d3.select('#migrationFlow')
+        .append('p')
+        .attr('class', 'chartCaption')
+        .html('Source: ')
 
     var link = captionLink(caption, 'http://www.salute.gov.it/portale/news/p3_2_1_1_1.jsp?lingua=italiano&menu=notizie&p=dalministero&id=3682');
 
@@ -624,123 +624,126 @@ var svg = d3.select("#migrationFlow").append("svg")
 
 
 
-d3.json("src/mobility_flows.json", function(error, graph) {
+    d3.json("src/mobility_flows.json", function (error, graph) {
 
-    // Set the sankey diagram properties
-var sankey = d3.sankey()
-.nodeWidth(36)
-.nodePadding(40)
-.size([width, height]);
+        // Set the sankey diagram properties
+        var sankey = d3.sankey()
+            .nodeWidth(36)
+            .nodePadding(40)
+            .size([width, height]);
 
-var path = sankey.link();
+        var path = sankey.link();
 
-  sankey
-      .nodes(graph.nodes)
-      .links(graph.links)
-      .layout(1);
+        sankey
+            .nodes(graph.nodes)
+            .links(graph.links)
+            .layout(1);
 
-// add in the links
-  var link = svg.append("g").selectAll(".link")
-      .data(graph.links)
-    .enter().append("path")
-      .attr("class", d => {
-        return 'link ' + 'link-' +d.source.name;
-      })
-      .attr("d", path)
-      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-      .style('opacity', standardOpacity)
-      .sort(function(a, b) { return b.dy - a.dy; })
-      .on('mouseenter', function (d) {
-        
-        svg.selectAll('path.link')
-        .style('opacity', lowOpacity)
+        // add in the links
+        var link = svg.append("g").selectAll(".link")
+            .data(graph.links)
+            .enter().append("path")
+            .attr("class", d => {
+                return 'link ' + 'link-' + d.source.name;
+            })
+            .attr("d", path)
+            .style("stroke-width", function (d) { return Math.max(1, d.dy); })
+            .style('opacity', standardOpacity)
+            .sort(function (a, b) { return b.dy - a.dy; })
+            .on('mouseenter', function (d) {
 
-        svg.selectAll('path.link-' + d.source.name)
-        .style('opacity', highOpacity)
-       
-        tooltip.transition()
-            .duration(100)
-            .style('opacity', .9)
-            .style('left', (d3.event.pageX) + 'px')
+                svg.selectAll('path.link')
+                    .style('opacity', lowOpacity)
 
-            .style('top', (d3.event.pageY - 28) + 'px');
-            
-      tooltipText.html(
-         d.source.name + " → " + 
-            d.target.name + "<br>" + number(d.value)+ ' patients' );
+                svg.selectAll('path.link-' + d.source.name)
+                    .style('opacity', highOpacity)
 
+                tooltip.transition()
+                    .duration(100)
+                    .style('opacity', .9)
+                    .style('left', (d3.event.pageX) + 'px')
 
+                    .style('top', (d3.event.pageY - 28) + 'px');
 
-    })
-    .on('mouseout', function (d) {
-
-        svg.selectAll('path.link')
-        .style('opacity', standardOpacity)
-        tooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-    })
-
-
-// add in the nodes
-  var node = svg.append("g").selectAll(".node")
-      .data(graph.nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .attr("transform", function(d) { 
-		  return "translate(" + d.x + "," + d.y + ")"; });
-
-// add the rectangles for the nodes
-  node.append("rect")
-      .attr("height", function(d) { return d.dy; })
-      .attr("width", sankey.nodeWidth())
-      .style("fill", function(d) { 
-		  return d.colour = colours(d.name.replace(/ .*/, "")); })
-      .style("stroke", function(d) { 
-          return d3.rgb(d.colour).darker(2); })
-          .on('mouseenter', function (d) {
-        
-           
-            tooltip.transition()
-                .duration(100)
-                .style('opacity', .9)
-                .style('left', (d3.event.pageX) + 'px')
-    
-                .style('top', (d3.event.pageY - 28) + 'px');
-
-            if (d.sourceLinks.length > 0 & d.targetLinks.length == 0) {
                 tooltipText.html(
-                    d.name + "<br>" + number(d.value) + ' patients emigrate' );
-                    
-            }
+                    d.source.name + " → " +
+                    d.target.name + "<br>" + number(d.value) + ' patients');
 
-            else if (d.sourceLinks.length == 0 & d.targetLinks.length > 0) {
-                tooltipText.html(
-                    d.name + "<br>" + 'Receives ' + number(d.value) + ' patients' );
-            }
-                
-         
-       
-        })
-        .on('mouseout', function (d) {
-    
-            tooltip.transition()
-                .duration(500)
-                .style("opacity", 0);
-        })
 
-// add in the title for the nodes
-  node.append("text")
-      .attr("x", -6)
-      .attr("y", function(d) { return d.dy / 2; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", "end")
-      .attr("transform", null)
-      .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
-      .attr("x", 6 + sankey.nodeWidth())
-      .attr("text-anchor", "start");
 
-});
+            })
+            .on('mouseout', function (d) {
+
+                svg.selectAll('path.link')
+                    .style('opacity', standardOpacity)
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
+
+
+        // add in the nodes
+        var node = svg.append("g").selectAll(".node")
+            .data(graph.nodes)
+            .enter().append("g")
+            .attr("class", "node")
+            .attr("transform", function (d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+
+        // add the rectangles for the nodes
+        node.append("rect")
+            .attr("height", function (d) { return d.dy; })
+            .attr("width", sankey.nodeWidth())
+            .style("fill", function (d) {
+                return d.colour = colours(d.name.replace(/ .*/, ""));
+            })
+            .style("stroke", function (d) {
+                return d3.rgb(d.colour).darker(2);
+            })
+            .on('mouseenter', function (d) {
+
+
+                tooltip.transition()
+                    .duration(100)
+                    .style('opacity', .9)
+                    .style('left', (d3.event.pageX) + 'px')
+
+                    .style('top', (d3.event.pageY - 28) + 'px');
+
+                if (d.sourceLinks.length > 0 & d.targetLinks.length == 0) {
+                    tooltipText.html(
+                        d.name + "<br>" + number(d.value) + ' patients emigrate');
+
+                }
+
+                else if (d.sourceLinks.length == 0 & d.targetLinks.length > 0) {
+                    tooltipText.html(
+                        d.name + "<br>" + 'Receives ' + number(d.value) + ' patients');
+                }
+
+
+
+            })
+            .on('mouseout', function (d) {
+
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
+
+        // add in the title for the nodes
+        node.append("text")
+            .attr("x", -6)
+            .attr("y", function (d) { return d.dy / 2; })
+            .attr("dy", ".35em")
+            .attr("text-anchor", "end")
+            .attr("transform", null)
+            .text(function (d) { return d.name; })
+            .filter(function (d) { return d.x < width / 2; })
+            .attr("x", 6 + sankey.nodeWidth())
+            .attr("text-anchor", "start");
+
+    });
 
 }()

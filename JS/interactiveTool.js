@@ -85,13 +85,13 @@ var init = function () {
                 return d.geo_time
             }).keys();
 
-          
+
             boundaries = boundary_data;
 
 
             measureDropdown(data);
-         
-          
+
+
 
 
             draw(boundary_data);
@@ -286,18 +286,18 @@ const measureDropdown = function (data) {
     // Build dropdown menu with measures available
 
     selectMeasure = d3.select('div.side')
-    .insert('select', '#regionBoard')
-    .attr('id', 'selectMeasure');
+        .insert('select', '#regionBoard')
+        .attr('id', 'selectMeasure');
 
 
-selectMeasure.selectAll('option')
-    .data(d3.map(data, d => { return d.measure }).keys())
-    .enter()
-    .append('option')
-    .text(d => { return d; })
-    .attr('value', d => { return d; })
+    selectMeasure.selectAll('option')
+        .data(d3.map(data, d => { return d.measure }).keys())
+        .enter()
+        .append('option')
+        .text(d => { return d; })
+        .attr('value', d => { return d; })
 
-// add event listener to update the visualisation
-document.getElementById('selectMeasure')
-    .addEventListener('change', descriptionGen);
+    // add event listener to update the visualisation
+    document.getElementById('selectMeasure')
+        .addEventListener('change', descriptionGen);
 }

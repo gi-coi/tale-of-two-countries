@@ -6,31 +6,31 @@ const leafletMap = function () {
 
     // builds leaflet map with Ottana landmarks
     var chartTitle = d3.select('.content')
-    .insert('h3', '#ottana')
-    .attr('class', 'chartTitle')
-    .html('Where is Ottana? Here\'s what you need to know');
-    
-    
-    var ottanaMap = L.map('ottana').setView([40.2409,9.0293], 14);
-    
-    
+        .insert('h3', '#ottana')
+        .attr('class', 'chartTitle')
+        .html('Where is Ottana? Here\'s what you need to know');
+
+
+    var ottanaMap = L.map('ottana').setView([40.2409, 9.0293], 14);
+
+
     L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     ).addTo(ottanaMap);
 
 
     // markers
-    
+
     var enichem = L.marker([40.239, 9.0193]).addTo(ottanaMap)
-    .bindPopup('<strong>Enichem</strong><br>Chemical plant; 1973-1996');
-    
-    
+        .bindPopup('<strong>Enichem</strong><br>Chemical plant; 1973-1996');
+
+
     var legler = L.marker([40.2499, 9.0234]).addTo(ottanaMap)
-    .bindPopup('<strong>Legler</strong><br>1990s-2007; Textiles');
-    
-    
+        .bindPopup('<strong>Legler</strong><br>1990s-2007; Textiles');
+
+
     var tirso = L.marker([40.2505, 9.0042]).addTo(ottanaMap)
-    .bindPopup('<strong>Metallurgica del Tirso</strong><br>Metallurgical industry; 1973-1978');
+        .bindPopup('<strong>Metallurgica del Tirso</strong><br>Metallurgical industry; 1973-1978');
 }();
 
 
@@ -58,7 +58,7 @@ d3.csv('src/registro_cumulativo.csv', d => {
 
     return d;
 }, function (data) {
-  
+
     cumulative(data);
 })
 
@@ -75,22 +75,22 @@ const cumulative = function (data) {
     var [width, height, svg] = basics('#asbestos_time');
 
     d3.select('#asbestos_time .chartTitle')
-    .text('INAIL\'s u-turn paves the way for healthcare surveillance in Ottana')
+        .text('INAIL\'s u-turn paves the way for healthcare surveillance in Ottana')
 
-d3.select('#asbestos_time')
-    .insert('p', 'svg')
-    .attr('class', 'subtitle')
-    .text('Workers enrolled in the asbestos exposure surveillance programme, province of Nuoro');
+    d3.select('#asbestos_time')
+        .insert('p', 'svg')
+        .attr('class', 'subtitle')
+        .text('Workers enrolled in the asbestos exposure surveillance programme, province of Nuoro');
 
 
 
-var caption = d3.select('#asbestos_time .chartCaption');
+    var caption = d3.select('#asbestos_time .chartCaption');
 
-caption.html('Ottana workers are over 90% of those enrolled in the Nuoro province. The chart does not include workers resident in other provinces.<br>Source: ')
+    caption.html('Ottana workers are over 90% of those enrolled in the Nuoro province. The chart does not include workers resident in other provinces.<br>Source: ')
 
-var link = captionLink(caption, 'http://www.sardegnasalute.it/index.php?xsl=313&s=273749&v=2&c=12803');
+    var link = captionLink(caption, 'http://www.sardegnasalute.it/index.php?xsl=313&s=273749&v=2&c=12803');
 
-link.text('Sardegna Salute');
+    link.text('Sardegna Salute');
 
 
 
@@ -150,16 +150,16 @@ link.text('Sardegna Salute');
 
 
 
-        svg.append("text")
+    svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left)
-        .attr("x",0 - (height / 2))
+        .attr("x", 0 - (height / 2))
         .attr("dy", "2.1em")
         .style("text-anchor", "middle")
         .attr('class', 'y axisLabel')
         .text("Workers enrolled in the programme");
-    
-// https://d3-annotation.susielu.com/
+
+    // https://d3-annotation.susielu.com/
 
     const type = d3.annotationCallout;
 
@@ -170,30 +170,30 @@ link.text('Sardegna Salute');
             title: 'Late 2015'
         },
 
-        data: {year: 2016, cum_tot: 450},
+        data: { year: 2016, cum_tot: 450 },
         className: "annotation",
-dy: 10,
-dx: -15
+        dy: 10,
+        dx: -15
     }]
 
 
-const makeAnnotation = d3.annotation()
-.editMode(false)
-.notePadding(15)
-.type(type)
-.accessors({
-    x: d => {
-        return xScale(d.year);
-    },
-    y: d => {
-        return yScale(450)
-    }
-})
-.annotations(annotations);
+    const makeAnnotation = d3.annotation()
+        .editMode(false)
+        .notePadding(15)
+        .type(type)
+        .accessors({
+            x: d => {
+                return xScale(d.year);
+            },
+            y: d => {
+                return yScale(450)
+            }
+        })
+        .annotations(annotations);
 
-svg
-    .append('g')
-    .attr('class', 'annotationContainer')
-    .call(makeAnnotation)
+    svg
+        .append('g')
+        .attr('class', 'annotationContainer')
+        .call(makeAnnotation)
 
 }
