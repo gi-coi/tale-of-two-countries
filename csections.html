@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <!--PURE CSS STYLESHEET-->
+    <!--PURE CSS STYLESHEET-->
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
         integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-       
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-format.v1.min.js"></script>
-   
+
     <script src='https://unpkg.com/topojson@3.0.2/dist/topojson.js'></script>
 
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
@@ -20,7 +20,8 @@
     <script src="https://d3js.org/d3-color.v1.min.js"></script>
     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js'></script>
-    <meta name="description" content="A Tale of Two countries: why are women in the South of Italy much more likely to have a c-section?">
+    <meta name="description"
+        content="A Tale of Two countries: why are women in the South of Italy much more likely to have a c-section?">
     <title>C-sections - A Tale of Two Countries</title>
 
 
@@ -45,45 +46,26 @@
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <!--         <div class="topnav" id="navigationBar">
-            <a href="index.html">Home</a>
-            <a href="#">The project</a>
 
+        <div class="topnav" id="navigationBar">
+            <a href="index.html">Home</a>
+            <a href="project.html">The project</a>
+            <a href='explore_data.html'>The data</a>
             <div class="dropdown">
                 <button class="dropbtn">Explore
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
                     <a href="intro.html">Life expectancy</a>
-                    <a href="">Asbestos</a>
+                    <a href="asbestos.html">Asbestos</a>
                     <a href="csections.html">C-sections</a>
-                    <a href="#">Healthcare migration</a>
+                    <a href="healthcare_migration.html">Healthcare migration</a>
                 </div>
             </div>
 
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
         </div>
- -->
 
- <div class="topnav" id="navigationBar">
-        <a href="index.html">Home</a>
-                <a href="project.html">The project</a>
-                <a href='explore_data.html'>The data</a>
-        <div class="dropdown">
-          <button class="dropbtn">Explore 
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="intro.html">Life expectancy</a>
-            <a href="asbestos.html">Asbestos</a>
-            <a href="csections.html">C-sections</a>
-            <a href="healthcare_migration.html">Healthcare migration</a>
-          </div>
-        </div> 
-      
-        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
-      </div>
-    
 
 
 
@@ -97,25 +79,30 @@
 
             <div class="content">
                 <p>
-                    Claudia was 18 when she had her first child. “I had been in labour for six hours, but they couldn’t
+                    Claudia was 18 when she had her first child.</p>
+                <p>“I had been in labour for six hours, but they couldn’t
                     see
-                    the baby’s head. Then a doctor told me, ‘That’s it, we need to cut.’” Claudia was brought into the
-                    operating room just after midnight. Soon after, she had a c-section and delivered her baby. “They
+                    the baby’s head," she recalls. "Then a doctor told me, ‘That’s it, we need to cut.’”</p>
+                <p>Claudia was brought into the
+                    operating room just after midnight. Soon after, she had a c-section and delivered her baby.</p>
+                <p>“They
                     didn’t
-                    explain why they were doing it. I had no idea what was going on. Six hours isn’t that long, is it?”
+                    explain why they were doing it," she adds. " I had no idea what was going on. Six hours isn’t that
+                    long, is it?”
                 </p>
                 <p>
                     The experience scarred her and left her traumatised. In her second pregnancy in 2018, Claudia was
-                    determined to take control of her treatment. “I told my gynaecologist I wanted to program a
-                    c-section.
-                    Initially he tried to persuade me otherwise, but then agreed with me and supported my decision.”
+                    determined to take control of her treatment.</p>
+                <p>“I told my gynaecologist I wanted to program a
+                    c-section," she says. "Initially he tried to persuade me otherwise, but then agreed with me and
+                    supported my decision.”
                     Together they planned a date and time, scheduling the procedure during her doctor’s shift. When
                     Claudia
                     was admitted to the hospital a few months later, she was confident.</p>
                 <p>
                     “Some nurses at the hospital tried to persuade me to try with a natural birth… But I didn’t want to.
                     I
-                    was too frightened, to be honest.”</p>
+                    was too frightened, to be honest,” Claudia says.</p>
                 <p>
                     Claudia’s story isn’t unique. Every year, thousands of women in the South of Italy have a c-section
                     with
@@ -130,7 +117,10 @@
                 <div id='csectionGlobal' class='mapVis'></div>
                 <h2>A global epidemic?</h2>
                 <p>
-                    According to a <a href='https://www.worldcat.org/title/global-epidemiology-of-use-of-and-disparities-in-caesarean-sections/oclc/7878022667&referer=brief_results' target='_blank'>2018 study</a>, the rate of c-sections worldwide has nearly doubled since the turn of the
+                    According to a <a
+                        href='https://www.worldcat.org/title/global-epidemiology-of-use-of-and-disparities-in-caesarean-sections/oclc/7878022667&referer=brief_results'
+                        target='_blank'>2018 study</a>, the rate of c-sections worldwide has nearly doubled since the
+                    turn of the
                     century, from 12% to 21% of all births in 2015. This is partly thanks to improvements in medical
                     techniques, which have made the procedure safer and more accessible. Women are having kids later in
                     life, and some may resort to IVF or similar procedures. These pregnancies are riskier for both the
@@ -170,29 +160,36 @@
                     make up
                     for these shortcomings.</p>
                 <p>
-                    “I’ve heard of c-sections being planned around the staff’s shifts, to make sure the whole team is
+                    “I know of c-sections being planned around the staff’s shifts, to make sure the whole team is
                     there
-                    for the surgery. That way, if something goes wrong, they can’t be accused of negligence. It’s a real
+                    for the surgery," doctor N., a paediatrician in rural Sardinia, explains. "That way, if something
+                    goes wrong, they can’t be accused of negligence. It’s a real
                     issue when you don’t have a gynaecologist or an anaesthesiologist available, so you need to make do
                     with
-                    what you have,” explains doctor N., a paediatrician in rural Sardinia. Hospitals should guarantee a
+                    what you have.”</p>
+                <p>Hospitals should guarantee a
                     full
                     medical team – gynaecologist, paediatrician, anaesthesiologist and obstetrician – around the clock,
                     but
                     it isn’t always the case.</p>
                 <div id='csection_IT' class='mapVis'></div>
                 <p>
-                    Until a few years ago, small maternal units were <a href='http://www.salute.gov.it/imgs/C_17_pagineAree_4483_listaFile_itemName_3_file.pdf' target='_blank'>far more common</a> in the Mezzogiorno. A parliamentary
+                    Until a few years ago, small maternal units were <a
+                        href='http://www.salute.gov.it/imgs/C_17_pagineAree_4483_listaFile_itemName_3_file.pdf'
+                        target='_blank'>far more common</a> in the Mezzogiorno. A parliamentary
                     commission found 86 hospitals in Italy accounted for just over 300 births every year. Half of them
                     were
-                    in three Southern regions – Sicily, Apulia and Campania. Regional administrations <a href='www.gazzettaufficiale.it/eli/id/2011/01/18/11A00319/sg> ' target='_blank'>agreed</a> with the government
-                  they would close all maternal wards with fewer than 500 annual deliveries, with limited exceptions for those
+                    in three Southern regions – Sicily, Apulia and Campania. Regional administrations <a
+                        href='www.gazzettaufficiale.it/eli/id/2011/01/18/11A00319/sg> ' target='_blank'>agreed</a> with
+                    the government
+                    they would close all maternal wards with fewer than 500 annual deliveries, with limited exceptions
+                    for those
                     that served deprived or isolated areas.</p>
                 <p>
-                    Today, about a quarter of maternal care wards are classified as “small”. In 2016, these 103 units
-                    accounted for less than 6% of births. They are more common in isolated areas and in the Centre and
-                    South
-                    of Italy. On average, they have 260 deliveries per year – little more than a baby every two days.
+                    Today, about a quarter of maternal care wards are classified as “small”. In <a href='http://www.salute.gov.it/portale/documentazione/p6_2_2_1.jsp?lingua=italiano&id=2766' target='_blank'>2015</a>, these 117 units
+                    accounted for less than 5% of births. They are more common in isolated areas and in the Centre and
+                    South of Italy. On average, they have 190 to 226 deliveries per year – less than a baby every two
+                    days.</p><p>
                     Many of these facilities don’t meet basic requirements. Only two of them have an intensive care unit
                     (NICU). Some do not offer <a href='https://www.nhs.uk/conditions/epidural/'
                         target='_blank'>epidurals</a> – an
@@ -201,22 +198,22 @@
                     moms and their babies.</p>
                 <p>
                     “In smaller hospitals, staff members gain less practical experience than those in larger facilities,
-                    with more patients. Some almost develop a ‘fear of the delivery room’. Vaginal births are less
+                    with more patients,"explains Dr. Davide de Vita. " Some almost develop a ‘fear of the delivery room’. Vaginal births are less
                     risky,
                     but they can be more unpredictable, and if you don’t experience them on a daily basis, it’s
                     difficult to
-                    factor in all the variables and make snap decisions,” explains Dr. Davide de Vita. De Vita is a
+                    factor in all the variables and make snap decisions.”</p><p>De Vita is a
                     gynaecologist at the hospital in Ischia, Campania, and is the regional secretary of <a
-                        href='https://www.aogoi.it' target='_blank'>AOGOI</a> (a
-                    gynaecologists’ and obstetricians’ scientific society). AOGOI has been at the forefront of efforts
+                        href='https://www.aogoi.it' target='_blank'>AOGOI</a>, a
+                    gynaecologists’ and obstetricians’ scientific society. AOGOI has been at the forefront of efforts
                     to
                     curb the inappropriate use of c-sections, especially through training and awareness campaigns.</p>
                 <h2>Defensive medicine</h2>
                 <p>
                     Unlike Claudia, Laura wasn’t a fan of c-sections. However, during her first pregnancy, she was
                     scheduled
-                    for one. “I was almost eight months pregnant, and the doctor told me my baby wasn’t growing and we
-                    needed to have a caesarean. I completely panicked. I asked him to wait another couple of weeks, see
+                    for one.</p><p>“I was almost eight months pregnant, and the doctor told me my baby wasn’t growing and we
+                    needed to have a caesarean," she recalls. "I completely panicked. I asked him to wait another couple of weeks, see
                     how
                     it would progress. Two weeks later, he told me we couldn’t wait any longer. He was very supportive,
                     he
@@ -224,26 +221,23 @@
                     kept thinking ‘What if I die on the operating table?, Is the baby okay?’. It was awful. But I got
                     through it.”</p>
                 <p>
-                    Ten years later, Laura was pregnant again. She was optimistic. “I felt really good about
-                    it.
-                    I thought I could have a ‘natural birth’, this time.” But one day, her gynaecologist told her there
+                    Ten years later, Laura was pregnant again. She was optimistic.</p><p>“I felt really good about
+                    it," she says. "I thought I could have a ‘natural birth’, this time.” But one day, her gynaecologist told her there
                     was
-                    a problem. Once again, the baby was too small. “I was a bit surprised. But I trusted my doctor, he
-                    knows
-                    what’s best for me and my son.”</p>
+                    a problem. Once again, the baby was too small. She was surprised, but she trusted her doctor's judgment. He knew what was best for her and her son.</p>
                 <p>
                     This time, she was more prepared. The procedure went smoothly and she recovered more quickly than
                     her
-                    first time. “I don’t know what they changed, but I’m glad they did,” she laughs. The baby is
+                    first time.</p><p>“I don’t know what they changed, but I’m glad they did,” she laughs. She glances at her baby, who is
                     sleeping in
                     the living room, now. He’s doing great and is growing fast.</p>
                 <p>
-                    “He’s growing much better than my first child, you see. It makes you wonder… Did I really need this
+                    “He’s growing much better than my first child, you see," she pauses. "It makes you wonder… Did I really need this
                     surgery? Maybe, if I had been stronger, I could have requested a trial labour. But how could I know?
                     I’m
                     sure my doctor made the right call. You can’t really be too confident in these situations.”</p>
                 <p>
-                    “I feel doctors sometimes try to protect women from unnecessary stress,” chimes in Maria. She also
+                    “I feel doctors sometimes try to protect women from unnecessary stress,” Maria chimes in. She also
                     had
                     two c-sections almost ten years apart. “Maybe you could carry the pregnancy to term, go through 15
                     hours
@@ -261,7 +255,7 @@
                     liable
                     in the most serious cases, like the death of the mother or child, or complications resulting in
                     permanent damage.</p>
-                <p>This defensive approach to pregnancies can lead doctors to perform unnecessary medical procedures to
+                <p>This defensive approach to pregnancy can lead doctors to perform unnecessary medical procedures to
                     give their patients some peace of mind, while protecting themselves and the hospital from scrutiny.
                 </p>
                 <p>
@@ -282,7 +276,7 @@
 
                 <h2>Financial gains for motherly pains</h2>
                 <p>
-                    There is a less obvious, but equally compelling incentive to perform a c-section: financial gain.
+                    There is a less obvious, but equally compelling incentive to perform a c-section: financial gain.chimes in<p>
                     Caesarean sections can be lucrative for a hospital. The Italian healthcare funding is tariff-based:
                     providers are paid a fixed amount for each procedure they perform based on diagnosis-related groups
                     (DRGs). The more complex a procedure and the hospital stay, the higher the refund to the hospital.
@@ -325,31 +319,33 @@
                 <p>
                     However, how do women who opt for a c-section feel? Looking back upon it, Claudia isn’t so sure of
                     her
-                    choice. “Recovery is really hard after a c-section. And I was in so much pain during the surgery as
+                    choice.</p><p>“Recovery is really hard after a c-section," she explains. "And I was in so much pain during the surgery as
                     well, it wasn’t like that the first time… You know what? In retrospect, I wish I’d done it
                     differently.
                     ‘Maybe I could have tried’, I tell myself.”</p>
                 <p>
-                    And yet, a few months back, it wasn’t even an option. “When you’ve already had a caesarean, doctors
+                    And yet, a few months back, it wasn’t even an option.</p><p>“When you’ve already had a caesarean, doctors
                     tend
-                    to be a lot more cautious with you. I chose a c-section because any other option didn’t seem viable.
+                    to be a lot more cautious with you," Claudia clarifies. "I chose a c-section because no other option seemed viable.
                     Do
                     I even know any women who had a natural birth after a c-section? I don’t, really. It is almost a
                     default.”</p>
                 <p>
-                    In some <a href='https://pne.agenas.it/' target='_blank'>northern hospitals</a>, as many as 50% of women with prior c-sections eventually have a vaginal
+                    In some <a href='https://pne.agenas.it/' target='_blank'>northern hospitals</a>, as many as 50% of
+                    women with prior c-sections eventually have a vaginal
                     birth, versus 1 in 10 in the Mezzogiorno. The stark difference indicates that natural birth is far
                     from
                     being standard in the South, with both doctors and patients reluctant to have trial labour.</p>
                 <p>
-                    Even though it wasn’t medically justified, Claudia’s gynaecologist supported her decision. “He was
+                    Even though it wasn’t medically justified, Claudia’s gynaecologist supported her decision.</p><p>“He was
                     also
-                    a bit reluctant to let me have a ‘natural’ birth, so he didn’t push too much with that idea. I know
+                    a bit reluctant to let me have a ‘natural’ birth, so he didn’t push too much with that idea," Claudia explains. " I know
                     if I
-                    had asked for it instead, he would have supported me regardless.” And what if he hadn’t been on
+                    had asked for it instead, he would have supported me regardless.”</p><p>And what if he hadn’t been on
                     board
-                    with her c-section request? “In that case, I would’ve probably looked for another doctor,” Claudia
-                    explains.</p>
+                    with her c-section request? Claudia doesn't need to think about it.</p>
+                    <p>“In that case, I would’ve probably looked for another doctor,” she
+                    answers without hesitation.</p>
                 <h2>Bridging the gap: Campania leads the way</h2>
                 <p>
                     A medical culture prone to overtreating and medicalising pregnancy can <a
@@ -358,10 +354,10 @@
                     preferences. Numbers can't measure the trust relationship betweeen patients and their doctors, but
                     it plays a large role in healthcare, especially during a pregnancy.
                 </p>
-                <p>"A gynaecologist isn't like any other doctor," says Maria. "They follow you from the first
+                <p>"A gynaecologist isn't like any other doctor," Maria says. "They follow you from the first
                     appointment till the birth. It almost feels like they're pregnant with you."</p>
                 <p>"When you have a bad experience with a gynaecologist, it really affects you on a personal level",
-                    adds Laura. "You really create an emotional bond with them. It doesn't happen as much with other
+                     Laura adds. "You really create an emotional bond with them. It doesn't happen as much with other
                     doctors."</p>
                 <p>
                     Claudia, Laura and Maria had very different experiences with pregnancies and c-sections. They did
@@ -376,26 +372,26 @@
                     only
                     option – nor necessarily the safest one.</p>
                 <p>
-                    Some hospitals in the Mezzogiorno are reversing the c-section trend, and more women now are having a
+                    A few hospitals in the Mezzogiorno are reversing the c-section trend, and more women now are having a
                     vaginal birth. In Campania, some clinics have cut their c-section rate by 20% between 2016 and 2017.
                     Thanks to a mix of political will and pressure by the scientific community, hospitals are now taking
                     steps to address malpractice.</p>
-                    <div class='chart' id='csection_campania'></div>
+                <div class='chart' id='csection_campania'></div>
                 <p>
                     Controlling the use of c-sections became a <a
                         href='https://www.repubblica.it/salute/2016/11/08/news/troppi_cesarei_in_campania_de_luca_entro_due_anni_non_piu_del_28_-151566012/'
                         target='_blank'>political priority</a> for the regional government elected in
                     Campania in 2016. The newly appointed administrative directors set strategic priorities and plans
-                    accordingly. “There was a good synergy between national and regional strategic plans, consistently
-                    endorsed by the local scientific experts,” explains Dr. De Vita. AOGOI and its sister organisations
+                    accordingly.</p><p>“There was a good synergy between national and regional strategic plans, consistently
+                    endorsed by the local scientific experts,” Dr. De Vita explains. AOGOI and its sister organisations
                     organised theoretical and practical training courses, including case studies with mannequins and
                     virtual
                     simulations.</p>
                 <p>
-                    “By providing extensive training in smaller hospitals, we made them more secure. That way, they can
+                    “By providing extensive training in smaller hospitals, we made them more secure," he adds. "That way, they can
                     provide high-quality care, comply with regional and national standards, and resort to c-sections
                     only
-                    when needed.” Public and private hospitals with higher-than-average rates <a
+                    when needed.”Public and private hospitals with higher-than-average rates <a
                         href='http://next.regione.campania.it/cittadini/it/news/comunicati-2017-erp7/04-10-2017-comunicato-n-362-parti-cesarei-eliminare-inefficienze-e-speculazioni?page=1'
                         target='_blank'>received inspections</a> and
                     were
@@ -413,8 +409,10 @@
                     facilities, training and human resources would speed up progress, Dr. De Vita argues, but they
                     aren’t
                     always available. Seven regional healthcare systems (none of which are in the North) are undergoing
-                    <a href='www.salute.gov.it/portale/documentazione/p6_2_2_1.jsp?lingua=italiano&id=2881' target='_blank'>budget restructuring programmes</a> and have limited spending power. Unfortunately, political will alone
-                    can’t be enough to end the ‘c-section epidemic’ – but it’s a good start.</p>
+                    <a href='www.salute.gov.it/portale/documentazione/p6_2_2_1.jsp?lingua=italiano&id=2881'
+                        target='_blank'>budget restructuring programmes</a> and have limited spending power.
+                    Unfortunately, political will alone
+                    can’t be enough to end the "c-section epidemic" – but it’s a good start.</p>
 
 
 
@@ -426,7 +424,7 @@
     <script src='JS/commons.js'></script>
     <script src='JS/csection_IT.js'></script>
     <script src='JS/csection_charts.js'></script>
-  
+
 
 </body>
 
