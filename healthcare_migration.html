@@ -9,14 +9,15 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-format.v1.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.2/d3-annotation.min.js'></script>
-    <meta name="description" content="A Tale of Two countries - Someone calls them healthcare migrants: but who are they, and why are they leaving the South of Italy to receive medical treatment?">
+    <meta name="description"
+        content="A Tale of Two countries - Someone calls them healthcare migrants: but who are they, and why are they leaving the South of Italy to receive medical treatment?">
     <title>Healthcare migration - A Tale of Two Countries</title>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
         integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js'></script>
 
 
-<!--Jason Davies Sankey plugin https://github.com/d3/d3-plugins/blob/master/sankey/sankey.js-->
+    <!--Jason Davies Sankey plugin https://github.com/d3/d3-plugins/blob/master/sankey/sankey.js-->
     <script src='JS/sankey.js'></script>
 
 
@@ -39,25 +40,25 @@
         <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <div class="topnav" id="navigationBar">
-                    <a href="index.html">Home</a>
-                            <a href="project.html">The project</a>
-                            <a href='explore_data.html'>The data</a>
-                    <div class="dropdown">
-                      <button class="dropbtn">Explore 
-                        <i class="fa fa-caret-down"></i>
-                      </button>
-                      <div class="dropdown-content">
-                        <a href="intro.html">Life expectancy</a>
-                        <a href="asbestos.html">Asbestos</a>
-                        <a href="csections.html">C-sections</a>
-                        <a href="healthcare_migration.html">Healthcare migration</a>
-                      </div>
-                    </div> 
-                  
-                    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
-                  </div>
-                
+        <div class="topnav" id="navigationBar">
+            <a href="index.html">Home</a>
+            <a href="project.html">The project</a>
+            <a href='explore_data.html'>The data</a>
+            <div class="dropdown">
+                <button class="dropbtn">Explore
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="intro.html">Life expectancy</a>
+                    <a href="asbestos.html">Asbestos</a>
+                    <a href="csections.html">C-sections</a>
+                    <a href="healthcare_migration.html">Healthcare migration</a>
+                </div>
+            </div>
+
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+        </div>
+
 
         <div id="main">
             <div class="header">
@@ -72,7 +73,8 @@
                     Luca (not his real name) is a 10-year-old boy who lives in southern Italy. One day, his joints
                     started to hurt, and before long he was unable to move. Diagnosing him was not straightforward, his
                     doctor explains.</p>
-                    <p>“First of all, I ordered an x-ray," the doctor recalls. "The nearest hospital turned him away, because
+                <p>“First of all, I ordered an x-ray," the doctor recalls. "The nearest hospital turned him away,
+                    because
                     the waiting lists were too long. It’s <a href='https://www.camera.it/parlam/leggi/05266l.htm'
                         target='_blank'>illegal</a>, but when you’re the patient there isn’t much you can
                     do.”
@@ -80,17 +82,23 @@
                 <p>
                     Luca had to wait a month before finally getting x-rays at a hospital 150 kilometres away from his
                     home. For a whole month Luca was on painkillers - even so, he could barely move his arms.
-                    Doctors at the hospital diagnosed he needed surgery, but there was another problem.</p><p>“The
-                    doctors at that hospital refused to operate on him," his doctor said. "They wouldn’t even say why. Apparently, no
+                    Doctors at the hospital diagnosed he needed surgery, but there was another problem.</p>
+                <p>“The
+                    doctors at that hospital refused to operate on him," his doctor said. "They wouldn’t even say why.
+                    Apparently, no
                     hospital in the region could treat him.”</p>
                 <p>
-                    They advised Luca travel to a hospital in Turin, in the North-West of Italy. His mother immediately booked the
+                    They advised Luca travel to a hospital in Turin, in the North-West of Italy. His mother immediately
+                    booked the
                     plane tickets. Luca was admitted there, but doctors requested new scans. Luca’s family was told
                     the ones they already had were faulty. After repeating the x-rays, he was finally sent to surgery.
                 </p>
                 <p>
-                    Luca is recovering now. Luckily, he already feels a lot better; but it took two months, three different
-                    hospitals, two sets of x-rays and a 600-kilometre trip to across the country to receive treatment.</p><p>
+                    Luca is recovering now. Luckily, he already feels a lot better; but it took two months, three
+                    different
+                    hospitals, two sets of x-rays and a 600-kilometre trip to across the country to receive treatment.
+                </p>
+                <p>
                     “It’s disheartening,” his doctor comments. “This boy was in constant pain, and yet he couldn’t get
                     the help he needed. He was caught up in a net of inefficiency and time-consuming bureaucracy. It’s
                     unacceptable.”</p>
@@ -107,29 +115,38 @@
                 </p>
                 <button class="readMore"><span class='arrow'>⮞</span> Click to read more: the Italian diaspora</button>
                 <div class="collapsed">
-                   <p> 
-                    Italy is now known as an immigration hub, but this was not always the case. In the early 20th
-                    century, Italy was a land of emigration, and in many ways, it still is.</p>
-                    <p>What became known as the
-                    “Italian diaspora” emerged shortly after unification. Between 1876 and 1914, almost 14 million
-                    people, mostly from the North-East, moved to continental Europe. By 1913, Southern Italy had
-                    overtaken and accounted for 47 percent of outflows. Most emigration from the Mezzogiorno, however,
-                    was transatlantic – mostly North and South America and Australia.</p>
-                    <p>At this stage, migrants tended to
-                    be men, young and low-skilled leaving the country to find better economic conditions. Most emigrants
-                    were initially employed in mining and construction and would eventually be joined by high-skilled
-                    workers, often with their families.</p>
                     <p>
-                    The post-World War 2 economic expansion prompted a fresh wave of internal migration. Between 1952
-                    and 1970, the average income per capita grew 130%. The North benefited the most from this
-                    accelerated growth, with the Mezzogiorno pegging behind.</p>
+                        Italy is now known as an immigration hub, but this was not always the case. In the early 20th
+                        century, Italy was a land of emigration, and in many ways, it still is.</p>
+                    <p>What became known as the
+                        “Italian diaspora” emerged shortly after unification. Between 1876 and 1914, almost 14 million
+                        people, mostly from the North-East, moved to continental Europe. By 1913, Southern Italy had
+                        overtaken and accounted for 47 percent of outflows. Most emigration from the Mezzogiorno,
+                        however,
+                        was transatlantic – mostly North and South America and Australia.</p>
+                    <p>At this stage, migrants tended to
+                        be men, young and low-skilled leaving the country to find better economic conditions. Most
+                        emigrants
+                        were initially employed in mining and construction and would eventually be joined by
+                        high-skilled
+                        workers, often with their families.</p>
+                    <p>
+                        The post-World War 2 economic expansion prompted a fresh wave of internal migration. Between
+                        1952
+                        and 1970, the average income per capita grew 130%. The North benefited the most from this
+                        accelerated growth, with the Mezzogiorno pegging behind.</p>
                     <p>At least 9 million people moved from the
-                    South to the North of Italy during this time, chasing the promise of the “economic miracle”. Many
-                    immigrated illegally, due to a <a href='http://www.infoleges.it/service1/scheda.aspx?service=1&id=92764' target='_blank'>fascist-era anti-urbanisation law</a> abolished in 1961.</p>
+                        South to the North of Italy during this time, chasing the promise of the “economic miracle”.
+                        Many
+                        immigrated illegally, due to a <a
+                            href='http://www.infoleges.it/service1/scheda.aspx?service=1&id=92764'
+                            target='_blank'>fascist-era anti-urbanisation law</a> abolished in 1961.</p>
                     <p>Far from
-                    stemming migration, this law only made it covert. Entire families left the Mezzogiorno and settled
-                    in the industrial North – especially the so-called Industrial Triangle area between Turin, Milan and
-                    Genoa.</p>
+                        stemming migration, this law only made it covert. Entire families left the Mezzogiorno and
+                        settled
+                        in the industrial North – especially the so-called Industrial Triangle area between Turin, Milan
+                        and
+                        Genoa.</p>
 
 
                 </div>
@@ -170,17 +187,20 @@
                     it
                     provides.</p>
                 <p>
-                    “No, I don’t trust my local hospital so much, even though I don’t really go there that often,”
+                    “I don’t trust my local hospital so much, even though I don’t really go there that often,”
                     Claudia, from Orani, Sardinia, says. “I realise it isn’t rational, but I guess negative memories or
                     rumours stick more than happy endings. When your health is at stake, you don’t really want to take
                     any
                     chances. You may come across a good and caring doctor, or you may fall into the hands of someone who
                     doesn’t care about you, doesn’t talk to you, doesn’t help you through your journey there. I’ve felt
-                    estranged – as if I wasn’t more than a number."</p><p>
-                        While the mistrust is sometimes grounded in personal experience, word of mouth often fuels this feeling.</p>
-                        <p>"It's not as bad as we make it up to be," Claudia continues. "My mum ended up in hospital last year, and
+                    estranged – as if I wasn’t more than a number."</p>
+                <p>
+                    While the mistrust is sometimes grounded in personal experience, word of mouth often fuels this
+                    feeling.</p>
+                <p>"It's not as bad as we make it up to be," Claudia continues. "My mum ended up in hospital last year,
+                    and
                     she
-                   met wonderful doctors. It’s an irrational fear sometimes, it’s an instinct. You hear so many
+                    met wonderful doctors. It’s an irrational fear sometimes, it’s an instinct. You hear so many
                     stories you end up losing trust in the doctors, in the system as a whole.”</p>
                 <p>
                     The feeling of abandonment and mistrust is what pushes people to book a plane ticket or board their
@@ -202,7 +222,8 @@
                     particularly aggressive chest infection. The doctors were puzzled. As he got worse, they eventually
                     advised he and his family visit a specialist centre in Verona, in the North-West of Italy.</p>
                 <p>
-                    “I go there every year, twice a year now," Giampietro explains. "I stay there for a couple of weeks at a time, I run all
+                    “I go there every year, twice a year now," Giampietro explains. "I stay there for a couple of weeks
+                    at a time, I run all
                     the
                     tests, do my daily physiotherapy. I quite like it there, it’s like a small community. You get to
                     know
@@ -220,34 +241,43 @@
                     likely to access private healthcare. While private and contracted facilities received about a
                     quarter of
                     all resident admissions, they accounted for nearly half of long-distance migrants’ admissions.</p>
+
+
                 <p>
-                    The framing of healthcare migration as a choice or “tourism” is inflammatory. After all, Italy
-                    should
-                    provide universal public healthcare for all citizens. Healthcare mobility is the pragmatic
-                    expression of
-                    a right enshrined in law: to guarantee citizens’ freedom to express their right to access to the
-                    highest
-                    level of care available.</p>
+                    The reality of healthcare migration stands in stark contrast to the principle of universal
+                    healthcare,
+                    enshrined in the Italian Constitution.
+                    "Universal" means all citizens have a right to receive treatment, regardless of their personal
+                    circumstances - and regardless of their residence.
+                    But in pratice, there is no single national healthcare system: there are twenty regional systems,
+                    offering widely different services and quality standards.</p>
                 <p>
-                    With twenty regional healthcare systems offering widely different services and quality standards,
-                    healthcare migration has become a necessity, rather than a choice for some. Some hospitals have been
-                    forced to turn away patients like Luca, unable to provide the required care.</p>
+                    What is often labelled as "healthcare tourism" has in fact become a necessity, for some: a journey
+                    to
+                    receive the highest level of care available, that not all hospitals can provide. Some are in such a
+                    critical condition they are forced to turn away patients like Luca, unable to provide the required
+                    care.</p>
                 <p>
                     People with chronic conditions like Giampietro also struggle to receive appropriate care near their
                     home. There are 20 cystic fibrosis centres in Italy – one for each region – but not all of them are
-                    equipped to deal with many complications of the condition.</p><p>“With cystic fibrosis, every patient is
-                    unique," Giampietro says. "There are few of us living in Sardinia, and when I was first diagnosed, doctors were
+                    equipped to deal with many complications of the condition.</p>
+                <p>“With cystic fibrosis, every patient is
+                    unique," Giampietro says. "There are few of us living in Sardinia, and when I was first diagnosed,
+                    doctors were
                     unfamiliar
                     with cases like mine. They had studied the theory, they'd read it on the books, but they had had few
                     opportunities to put that knowledge into practice. Until a few years ago, my regional centre didn’t
                     even
                     have a physiotherapist, who is crucial for us.”</p>
                 <p>
-                    As a result of these disparities, patients tend to converge around few well-known treatment locations,
+                    As a result of these disparities, patients tend to converge around few well-known treatment
+                    locations,
                     such
                     as Verona, while the others centres languish. Giampietro enjoys his time in Verona: it’s a
-                    pleasant break from daily life in Sardinia, a home away from home.</p><p>“I do love it in Verona, and I’ve
-                    learnt to make the most of my time there," he says. "I’m also lucky because my health allows me to travel
+                    pleasant break from daily life in Sardinia, a home away from home.</p>
+                <p>“I do love it in Verona, and I’ve
+                    learnt to make the most of my time there," he says. "I’m also lucky because my health allows me to
+                    travel
                     around,
                     go to concerts and exhibitions, hop on a train and visit cities nearby. But for others, it is a
                     source
@@ -275,11 +305,13 @@
                     In some cases, patients are entitled to partial refunds. When a given local health service is unable
                     to
                     provide a procedure, patients forced to travel to another region can seek compensation to cover the
-                    costs – but it is not guaranteed.</p><p>“I work in Sardinia, where hospitals aren’t always equipped to
+                    costs – but it is not guaranteed.</p>
+                <p>“I work in Sardinia, where hospitals aren’t always equipped to
                     treat
                     more complex cases. I’ve had to send several patients to the mainland to receive treatment,”
-                     a
-                    paediatrician - who spoke on condition of anonymity - explains. “Sometimes the hospital staff themselves suggest
+                    a
+                    paediatrician - who spoke on condition of anonymity - explains. “Sometimes the hospital staff
+                    themselves suggest
                     parents take their children to another region. In that case, you can have a refund. But I know some
                     parents who don’t apply for it, even if they’re entitled to it. Sometimes, especially when you’re a
                     parent and you would do anything to make your child feel better, you’re not even thinking about
@@ -380,24 +412,30 @@
                 <p></p>
                 Cystic fibrosis is also an example of how inequalities can be overcome, with the right people. According
                 to Dr. Carlo Castellani, specialist and director of the cystic fibrosis Centre at the Gaslini hospital
-                in Genoa, standards have vastly improved in the last twenty years.</p><p>“Some centres made a political and
-                strategic choice," he explains. "They networked with the latecomers, those facilities with fewer capabilities and
-                expertise, to nurture that knowledge in-house. In time, these centres caught up with their more
-                established partners, and they are now able to guarantee the same level of care. Now more and more
-                patients are returning to the centres in their region.”</p>
+                in Genoa, standards have vastly improved in the last twenty years.</p>
+                <p>“Some centres made a political and
+                    strategic choice," he explains. "They networked with the latecomers, those facilities with fewer
+                    capabilities and
+                    expertise, to nurture that knowledge in-house. In time, these centres caught up with their more
+                    established partners, and they are now able to guarantee the same level of care. Now more and more
+                    patients are returning to the centres in their region.”</p>
                 <p>
                     Some procedures, like lung transplant, are still rare in parts of the South; but as Dr. Castellani
                     is
-                    keen to underline, it isn’t a reflection on doctors’ skills and performance.</p><p>“There are cultural and
-                    social issues at play, like a very low number of donors in this case," he says. " The most significant problem
+                    keen to underline, it isn’t a reflection on doctors’ skills and performance.</p>
+                <p>“There are cultural and
+                    social issues at play, like a very low number of donors in this case," he says. " The most
+                    significant problem
                     is
                     the lack of resources, which makes it impossible to plan radical overhauls and invest in
-                    innovation.”</p><p>
+                    innovation.”</p>
+                <p>
                     Giampietro, as someone with a chronic disease, is a so-called “expert patient”: he’s become very
                     good at
                     being his own doctor, in many ways. He also believes networking is key to improve care.</p>
                 <p>
-                    “For hospitals dealing with diseases like ours, it isn’t enough to study the subject in the books," he says. "You
+                    “For hospitals dealing with diseases like ours, it isn’t enough to study the subject in the books,"
+                    he says. "You
                     need to build a medical culture around it. It takes initiative from doctors, and willingness to grow
                     talent and expertise in this subject. There are about 5,000 of us [with cystic fibrosis] in Italy.
                     With
@@ -407,8 +445,10 @@
                 <p>
                     These knowledge networks benefit both doctors and patients. But these efforts alone cannot close the
                     healthcare gap. A strong political commitment is needed from both the national and the regional
-                    governments.</p><p>“We need a broader network with a strategic direction, and that can only come from the
-                    government,” Dr. Castellani explains. "And of course we need more investments, because the healthcare
+                    governments.</p>
+                <p>“We need a broader network with a strategic direction, and that can only come from the
+                    government,” Dr. Castellani explains. "And of course we need more investments, because the
+                    healthcare
                     system is starved for money, in the North and South alike."</p>
 
 
