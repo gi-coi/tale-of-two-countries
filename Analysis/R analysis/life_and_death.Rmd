@@ -1,0 +1,88 @@
+---
+title: "Life and death"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+
+General population data (ISTAT)
+
+```{r}
+pop.generali <- read.csv('../health_data/DCIS_INDDEMOG1_01082019162744398.csv', encoding = 'UTF-8') %>% 
+  clean_names()
+```
+
+
+Net growth
+Why is infant mortality relevant? Because it exacerbates population decline (low births + more deaths + emigration = disaster)
+```{r}
+pop.generali %>% 
+  filter(tipo_indicatore == 'tasso di crescita totale (per mille abitanti)') %>% 
+  filter(territorio %in% c('Nord-ovest', 'Nord-est', 'Centro', 'Sud', 'Isole')) %>% 
+  ggplot(aes(time, value, colour = territorio)) + geom_line() + 
+  theme_bw()
+```
+
+```{r}
+regioni <- c('Abruzzo', 'Basilicata', 'Calabria', 'Campania', 'Emilia.Romagna', 'Friuli.Venezia.Giulia', 'Lazio', 'Liguria', 'Lombardia', 'Marche', 'Molise', 'Piemonte', 'Puglia', 'Sardegna', 'Sicilia', 'Toscana', 'Trentino.Alto.Adige', 'Umbria', 'Valle.d.Aosta', 'Veneto')
+```
+
+
+
+Life expectancy (Source: Istat's Health for All)
+https://www.istat.it/it/archivio/18204
+
+```{r}
+
+
+life.expectancy <- read.csv('../health_data/life_expectancy.csv', strip.white = TRUE) %>% 
+  gather(key = 'region', value = 'life_exp', -c(year, gender)) 
+
+# life expectancy by gender
+life.tidy <- life.expectancy %>% 
+  spread('gender', 'life_exp') %>% 
+  filter(region %in% regioni) %>% 
+  mutate(region = trimws(region)) %>% 
+  mutate(region = str_replace_all(region, pattern = '\\.', replacement = ' ')) %>% 
+ # mutate(men = -(men)) %>% 
+  gather(key = 'gender', value = 'life_exp', -c(year, region))
+
+#write.csv(life.tidy, 'lifexp_tidy.csv', row.names = FALSE) # for d3
+
+#write.csv(life.gender, 'life_gender.csv', row.names = FALSE) # for d3
+```
+
+
+Mortality data ISTAT (extracted with Tabula)
+https://www.istat.it/it/archivio/230897 (Chapter 4)
+```{r}
+mortalita.regione <- read_csv('../health_data/tabula-istat_salute.csv') %>% 
+  clean_names()
+```
+
+
+
+Mortality rates - heart conditions
+```{r}
+mortalita.regione %>% 
+  gather(key = 'cause', value = 'value', -regione) %>% 
+  filter(grepl('circolatorio', cause) & !regione %in% c('Nord-ovest', 'Nord-est', 'Centro', 'Sud', 'Isole', 'ITALIA')) %>% 
+  ggplot(aes(reorder(regione, value), value)) + geom_col() +
+  theme_bw() + 
+  coord_flip()
+```
+
+
+Mortality rate - cancer
+```{r}
+mortalita.regione %>% 
+  gather(key = 'cause', value = 'value', -regione) %>% 
+  filter(grepl('tumori', cause) & !regione %in% c('Nord-ovest', 'Nord-est', 'Centro', 'Sud', 'Isole', 'ITALIA')) %>% 
+  ggplot(aes(reorder(regione, value), value)) + geom_col() +
+  theme_bw() + 
+  coord_flip()
+```

@@ -1,0 +1,36 @@
+```{r}
+library(tidyverse)
+```
+
+Source: regional healthcare system's surveillance register (data published annually)
+http://www.sardegnasalute.it/index.php?xsl=313&s=273749&v=2&c=12803
+
+```{r}
+iscr.registro <- read.csv('../health_data/iscr_registro.csv') %>% 
+  janitor::clean_names()
+```
+
+
+```{r}
+cumulatives <- iscr.registro %>% 
+  gather(key = 'asl', value = 'value', -year, -type) %>% 
+  spread(key = type, value = value) %>% 
+  mutate(tot = alta + bassa) %>% 
+  group_by(asl) %>% 
+  mutate(cum_tot = cumsum(tot), cum_alta = cumsum(alta), cum_bassa = cumsum(bassa)) %>% 
+  mutate(prop_alta = cum_alta / cum_tot)
+
+
+#write.csv(cumulatives, '../website/src/registro_cumulativo.csv', row.names = FALSE)
+```
+
+
+```{r}
+iscr.registro %>% 
+  gather(key = 'asl', value = 'iscritti', -c(year, type)) %>% 
+  filter(year < 2016 & asl == 'asl_3') %>% 
+
+  mutate(sm = sum(iscritti))
+```
+
+

@@ -1,0 +1,290 @@
+---
+title: "Socio-economic data"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+
+All economic data (except Eurostat) in this file
+
+
+Survey data
+Families who experience difficulties with regular expenses
+http://dati.istat.it/Index.aspx?DataSetCode=DCCV_NOSOLDI
+
+```{r}
+expenses.difficult <- read.table('../Econ data/Famiglie che hanno  difficoltà nel pagamento di alcune spese - it.csv', sep = '|', header = TRUE) %>% 
+  clean_names()
+```
+
+Rural poverty on the rise?
+```{r}
+expenses.difficult %>% 
+ # filter(voci_di_spesa == 'malattie') %>% 
+  filter(territorio %in% c('centro area metropolitana', 'periferia area metropolitana', 'fino a 2.000 ab.', '2.001 - 10.000 ab.', '10.001 - 50.000 ab.', '50.001 ab. e piÃ¹') ) %>%
+  ggplot(aes(time, value, colour = territorio)) + geom_line(size = 1) + 
+  theme_bw() +
+  facet_grid(voci_di_spesa ~ .) +
+  theme(legend.position = 'top') 
+```
+
+Income quintiles (for income distribution, inequalities)
+http://dati.istat.it/Index.aspx?DataSetCode=DCCV_QUINTOREDD
+
+```{r}
+income.quintiles <- read.table('../Econ data/Quinto di reddito equivalente - it.csv', sep = '|', header = TRUE) %>% 
+  clean_names() %>% 
+  mutate(quinto_di_reddito_equivalente = trimws(quinto_di_reddito_equivalente)) %>% 
+  mutate(quinto_di_reddito_equivalente = factor(quinto_di_reddito_equivalente, ordered = TRUE, levels = c('primo', 'secondo', 'terzo', 'quarto', 'quinto')))
+```
+
+50% of population in the South and Islands is in the two lowest quintiles
+```{r}
+income.quintiles %>% 
+  filter(territorio %in% c('Isole', 'Sud', 'Centro', 'Nord-est', 'Nord-ovest')) %>% 
+  ggplot(aes(time, value, fill = fct_rev(quinto_di_reddito_equivalente) )) + geom_area(position = 'stack') + theme_bw() + 
+  facet_wrap(territorio ~ .) + 
+  theme(legend.position = 'bottom')
+```
+
+Broad differences within macro-areas as well
+```{r}
+income.quintiles %>% 
+  filter(territorio %in% c('Sardegna', 'Sicilia')) %>% 
+  ggplot(aes(time, value, fill = fct_rev(quinto_di_reddito_equivalente) )) + geom_area(position = 'stack') + theme_bw() + 
+  facet_wrap(territorio ~ .) +
+  theme(legend.position = 'bottom')
+```
+
+Data on household income (ISTAT)
+http://dati.istat.it/Index.aspx?DataSetCode=DCCV_REDNETFAMFONTERED
+
+```{r}
+income.data <- read.table('../Econ data/DCCV_REDNETFAMFONTERED - Reddito netto - intero ds.csv', sep = '|', header = TRUE) %>%
+  clean_names() 
+```
+
+
+```{r}
+glimpse(income.data)
+```
+
+
+Considering median income (more robust than mean) by macro-region (no gender/age/etc breakdown)
+
+```{r}
+
+income.data %>% 
+  filter(territorio %in% c('Nord-ovest', 'Nord-est', 'Centro', 'Sud', 'Isole', 'Italia')) %>%
+  filter(condizione_professionale_prevalente_nell_anno_del_principale_percettore == 'totale' & titolo_di_studio_del_principale_percettore == 'totale' & fonte_principale_di_reddito_familiare == 'totale' & numero_di_anziani_in_famiglia == 'totale' & numero_di_minori_in_famiglia == 'totale' & classe_di_et_a_del_principale_percettore == 'totale' & sesso_del_principale_percettore == 'totale' & tipologia_familiare == 'totale' & numero_di_componenti == 'totale' ) -> income.tots
+
+income.tots %>% 
+
+  filter(grepl('mediano', tipo_dato)) -> income.tots.median
+
+income.tots %>% 
+  filter(grepl('medio', tipo_dato)) -> income.tots.mean
+
+
+income.tots.median %>% 
+  arrange(time, presenza_affitti_imputati, -value) %>% 
+  filter(territorio %in% c('Sud', 'Isole', 'Italia'))
+```
+
+
+Sicily case 
+```{r}
+income.data %>% 
+  filter(condizione_professionale_prevalente_nell_anno_del_principale_percettore == 'totale' & titolo_di_studio_del_principale_percettore == 'totale' & fonte_principale_di_reddito_familiare == 'totale' & numero_di_anziani_in_famiglia == 'totale' & numero_di_minori_in_famiglia == 'totale' & classe_di_et_a_del_principale_percettore == 'totale' & sesso_del_principale_percettore == 'totale' & tipologia_familiare == 'totale' & numero_di_componenti == 'totale' ) %>% 
+  filter(territorio == 'Sicilia')
+```
+
+
+Timeline comparison (left: after housing costs, right: before housing costs)
+```{r}
+income.tots.median %>% 
+  ggplot(aes(time, value, colour = territorio)) + geom_line(size = 1) +
+  theme_bw() + 
+  facet_wrap(.~ presenza_affitti_imputati) +
+  theme(legend.position = 'bottom')
+```
+
+income variation - 2009 to 2016
+```{r}
+income.tots.median %>% 
+  filter(time %in% c(2009, 2016)) %>% 
+  group_by(territorio, presenza_affitti_imputati) %>% mutate(Growth = (value - lag(value))/lag(value)) %>% 
+  ggplot(aes(territorio, Growth, group = presenza_affitti_imputati, fill = presenza_affitti_imputati)) + geom_col(position = 'dodge') +
+  theme_bw()
+```
+
+
+Mean and median income - timeline comparison
+
+```{r}
+income.tots %>% 
+  ggplot(aes(time, value, colour = territorio)) + geom_line(size = 1) +
+  theme_bw() + 
+  facet_wrap( presenza_affitti_imputati ~ tipo_dato) +
+  theme(legend.position = 'bottom')
+```
+
+
+Income growth by gender (2009-2016)
+
+
+```{r}
+income.data %>% 
+  filter(sesso_del_principale_percettore != 'totale' & numero_di_anziani_in_famiglia == 'totale' & numero_di_minori_in_famiglia == 'totale' & numero_di_componenti == 'totale' & tipologia_familiare == 'totale' & grepl('mediano', tipo_dato) & presenza_affitti_imputati == 'esclusi fitti imputati' & fonte_principale_di_reddito_familiare == 'totale') %>% 
+  filter(time %in% c(2009, 2016)) %>% 
+   group_by(territorio, sesso_del_principale_percettore) %>% mutate(Growth = (value - lag(value))/lag(value)) %>% 
+ggplot(aes(territorio, Growth, fill = sesso_del_principale_percettore)) + geom_col(position = 'dodge') + 
+  theme_bw()+
+  coord_flip()
+```
+
+
+Consumption expenditure for households (ISTAT)
+https://www.istat.it/it/archivio/spesa+per+consumi
+
+```{r}
+spese.consumi <- read.csv('../Econ data/Spese per consumi - it.csv', sep = '|') %>% 
+  clean_names()
+
+names(spese.consumi)
+```
+
+
+Academic attainment data (correlation socioeconomic status - education - healthcare)
+https://www.istat.it/it/istruzione-e-formazione
+
+```{r}
+istruzione.italia <- readxl::read_excel('../Econ data/Istruzione.xls', sheet = 'Dati Italia e Regioni', na = c('', '....')) %>% 
+  clean_names()
+
+istruzione.italia <- istruzione.italia %>% 
+  gather(key = year, value = value, - c(settore, indicatore, modalita, unita_di_misura, territorio, fonte, note)) %>% 
+  separate(year, into = c(NA, 'year'), sep = 'x') %>% 
+  mutate(value = as.numeric(value), year = as.numeric(year)) %>% 
+  select(indicatore, modalita, year, territorio, value, unita_di_misura, everything())
+
+```
+
+
+School dropouts (great progress in time, but higher rates in the South)
+```{r}
+istruzione.italia %>% 
+  filter(indicatore == 'Giovani che abbandonano prematuramente gli studi') %>% 
+  ggplot(aes(year, value, colour = modalita)) + geom_line() +
+  theme_bw() + 
+  facet_wrap(.~territorio)
+
+```
+
+
+% people 30-34 with university degree (not too high in general, definitely higher in the North)
+```{r}
+istruzione.italia %>% 
+  filter(indicatore == '30-34enni con istruzione universitaria') %>% 
+   ggplot(aes(year, value, colour = modalita)) + geom_line() +
+  theme_bw() + 
+  facet_wrap(.~territorio)
+```
+
+
+```{r}
+istruzione.italia %>% 
+  filter(indicatore == '30-34enni con istruzione universitaria' & year == 2018) %>% 
+  ggplot(aes(reorder(territorio, value), value)) + geom_col() + 
+  theme_bw() +
+  coord_flip() +
+  facet_wrap(.~ modalita)
+```
+
+
+
+```{r}
+cancellati.mob <- read.csv('../Econ data/cancellati_mobilita.csv', encoding = 'Latin-1') %>% 
+  mutate(type = rep('cancellati', nrow(.))) %>% 
+  gather(key = 'year', value = 'value', -REGIONI, -type) %>% 
+  separate(year, into = c(NA, 'year'), sep = 'X') %>% 
+  mutate(year = as.numeric(year))
+```
+
+
+```{r}
+iscritti.mob <- read.csv('../Econ data/iscritti_mobilita.csv', encoding = 'Latin-1') %>% 
+  mutate(type = rep('iscritti', nrow(.))) %>% 
+  gather(key = 'year', value = 'value', -REGIONI, -type) %>% 
+  separate(year, into = c(NA, 'year'), sep = 'X') %>% 
+  mutate(year = as.numeric(year))
+```
+
+Net mobility between regions
+```{r}
+saldo.mob <- rbind(iscritti.mob, cancellati.mob) %>% 
+  spread(type, value) %>% 
+  mutate(saldo = iscritti - cancellati)
+```
+
+
+```{r}
+ggplot(saldo.mob, aes(year, saldo)) + geom_col() +
+  theme_bw() + 
+  facet_wrap(.~REGIONI)
+```
+
+
+```{r}
+macro <- c('Nord-ovest', 'Nord-est', 'Centro', 'Sud', 'Isole')
+```
+
+
+Public and household healthcare expenditure (per household)
+Source: Ambrosetti
+```{r}
+spesa.pc <- read.csv('../Econ data/income_health.csv') %>% 
+  clean_names()
+
+
+```
+
+
+Let's merge income data with healthcare expenditure
+```{r}
+income.data %>% 
+  filter(!territorio %in% c('Nord-ovest', 'Nord-est', 'Centro', 'Sud', 'Isole', 'Italia')) %>%
+  filter(condizione_professionale_prevalente_nell_anno_del_principale_percettore == 'totale' & titolo_di_studio_del_principale_percettore == 'totale' & fonte_principale_di_reddito_familiare == 'totale' & numero_di_anziani_in_famiglia == 'totale' & numero_di_minori_in_famiglia == 'totale' & classe_di_et_a_del_principale_percettore == 'totale' & sesso_del_principale_percettore == 'totale' & tipologia_familiare == 'totale' & numero_di_componenti == 'totale'& grepl('MEDIANO', t_d8) & time == max(time)) -> for.merge
+```
+
+
+```{r}
+
+
+spesa.pc %>% 
+left_join(., for.merge, by = 'i_it107') -> correlation.df
+
+# scatterplot correlating healthcare expenditure and net household income
+correlation.df %>% 
+  filter(grepl('inclusi', presenza_affitti_imputati)) %>% 
+  ggplot(aes(value, avg, colour = regione, label= regione)) + geom_point() +
+  geom_label()
+```
+
+
+
+```{r}
+# putting together life expectancy, income, healthcare expenditure
+nord <- append(nord.est, nord.ovest)
+mezzogiorno <- append(sud, isole)
+correlation.df %>% 
+  select(i_it107, territorio, avg, starts_with('spesa'), spesa_privata, tipo_dato, presenza_affitti_imputati, value) -> correlation.df
+
+
+ # write.csv(correlation.df, '../website/src/age_income.csv', row.names = FALSE)
+```
+

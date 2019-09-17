@@ -1,0 +1,289 @@
+---
+title: "Avoidable deaths"
+output: html_notebook
+---
+
+
+```{r}
+library(janitor)
+library(tidyverse)
+```
+
+Avoidable deaths data: Nebo Ricerche PA
+https://www.mortalitaevitabile.it/
+
+
+```{r}
+fillHeaders <- function(header_table) {
+  # this function creates a single header out of a table with two header rows
+  for (row in 2:nrow(header_table)) {
+    this_row <- header_table[row, ]
+    last_row <- header_table[row-1, ]
+    new_row <- ifelse(is.na(this_row), last_row, this_row)
+    header_table[row, ] <- new_row
+  }
+  header_table
+}
+```
+
+
+Avoidable deaths represented in days of life lost (split in several Excel files, needs merging and cleaning)
+```{r}
+cleanable <- purrr::map_dfr(list.files('D:/Documenti/Health and economics/health_data/mevi/days_lost', full.names = TRUE), function(df) {
+  # take all files in the folder and map them to a single dataframe
+
+  tmp.head <- read.csv(df, nrows = 3, header = FALSE, strip.white = TRUE) %>% 
+    clean_names()
+  # load temp dataframe, extract year from filename
+  yr <- as.numeric(str_extract(df, '\\d{4}')) - 1
+  cols <- tmp.head %>% 
+    t() %>% # transposes the data and turns it into a matrix
+  as_tibble() %>% # turn it back to a tibble
+  fillHeaders() %>% # fill in missing headers 
+  mutate(name = paste(V1, V2, sep = "_")) %>%
+  pull(name)
+
+  # re-read the csv with the right column names
+  tmp <- read.csv(df, col.names = cols, strip.white = TRUE) %>% 
+    clean_names() %>% 
+    mutate(year = yr)
+  
+ 
+})
+
+```
+
+
+```{r}
+# clean up names
+name_cleaner <- function(df) {
+  names(df)[names(df ) == 'x_prev_primaria'] = 'femmine_prev_primaria'
+
+names(df)[names(df ) == 'x_diagnosi_pr_e_ter'] = 'femmine_diagnosi_pr_e_ter'
+
+names(df)[names(df ) == 'x_igiene_e_ass_sanitaria'] = 'femmine_igiene_e_ass_sanitaria'
+
+
+names(df)[names(df ) == 'x_prev_primaria_1'] = 'maschi_prev_primaria'
+
+names(df)[names(df ) == 'x_diagnosi_pr_e_ter_1'] = 'maschi_diagnosi_pr_e_ter'
+
+names(df)[names(df ) == 'x_igiene_e_ass_sanitaria_2'] = 'maschi_igiene_e_ass_sanitaria'
+
+names(df)[names(df ) == 'x_regione'] = 'regione'
+
+return (df)
+}
+
+cleanable <- name_cleaner(cleanable)
+
+```
+
+
+```{r}
+nord.ovest <- c("Piemonte", "Valle d'Aosta", 'Liguria', 'Lombardia')
+
+
+nord.est <- c('Trentino Alto Adige', 'Veneto', 'Friuli Venezia Giulia', 'Emilia Romagna')
+
+centro <- c('Toscana', 'Umbria', 'Marche', 'Lazio')
+
+sud <- c('Abruzzo', 'Molise', 'Campania', 'Puglia', 'Basilicata', 'Calabria')
+
+isole <- c('Sicilia', 'Sardegna')
+```
+
+
+
+Further clean-up and tidying up, to compare by region
+```{r}
+days.lost <- cleanable %>% 
+  filter(regione != 'Regione') %>% 
+  select(- starts_with('x')) %>% 
+  unite(femmine_totale, femmine_tutte_le_cause) %>% 
+  unite(maschi_totale, maschi_tutte_le_cause) %>% 
+  select(regione, year, starts_with('maschi'), starts_with('femmine'), everything())
+```
+
+
+
+```{r}
+days.lost %>% 
+  gather(key = 'measure', value = 'value', -regione, -year) %>% 
+  separate(measure, into = c('gender', 'measure'), sep = '_', extra = 'merge') %>% 
+  mutate(value = as.numeric(value), year = as.numeric(year)) -> days.lost
+
+
+days.lost$area <- ifelse(days.lost$regione %in% nord.ovest, 'nord-ovest', ifelse(days.lost$regione %in% nord.est, 'nord-est', ifelse(days.lost$regione %in% centro, 'centro', ifelse(days.lost$regione %in% sud, 'sud', ifelse(days.lost$regione %in% isole, 'isole', NA)))))
+
+```
+
+
+```{r}
+days.lost %>% 
+  filter(measure == 'totale' & !is.na(value) & regione != 'Italia') %>% 
+  ggplot(aes(year,value, colour = gender)) + geom_line() + 
+  theme_bw() + 
+  facet_wrap(.~regione)
+```
+
+
+
+```{r}
+days.lost %>% 
+  # healthcare system
+  filter(measure == 'igiene_e_ass_sanitaria' & !is.na(value) & regione != 'Italia') %>% 
+  ggplot(aes(year,value, colour = gender)) + geom_line() + 
+  theme_bw() + 
+  facet_wrap(.~regione)
+```
+
+
+```{r}
+days.lost %>% 
+  # early detection
+  filter(measure == 'diagnosi_pr_e_ter' & !is.na(value) & regione != 'Italia') %>% 
+  ggplot(aes(year,value, colour = gender)) + geom_line() + 
+  theme_bw() + 
+  facet_wrap(.~regione)
+```
+
+
+
+```{r}
+days.lost.area <- days.lost %>%
+  filter(!is.na(area)) %>% 
+  group_by(year, area, measure, gender) %>% 
+  summarise(mean = mean(value, na.rm = TRUE), median = median(value, na.rm = TRUE)) %>% 
+  ungroup()
+
+# primary prevention (lifestyle-related)
+days.lost.area %>%
+  filter(measure == 'prev_primaria' ) %>% 
+  ggplot(aes(year, mean, colour = gender )) + geom_line() + 
+  theme_bw() +
+  facet_wrap(.~area, ncol = 5, nrow = 1) +
+  theme(legend.position = 'bottom')
+```
+
+
+```{r}
+
+rates.ad %>% 
+  filter(regione == 'Italia')
+days.lost.area %>%
+  filter(measure == 'totale' ) %>% 
+  ggplot(aes(year, mean, colour = gender )) + geom_line() + 
+  theme_bw() +
+  facet_wrap(.~area, ncol = 5, nrow = 1) +
+  theme(legend.position = 'bottom')
+```
+
+
+
+```{r}
+days.lost.area %>%
+  filter(measure == 'igiene_e_ass_sanitaria' ) %>% 
+  ggplot(aes(year, mean, colour = gender )) + geom_line() + 
+  theme_bw() +
+  facet_wrap(.~area, ncol = 5, nrow = 1) +
+  theme(legend.position = 'bottom')
+```
+
+
+
+
+Rates of avoidable deaths
+```{r}
+avoidable.raw <- purrr::map_dfr(list.files('D:/Documenti/Health and economics/health_data/mevi/tassi_ev', full.names = TRUE), function(df) {
+
+  tmp.head <- read.csv(df, nrows = 3, header = FALSE, strip.white = TRUE) %>% 
+    clean_names()
+
+  yr <- as.numeric(str_extract(df, '\\d{4}')) - 1
+  cols <- tmp.head %>% 
+    t() %>% # transposes the data and turns it into a matrix
+  as_tibble() %>% # turn it back to a tibble
+  fillHeaders() %>% # fill in missing headers 
+  mutate(name = paste(V1, V2, sep = "_")) %>%
+  pull(name)
+
+  
+  tmp <- read.csv(df, col.names = cols, strip.white = TRUE) %>% 
+    clean_names() %>% 
+    mutate(year = yr)
+  
+ 
+})
+```
+
+
+```{r}
+avoidable.raw <- name_cleaner(avoidable.raw)
+
+
+rates.ad <- avoidable.raw %>% 
+  filter(regione != 'Regione') %>% 
+  select(- starts_with('x')) %>% 
+  unite(femmine_totale, femmine_tutte_le_cause) %>% 
+  unite(maschi_totale, maschi_tutte_le_cause) %>% 
+  select(regione, year, starts_with('maschi'), starts_with('femmine'), everything()) %>% 
+  gather(key = 'measure', value = 'value', -regione, -year) %>% 
+  separate(measure, into = c('gender', 'measure'), sep = '_', extra = 'merge') %>% 
+  mutate(value = as.numeric(value), year = as.numeric(year))
+
+
+rates.ad$area <- ifelse(rates.ad$regione %in% nord.ovest, 'nord-ovest', ifelse(rates.ad$regione %in% nord.est, 'nord-est', ifelse(rates.ad$regione %in% centro, 'centro', ifelse(rates.ad$regione %in% sud, 'sud', ifelse(rates.ad$regione %in% isole, 'isole', NA)))))
+```
+
+
+```{r}
+rates.ad.area <- rates.ad %>% 
+  filter(!is.na(area)) %>% 
+  group_by(year, area, measure, gender) %>% 
+  summarise(mean = mean(value, na.rm = TRUE), median = median(value, na.rm = TRUE)) %>% 
+  ungroup()
+
+```
+
+Avoidable deaths rates (by prevention type)
+```{r}
+rates.ad %>% 
+  filter(measure == 'igiene_e_ass_sanitaria' & !is.na(value) & regione != 'Italia') %>% 
+  ggplot(aes(year,value, colour = gender)) + geom_line() + 
+  theme_bw() + 
+  facet_wrap(.~regione)
+
+
+rates.ad %>% 
+  filter(regione == 'Italia')
+```
+
+
+```{r}
+rates.ad.area %>%
+  filter(measure == 'igiene_e_ass_sanitaria' ) %>% 
+
+  ggplot(aes(year, mean, colour = gender )) + geom_line() + 
+  theme_bw() +
+  facet_wrap(.~area, ncol = 5, nrow = 1) +
+  theme(legend.position = 'bottom')
+```
+
+Avoidable death rates by region
+
+```{r}
+rates.ad %>% 
+  filter(measure == 'totale' & !is.na(value) & regione != 'Italia') %>% 
+  ggplot(aes(year,value, colour = gender)) + geom_line() + 
+  theme_bw() + 
+  facet_wrap(.~regione)
+  
+```
+
+
+
+
+
+
+

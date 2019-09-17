@@ -1,0 +1,381 @@
+```{r}
+library(tidyverse)
+library(janitor)
+library(eurostat)
+```
+
+People at risk of poverty and social exclusion 
+https://ec.europa.eu/eurostat/statistics-explained/index.php/People_at_risk_of_poverty_or_social_exclusion
+
+```{r}
+poverty.eu <- read.csv('../Econ data/ilc_peps11_1_Data.csv', na = c('', ':'), encoding = 'latin1') %>% 
+  clean_names() %>% 
+  mutate(geo = recode(geo, `Valle d'Aosta/Vallée d'Aoste` = "Valle d'Aosta"))
+
+
+italy.names <- c('Italy', 'Nord-Ovest', 'Nord-Est', 'Centro (IT)', 'Sud', 'Isole', 'Piemonte', 'Lombardia', 'Valle d\'Aosta', 'Veneto', 'Friuli-Venezia Giulia', 'Provincia Autonoma di Bolzano/Bozen', 'Provincia Autonoma di Trento', 'Liguria', 'Emilia-Romagna', 'Toscana', 'Umbria', 'Marche', 'Abruzzo', 'Molise', 'Lazio', 'Campania', 'Puglia', 'Basilicata', 'Calabria', 'Sicilia', 'Sardegna')
+```
+
+
+Data for Italy
+```{r}
+italy.pov.eu <- poverty.eu %>% 
+  filter(grepl('IT', geo)) %>% 
+  filter(!is.na(value)) #excludes confidence intervals, no 2018 data
+```
+
+
+
+```{r}
+it.macro <- c('Nord-est', 'Nord-ovest', 'Centro (IT)', 'Sud', 'Isole')
+
+
+# poverty rankings by year
+italy.pov.eu %>% 
+  filter(!geo %in%it.macro) %>% 
+  ggplot(aes(reorder(geo_label, value), value)) + geom_col() +
+  theme_minimal() + 
+  facet_wrap(.~time) +
+  coord_flip()
+
+```
+
+
+3825 rows
+
+EU rankings - who are the poorest?
+```{r}
+poverty.eu %>% filter (time == 2017 & unit_label == 'Percentage') %>% 
+  arrange(value)
+```
+
+
+```{r}
+italy.pov.eu %>% 
+  filter(!geo %in% c('Italy', 'Nord-Ovest', 'Nord-Est', 'Centro (IT)', 'Sud', 'Isole')) %>% 
+  ggplot(aes(time, value)) + geom_line() +
+  theme_minimal() + 
+  facet_wrap(.~geo)
+```
+
+Unemployment rate https://ec.europa.eu/eurostat/statistics-explained/index.php/Unemployment_statistics
+(includes youth unemployment)
+```{r}
+unemployment.eu <- read.csv('../Econ data/unemployment_eurostat.csv', encoding = 'Latin-1', na = c('', ':')) %>% 
+  clean_names() %>% 
+  mutate(geo = recode(geo, `Valle d'Aosta/Vallée d'Aoste` = "Valle d'Aosta"))
+
+```
+
+
+```{r}
+youth.unemployment.it <- unemployment.eu %>% 
+  filter(age == 'From 15 to 24 years' & geo %in% italy.names) %>% 
+  select(-flag_and_footnotes)
+
+
+#write.csv(youth.unemployment.it, 'youth_unemployment.csv', row.names = FALSE)
+
+
+youth.unemployment.it %>% 
+   filter(!geo %in% c('Italy', 'Nord-Ovest', 'Nord-Est', 'Centro (IT)', 'Sud', 'Isole') & sex == 'Total') %>% 
+  filter(time == 2018) %>% 
+  ggplot(aes(reorder(geo, value), value)) + geom_col() +
+  theme_minimal() + 
+  facet_wrap(.~time) +
+  coord_flip()
+```
+
+
+```{r}
+tot.unemployment.it <- unemployment.eu %>% 
+  filter(age == 'From 15 to 74 years' & geo %in% italy.names)
+
+
+tot.unemployment.it %>% 
+   filter(!geo %in% c('Italy', 'Nord-Ovest', 'Nord-Est', 'Centro (IT)', 'Sud', 'Isole') & sex == 'Total') %>% 
+ 
+  ggplot(aes(reorder(geo, value), value)) + geom_col() +
+  theme_minimal() + 
+  facet_wrap(.~time) +
+  coord_flip()
+```
+
+
+```{r}
+tot.unemployment.it %>% 
+   filter(!geo %in% c('Italy', 'Nord-Ovest', 'Nord-Est', 'Centro (IT)', 'Sud', 'Isole') & sex == 'Total') %>% 
+
+  ggplot(aes(time, value)) + geom_line() +
+  theme_minimal() + 
+  scale_y_continuous(limits = c(0, NA)) +
+  facet_wrap(.~geo)
+```
+
+NEETs (not in education, employment, training)
+https://ec.europa.eu/eurostat/statistics-explained/index.php/Statistics_on_young_people_neither_in_employment_nor_in_education_or_training
+
+```{r}
+neet.eurostat <- read.csv('../Econ data/eurostat_neet.csv') %>% 
+  clean_names() %>% 
+  mutate(geo = recode(geo, `Valle d'Aosta/Vallée d'Aoste` = "Valle d'Aosta"), value = as.numeric(levels(value)[value])) 
+```
+
+
+
+```{r}
+neet.italy <- neet.eurostat %>% 
+  filter(grepl('IT', geo))
+
+
+neet.italy %>% 
+  filter(!geo_label %in% c('Italy', 'Nord-Ovest', 'Nord-Est', 'Centro (IT)', 'Sud', 'Isole')) %>% 
+  ggplot(aes(time, value, group = geo)) + geom_col() +
+  theme_bw() + 
+  facet_wrap(.~geo)
+
+
+```
+
+
+```{r}
+neet.italy %>% 
+  filter(geo_label %in% c('Italy', 'Nord-Ovest', 'Nord-Est', 'Centro (IT)', 'Sud', 'Isole')) %>%
+  ggplot(aes(time, value, group = geo)) + geom_col() +
+  theme_bw() + 
+  facet_wrap(.~geo_label)
+```
+
+Tertiary educational attainment (correlation healthcare outcomes - education level)
+
+https://ec.europa.eu/eurostat/web/products-datasets/product?code=tgs00105
+
+```{r}
+tertiary.ed <- readxl::read_excel('../Econ data/tgs00109_data_20190715_140403.xlsx', sheet = 'Sheet 1', skip = 10, na = c('', ':')) %>% 
+  select(-starts_with('...')) 
+
+names(tertiary.ed)[1:2] <- c('geo_code', 'geo_name')
+
+tertiary.ed <- tertiary.ed %>% 
+  filter(geo_code != 'GEO (Codes)')
+
+
+tertiary.it <- tertiary.ed %>% 
+  filter(grepl('IT', geo_code)) %>% 
+  gather(key = 'year', value = 'graduates', -c(geo_code, geo_name)) %>% 
+  mutate(year = as.numeric(year))
+
+
+```
+
+```{r}
+tertiary.it %>% 
+  arrange(year, -graduates) %>% 
+  ggplot(aes(year, graduates)) + geom_line() +
+  theme_bw() +
+  facet_wrap(.~geo_name)
+```
+
+
+```{r}
+ggplot(tertiary.it %>% filter(year == 2018), aes(reorder(geo_name, graduates), graduates)) + geom_col() +
+  theme_bw() +
+  coord_flip()
+```
+
+```{r}
+tertiary.it %>% 
+  group_by(year) %>% 
+  summarise(mean = mean(graduates))
+```
+
+
+```{r}
+grad.3034 <- readxl::read_excel('../Econ data/tgs00105_data_20190715_141839.xlsx', sheet = 'Sheet 1', skip = 10, na = c('', ':', 'u', 'b')) %>% 
+  select(- starts_with('...')) %>% 
+  filter(!is.na(`2015`))
+
+names(grad.3034)[1:2] <- c('geo_code', 'geo_name')
+
+
+grad.3034.it <- grad.3034 %>% 
+  filter(grepl('IT', geo_code)) %>%  
+  gather(key = 'year', value = 'graduates', -c(geo_code, geo_name)) %>% 
+  mutate(year = as.numeric(year))
+```
+
+
+```{r}
+ggplot(grad.3034.it, aes(year, graduates, colour = geo_name)) + geom_line() +
+  theme_bw()
+```
+
+
+
+```{r}
+population.by.ed <- read.csv('../Econ data/edat_lfse_04_1_Data.csv', na = c('', ':')) %>% 
+  clean_names() 
+
+
+it.macro <- c('ITC', 'ITI', 'ITH', 'ITF', 'ITG', 'IT')
+it.ed.macro <- population.by.ed %>%
+  filter(geo %in% it.macro)
+
+it.ed.macro
+```
+
+```{r}
+ggplot(it.ed.macro %>% filter(isced11 != 'Upper secondary, post-secondary non-tertiary and tertiary education (levels 3-8)'), aes(time, value, fill = isced11)) + geom_col(position = 'stack') +
+  theme_bw() + 
+  facet_wrap(.~geo_label)
+```
+
+```{r}
+it.ed.macro %>% 
+  filter(isced11 != 'Upper secondary, post-secondary non-tertiary and tertiary education (levels 3-8)') %>% 
+  filter(time %in% c(2000, 2018)) %>% 
+  arrange(geo, isced11, time) %>% 
+  group_by(geo_label, isced11) %>% 
+  mutate(Growth = (value - lag(value))/lag(value)) %>% 
+  ggplot(aes(geo_label, Growth, fill = isced11)) + geom_col(position = 'dodge') +
+  theme_bw()
+```
+
+
+disposable income by Nuts 2 regions
+https://data.europa.eu/euodp/it/data/dataset/sM4ZlFfB3orhAt0Ug51pdA
+```{r}
+disp.income <- read.delim('../Econ data/disp_income_nuts2.tsv', sep = c('', '\t', ',')) %>% 
+  separate(unit.direct.na_item.geo.time, into = c('unit', 'direct', 'na_item', 'geo_time' ), sep = ',') %>% 
+  gather(key = 'year', value = 'income', - c(unit, direct, na_item, geo_time)) %>% 
+  separate(year, into =c(NA, 'year'), sep = 'X') %>% 
+  mutate(year = as.numeric(year), income = as.numeric(income))
+
+disp.income
+```
+
+
+
+```{r}
+poverty.eu %>% 
+  filter(grepl('IT', geo)) %>% 
+  select(geo, geo_label) -> key.italy
+
+names(key.italy)[names(key.italy) == 'geo'] = 'geo_time'
+```
+
+
+Recoding column with geocode to create a map in d3
+```{r}
+disp.income %>% 
+  
+  merge(., key.italy, by = 'geo_time') -> disp.income.label
+
+key.italy
+disp.income.label %>% 
+  arrange(-year, -income) %>% 
+  filter(geo_label == 'Calabria')
+```
+
+
+```{r}
+ggplot(disp.income.label, aes(year, income)) + geom_line() + 
+  theme_bw() + 
+  facet_wrap(.~geo_label)
+```
+
+```{r}
+disp.income %>% 
+  filter(year == max(year))
+```
+
+Let's play with the Eurostat package to retrieve datasets and geodata
+```{r}
+
+
+
+search_eurostat(c('poverty')) %>% 
+  filter(grepl('NUTS', title))
+
+
+
+
+## People at risk of poverty or social exclusion by NUTS regions	
+poverty.rate.nuts <- get_eurostat('ilc_peps11')
+
+
+
+```
+
+Data for NUTS 1, NUTS 2 and NUTS 3 regions (d3.js maps)
+```{r}
+nuts2 <- eurostat::get_eurostat_geospatial(output_class = "sf", resolution = "10",nuts_level = "2", year = "2016", cache = TRUE,update_cache = FALSE, cache_dir = NULL)
+
+nuts <- eurostat::get_eurostat_geospatial(output_class = "sf", resolution = "10",nuts_level = "1", year = "2016", cache = TRUE,update_cache = FALSE, cache_dir = NULL)
+
+
+nuts3 <- eurostat::get_eurostat_geospatial(output_class = "sf", resolution = "10",nuts_level = "3", year = "2016", cache = TRUE,update_cache = FALSE, cache_dir = NULL)
+```
+
+
+Filter it to only include Italy, save as topojson
+```{r}
+nuts3it <- nuts3 %>% 
+  filter(grepl('IT', id))
+#geojsonio::topojson_write(input = nuts3it, lat = 'lat', lon = 'long', geometry = 'polygon', file = '../website/src/nuts3it.json')
+
+
+
+```
+
+
+```{r}
+nuts2.it <- nuts2 %>% 
+  filter(grepl('IT', id))
+
+nuts2.it
+
+#geojsonio::topojson_write(input = nuts2.it, lat = 'lat', lon = 'long', geometry = 'polygon', file = 'nuts2it.json')
+```
+
+```{r}
+
+
+
+disp.labels <- disp.income.label %>% 
+  select(geo_time, geo_label) %>% 
+  distinct(geo_time, geo_label)
+
+disp.income %>% 
+  filter(grepl('IT', geo_time) & year == max(year)) %>% 
+  # mutate(region = recode(geo_time, disp.labels ))
+  left_join(., disp.labels, by = 'geo_time')# %>% 
+#  write.csv(., 'disp_income.csv', row.names = FALSE)
+```
+
+
+```{r}
+eurostat::search_eurostat('NUTS 2')
+```
+
+
+```{r}
+
+
+
+poverty.rate.labelled <- poverty.rate.nuts %>% 
+    filter(grepl(2017, time)) %>% 
+  eurostat::label_eurostat(., fix_duplicated = TRUE, code = 'geo') %>% 
+
+  select(geo_code, geo, time, values)
+
+
+#write.csv(poverty.rate.labelled, '../website/src/poverty_eu.csv', row.names = FALSE)
+```
+
+
+
+
+
+
+

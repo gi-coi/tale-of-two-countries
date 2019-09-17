@@ -1,0 +1,92 @@
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+
+```{r}
+incidenza.stomaco <- read.delim('../health_data/tumori/tumori_stomaco_incidenza.txt', sep = '\t', skip = 1) %>% 
+  select(-X) %>% 
+  clean_names() %>% 
+  filter(periodo != 'Periodo' ) 
+```
+
+
+```{r}
+incidenza.stomaco %>% 
+  filter(regione == 'Sud') %>% 
+  ggplot(aes(periodo, tasso_i, colour = sesso, group = sesso)) + geom_line() +
+  theme_bw() +
+  facet_wrap(.~et_a)
+```
+
+
+
+```{r}
+incidenza.stomaco.gr <- read.delim('../health_data/tumori/incidenza_stomaco_grezzo.txt', sep = '\t', skip = 1) %>% 
+  clean_names() %>% 
+  select(-x) 
+```
+
+
+
+```{r}
+incidenza.stomaco.gr %>% 
+#  filter(regioni == 'Sud') %>% 
+  ggplot(aes(periodo, tasso_i, colour = sesso, group = sesso)) + geom_line() +
+  theme_bw() +
+  facet_wrap(.~ regioni)
+```
+
+
+```{r}
+mortalita.stomaco.gr <- read.delim('../health_data/tumori/mortalita_stomaco_gr.txt', sep = '\t', skip = 1) %>% 
+  clean_names() %>% 
+  select(-x)
+```
+
+
+```{r}
+mortalita.stomaco.gr %>% 
+  ggplot(aes(periodo, tasso_m, colour = sesso, group = sesso)) + geom_line() +
+  theme_bw() +
+  facet_wrap(.~regioni)
+```
+
+
+```{r}
+colon.seno.pol <- read.delim('../health_data/tumori/colon_seno_polmone.txt', sep = '\t', skip = 1, strip.white = TRUE) %>% 
+  clean_names() %>% 
+  select(-x) %>% 
+  filter(sede != '-- fine --' & sede != 'Tassi/proporzioni grezzi (per 100.000 abitanti)' & sede != 'Sede') %>% 
+  mutate(popolazione = as.numeric(levels(popolazione)[popolazione]), decessi =as.numeric(levels(decessi)[decessi]), periodo = as.numeric(levels(periodo)[periodo]), tasso_m = as.numeric(levels(tasso_m)[tasso_m]), incidenza = as.numeric(levels(incidenza)[incidenza]), tasso_i = as.numeric(levels(tasso_i)[tasso_i]), prevalenza = as.numeric(levels(prevalenza)[prevalenza]), tasso_p = as.numeric(levels(tasso_p)[tasso_p]) )
+
+colon.seno.pol
+
+tumori.colon <- colon.seno.pol %>% filter(sede == 'Colon-retto')
+
+tumori.seno <- colon.seno.pol %>% filter(sede == 'Mammella femminile')
+
+tumori.polmone <- colon.seno.pol %>% filter(sede == 'Polmone')
+```
+
+
+```{r}
+ggplot(tumori.colon, aes(periodo, tasso_i, colour = sesso)) + geom_line() +
+  theme_bw() + 
+  facet_wrap(.~ regioni)
+```
+
+
+```{r}
+ggplot(tumori.seno, aes(periodo, tasso_p)) + geom_line() + 
+  theme_bw() + 
+  facet_wrap(.~ regioni)
+```
+
+```{r}
+ggplot(tumori.polmone, aes(periodo, tasso_m, colour = sesso)) + geom_line() +
+  theme_bw() + 
+  facet_wrap(.~ regioni)
+```
+

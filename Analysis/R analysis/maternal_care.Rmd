@@ -1,0 +1,135 @@
+---
+title: "Maternal care"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+Complications in c-section (source: AGENAS)
+https://pne.agenas.it/
+
+```{r}
+compl.cesareo <- readxl::read_excel('../health_data/INDICATORE317.xls', skip = 1, na = c('', '-')) %>% 
+  clean_names()
+```
+
+Check if there are any anomalies by province/region
+```{r}
+glimpse(compl.cesareo)
+
+compl.cesareo %>% 
+  group_by(provincia) %>% 
+  summarise(media = mean(percent_adj, na.rm = TRUE)) %>% 
+  arrange(-media)
+```
+
+
+Hospitals by childbirth admissions (proxy to count the number of small maternal care units, by region)
+https://pne.agenas.it/
+
+```{r}
+ricoveri.parto17 <- readxl::read_excel('../health_data/INDICATORE127.xls', skip = 1) %>% 
+  clean_names()
+
+ricoveri.parto17
+```
+
+Small maternal units: < 500 births
+There used to be a North-South divide, but it's not that pronounced now
+```{r}
+ricoveri.parto17 %>% 
+  group_by(regione) %>% 
+  count(n > 500) -> dimensioni.ricoveri
+
+dimensioni.ricoveri %>% 
+  ggplot(aes(reorder(regione, `n > 500`), n, fill = `n > 500`)) + geom_col(position = 'stack') + 
+  coord_flip() + 
+  theme_bw()
+  
+```
+
+Small maternal units as a proportion of total
+```{r}
+dimensioni.ricoveri %>% 
+  spread(`n > 500`, n) %>% 
+  mutate(tot = `FALSE` + `TRUE`) %>% 
+  mutate(prop.piccoli = `FALSE` / tot, prop.grandi = `TRUE` / tot) %>% 
+  arrange(desc(prop.piccoli))
+```
+
+
+
+Primary c-sections (first child) (AGENAS)
+
+```{r}
+cesareo.primario <- readxl::read_excel('../health_data/INDICATORE37.xls', skip = 1, na = c('', '-')) %>% 
+  clean_names()
+
+cesareo.primario %>% 
+  group_by(regione) %>% 
+  summarise(mean_cs = mean(percent_grezza, na.rm = TRUE)) %>% 
+  write.csv(., '../website/src/csection.csv', row.names = FALSE) # d3
+```
+
+
+More c-section data (Osservasalute, all c-sections, 2011-2017) (compiled from pdf)
+https://www.osservatoriosullasalute.it/rapporto-osservasalute
+
+```{r}
+read.csv('../health_data/csections_osservasalute.csv') %>% 
+  select(-difference) %>% 
+  gather('year', 'csections', -region) -> csections.IT
+```
+
+```{r}
+csections.IT %>% 
+  mutate(year = str_replace(year, 'X', ''), csections = str_replace(csections, ',', '.')) %>% 
+  mutate(year = as.integer(year), csections = as.numeric(csections)) %>% 
+  write.csv('../website/src/csections_all.csv', row.names = FALSE)
+```
+
+```{r}
+
+regioni <- c('Abruzzo', 'Basilicata', 'Calabria', 'Campania', 'Emilia.Romagna', 'Friuli.Venezia.Giulia', 'Lazio', 'Liguria', 'Lombardia', 'Marche', 'Molise', 'Piemonte', 'Puglia', 'Sardegna', 'Sicilia', 'Toscana', 'Trentino.Alto.Adige', 'Umbria', 'Valle.d.Aosta', 'Veneto')
+
+```
+
+To recode geo labels with codes (maps)
+https://www.istat.it/it/archivio/6789
+
+
+Trying to extract them and pair them
+```{r}
+
+sigle.italia <- read.csv('../Geo/sigle.csv', na = c('', '-')) %>% 
+  clean_names()
+
+names(sigle.italia)
+
+
+sigle.italia %>% 
+  distinct(denominazione_citta_metropolitana, denominazione_provincia, sigla_automobilistica,codice_nuts3_2010) -> sigle.italia
+
+
+
+
+```
+
+
+```{r}
+
+
+
+names(key.italy)[names(key.italy) == 'geo_label'] = 'provincia'
+key.italy
+sigle.italia
+
+
+```
+
+
+
+

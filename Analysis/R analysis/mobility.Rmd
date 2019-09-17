@@ -1,0 +1,122 @@
+---
+title: "Healthcare migration"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(janitor)
+
+if(!require('circlize')) {
+  install.packages('circlize')
+} 
+
+
+```
+
+Source: Tavole SDO 2017
+
+```{r}
+
+mobility.all <- map_dfr(list.files('../health_data/Mobility/csvs', full.names = TRUE), function (df){
+    
+  tmp.head <- read.csv(df, skip = 2, nrows = 3, header = FALSE, strip.white = TRUE) 
+  # load temp dataframe, extract year from filename
+  type <- df
+  cols <- tmp.head %>% 
+    t() %>% # transposes the data and turns it into a matrix
+  as_tibble() %>% # turn it back to a tibble
+  fillHeaders() %>% # fill in missing headers 
+  mutate(name = paste(V1, V2, sep = "_")) %>%
+  pull(name)
+    tmp <- read.csv(df, col.names = cols, strip.white = TRUE, skip = 2, na = c('', '-')) %>% 
+    clean_names() %>% 
+    mutate(type = type) %>% 
+      select(-codice_residenza_errato, (-residenti_all_estero), -starts_with('totale_ricoveri_erogati'), -mobilita_attiva_dimissioni, -x, -x_1, -residenti_all_estero_1) %>% 
+      filter(regione_di_ricovero %in% c('Piemonte', 'Valle d\'Aosta', 'Lombardia', 'P.A. Bolzano', 'P.A. Trento', 'Veneto', 'Friuli V.G.', 'Liguria', 'Emilia Romagna', 'Toscana', 'Umbria', 'Marche', 'Lazio', 'Abruzzo', 'Molise', 'Campania', 'Puglia', 'Basilicata', 'Calabria', 'Sicilia', 'Sardegna'))
+
+})
+```
+
+
+
+
+```{r}
+# some data clean-up to standardise names
+mobility.tidy <- mobility.all %>% 
+  gather(key = 'residenza', value = 'value', -regione_di_ricovero, -type) %>% 
+  mutate(residenza = str_replace(residenza, 'regione_di_residenza_', '' ), residenza  = str_replace(residenza, 'x_', ''), value = parse_number(value) ) %>%
+  mutate(residenza = recode(residenza, 'piemonte' = 'Piemonte', 'valle_d_aosta' = 'Valle d\'Aosta', 'p_a_bolzano' = 'P.A. Bolzano', 'p_a_trento' = 'P.A. Trento', 'veneto' = 'Veneto', 'friuli_v_g' = 'Friuli Venezia Giulia', 'liguria' = 'Liguria', 'emilia_romagna' = 'Emilia Romagna', 'toscana' = 'Toscana', 'umbria' = 'Umbria', 'marche' = 'Marche', 'lazio' = 'Lazio', 'abruzzo'='Abruzzo', 'molise'='Molise', 'campania'= 'Campania', 'puglia' = 'Puglia', 'basilicata' = 'Basilicata', 'calabria' = 'Calabria', 'sicilia' = 'Sicilia', 'sardegna' = 'Sardegna', 'lombardia' = 'Lombardia', 'sardegna_1' = 'Sardegna')) %>% 
+  mutate(regione_di_ricovero = recode(regione_di_ricovero, 'Friuli V.G.' = 'Friuli Venezia Giulia'))
+
+nord.est <- append(nord.est, c('P.A. Trento', 'P.A. Bolzano'))
+
+mobility.tidy$area <- ifelse(mobility.tidy$residenza %in% nord.ovest, 'North-west', ifelse(mobility.tidy$residenza %in% nord.est, 'North-east', ifelse(mobility.tidy$residenza %in% centro, 'Centre', ifelse(mobility.tidy$residenza %in% sud, 'South', ifelse(mobility.tidy$residenza %in% isole, 'Islands', NA)))))
+
+mobility.tidy$area.ricovero <- ifelse(mobility.tidy$regione_di_ricovero %in% nord.ovest, 'North-west', ifelse(mobility.tidy$regione_di_ricovero %in% nord.est, 'North-east', ifelse(mobility.tidy$regione_di_ricovero %in% centro, 'Centre', ifelse(mobility.tidy$regione_di_ricovero %in% sud, 'South', ifelse(mobility.tidy$regione_di_ricovero %in% isole, 'Islands', NA)))))
+
+
+
+# net mobility flows to and from areas
+mobility.tidy %>% 
+  group_by(area, type, area.ricovero) %>% 
+  summarise(sum(value, na.rm = TRUE))
+
+
+mobility.tots <- mobility.tidy %>% 
+  group_by(area, area.ricovero) %>% 
+  summarise(movement = sum(value, na.rm = TRUE)) %>% 
+  mutate(same = area == area.ricovero) # same-area flows vs. flows to other areas
+ # ungroup() %>% 
+ # spread(area.ricovero, movement) #%>% 
+  # mobility totals - used for sankey visualisation
+ # write.csv(., '../website/src/mobility_tots.csv', row.names = FALSE)
+
+mobility.tots
+```
+
+Playing with a chord diagram to visualise flows
+
+```{r}
+mobility.ext <- mobility.tots %>% filter(same == FALSE)
+chordDiagram(x = mobility.ext)
+
+circos.clear()
+circos.par(start.degree = 90, gap.degree = 4, track.margin = c(-0.1, 0.1), points.overflow.warning = FALSE)
+par(mar = rep(0, 4))
+
+
+chordDiagram(x = mobility.ext, transparency = 0.25,
+              directional = 1,
+             direction.type = c("arrows", "diffHeight"), diffHeight  = -0.04,
+  
+             link.arr.type = "big.arrow", link.sort = TRUE, link.largest.ontop = TRUE)
+
+
+
+circos.trackPlotRegion(
+  track.index = 1, 
+  bg.border = NA, 
+  panel.fun = function(x, y) {
+    xlim = get.cell.meta.data("xlim")
+    sector.index = get.cell.meta.data("sector.index")
+    reg1 = mobility.tots$area
+    reg2 = mobility.tots$area.ricovero
+    
+    circos.text(x = mean(xlim), y = ifelse(test = nchar(reg2) == 0, yes = 5.2, no = 6.0), 
+                labels = reg1, facing = "bending", cex = 1.4)
+    circos.text(x = mean(xlim), y = 4.4, 
+                labels = reg2, facing = "bending", cex = 1.4)
+    circos.axis(h = "top", 
+                major.at = seq(from = 0, to = xlim[2], by = ifelse(test = xlim[2]>10, yes = 2, no = 1)), 
+                minor.ticks = 1, major.tick.percentage = 0.5,
+                labels.niceFacing = FALSE)
+  }
+)
+```
+
+
+
+
