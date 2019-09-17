@@ -8,15 +8,16 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 
-   
-    <meta name="description" content="A Tale of Two Countries - Measure Italy's healthcare gap with the interactive tool!">
+
+    <meta name="description"
+        content="A Tale of Two Countries - Measure Italy's healthcare gap with the interactive tool!">
     <title>Explore the data - A Tale of Two Countries</title>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
         integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 
-        <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-format.v1.min.js"></script>
-   
+
     <script src='https://unpkg.com/topojson@3.0.2/dist/topojson.js'></script>
 
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
@@ -27,7 +28,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 
-       
+
 
 
 
@@ -50,56 +51,66 @@
         <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <div class="topnav" id="navigationBar">
-                    <a href="index.html">Home</a>
-                            <a href="project.html">The project</a>
-                            <a href='explore_data.html'>The data</a>
-                    <div class="dropdown">
-                      <button class="dropbtn">Explore 
-                        <i class="fa fa-caret-down"></i>
-                      </button>
-                      <div class="dropdown-content">
-                        <a href="intro.html">Life expectancy</a>
-                        <a href="asbestos.html">Asbestos</a>
-                        <a href="csections.html">C-sections</a>
-                        <a href="healthcare_migration.html">Healthcare migration</a>
-                      </div>
-                    </div> 
-                  
-                  
-                    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
-                  </div>
-                
+        <div class="topnav" id="navigationBar">
+            <a href="index.html">Home</a>
+            <a href="project.html">The project</a>
+            <a href='explore_data.html'>The data</a>
+            <div class="dropdown">
+                <button class="dropbtn">Explore
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="intro.html">Life expectancy</a>
+                    <a href="asbestos.html">Asbestos</a>
+                    <a href="csections.html">C-sections</a>
+                    <a href="healthcare_migration.html">Healthcare migration</a>
+                </div>
+            </div>
+
+
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+        </div>
+
 
         <div id="main">
-         <!--    <div class="header">
+            <!--    <div class="header">
                 <h1>Explore the data</h1>
                 <h2>Use the interactive tool to measure Italy's healthcare gap</h2>
             </div> -->
 
-          <!--   <div class="content"> -->
-                    <div id='mapHeader'><h1>Use the interactive tool to measure Italy's healthcare gap</h1></div>
-                    <div id='mapContainer'>
-                        
-                
-                        <div id='interactiveMap' class='mapVis'>
-                           
-                
+            <!--   <div class="content"> -->
+            <div id='mapHeader'>
+                <h1>Use the interactive tool to measure Italy's healthcare gap</h1>
+            </div>
+            <div id='mapContainer'>
+
+
+                <div id='interactiveMap' class='mapVis'>
+
+
+                </div>
+                <div class='side'>
+
+                    <div id='regionBoard'>
+                        <h2 id='regionTitle'></h2>
+                        <div id='valueStatement'>
+                            <p></p>
+                            <div class='number'><span></span><span class='suffix'></span></div>
                         </div>
-                        <div class='side'>
-                            
-                            <div id='regionBoard'>
-                                    <h2 id='regionTitle'></h2>
-                            <div id='valueStatement'><p></p><div class='number'><span></span><span class='suffix'></span></div></div>
-                            
-                            <div id='valueComparison'><p></p><div class='number'><span></span><span class='suffix'></span></div></div>
-                        </div>
-                        <div id='source' ><p class='chartCaption'>Source: <span></span></p></div>
+
+                        <div id='valueComparison'>
+                            <p></p>
+                            <div class='number'><span></span><span class='suffix'></span></div>
                         </div>
                     </div>
+                    <div id='source'>
+                        <p class='chartCaption'>Source: <span></span></p>
+                    </div>
+                </div>
+            </div>
 
 
-        <!--     </div> -->
+            <!--     </div> -->
         </div>
     </div>
     <script src='JS/menu.js'></script>
