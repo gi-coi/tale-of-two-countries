@@ -95,7 +95,7 @@
             // Topojson from Eurostat
             // data from Osservasalute 2018
             .defer(d3.json, 'src/nuts2it.json')
-            .defer(d3.csv, 'src/csections_all.csv')
+            .defer(d3.csv, 'src/csection_it.csv')
             .await(function (error, boundary_data, c_data) {
 
                 c_data.forEach(function (d) {
@@ -140,10 +140,11 @@
 
 
         csections_data.forEach(d => {
+         
             map.set(d.geo_code, d.csections);
         })
 
-
+      
 
 
         var b = path.bounds(topojson.feature(boundaries, boundaries.objects['foo']));
@@ -164,8 +165,6 @@
                    return 'area' + d.properties.id;
                }) */
             .attr("fill", function (d) {
-
-
                 return colours(d.properties.csections = map.get(d.properties.id))
 
             })

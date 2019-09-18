@@ -1,0 +1,148 @@
+region,year,csections,geo_code
+Abruzzo,2011,42.85,ITF1
+Basilicata,2011,44.47,ITF5
+Provincia Autonoma di Bolzano/Bozen,2011,25,ITH1
+Calabria,2011,37.41,ITF6
+Campania,2011,62.51,ITF3
+Emilia-Romagna,2011,29.56,ITH5
+Friuli-Venezia Giulia,2011,24.65,ITH4
+Lazio,2011,44.06,ITI4
+Liguria,2011,34.66,ITC3
+Lombardia,2011,28.83,ITC4
+Marche,2011,34.67,ITI3
+Molise,2011,47.02,ITF2
+Piemonte,2011,30.41,ITC1
+Puglia,2011,46.59,ITF4
+Sardegna,2011,41.46,ITG2
+Sicilia,2011,46.6,ITG1
+Toscana,2011,26.07,ITI1
+Provincia Autonoma di Trento,2011,26.91,ITH2
+Umbria,2011,31.19,ITI2
+Valle d'Aosta/Vallée d'Aoste,2011,31.15,ITC2
+Veneto,2011,27.04,ITH3
+Abruzzo,2012,39.07,ITF1
+Basilicata,2012,40.21,ITF5
+Provincia Autonoma di Bolzano/Bozen,2012,24.56,ITH1
+Calabria,2012,36.11,ITF6
+Campania,2012,61.15,ITF3
+Emilia-Romagna,2012,28.49,ITH5
+Friuli-Venezia Giulia,2012,22.95,ITH4
+Lazio,2012,43.35,ITI4
+Liguria,2012,33.95,ITC3
+Lombardia,2012,28.08,ITC4
+Marche,2012,34.18,ITI3
+Molise,2012,48.08,ITF2
+Piemonte,2012,30.53,ITC1
+Puglia,2012,42.24,ITF4
+Sardegna,2012,41.1,ITG2
+Sicilia,2012,44.71,ITG1
+Toscana,2012,26.24,ITI1
+Provincia Autonoma di Trento,2012,26.36,ITH2
+Umbria,2012,32.15,ITI2
+Valle d'Aosta/Vallée d'Aoste,2012,32.86,ITC2
+Veneto,2012,26.75,ITH3
+Abruzzo,2013,39.48,ITF1
+Basilicata,2013,41.97,ITF5
+Provincia Autonoma di Bolzano/Bozen,2013,24.44,ITH1
+Calabria,2013,35.77,ITF6
+Campania,2013,61.41,ITF3
+Emilia-Romagna,2013,28.69,ITH5
+Friuli-Venezia Giulia,2013,24.38,ITH4
+Lazio,2013,42.68,ITI4
+Liguria,2013,35.26,ITC3
+Lombardia,2013,28.23,ITC4
+Marche,2013,34.83,ITI3
+Molise,2013,48.05,ITF2
+Piemonte,2013,29.84,ITC1
+Puglia,2013,41.02,ITF4
+Sardegna,2013,41.97,ITG2
+Sicilia,2013,44.54,ITG1
+Toscana,2013,25.54,ITI1
+Provincia Autonoma di Trento,2013,25.22,ITH2
+Umbria,2013,31.3,ITI2
+Valle d'Aosta/Vallée d'Aoste,2013,33.56,ITC2
+Veneto,2013,26.4,ITH3
+Abruzzo,2014,38.16,ITF1
+Basilicata,2014,40.08,ITF5
+Provincia Autonoma di Bolzano/Bozen,2014,24.68,ITH1
+Calabria,2014,36.42,ITF6
+Campania,2014,62.2,ITF3
+Emilia-Romagna,2014,27.49,ITH5
+Friuli-Venezia Giulia,2014,23.92,ITH4
+Lazio,2014,41.62,ITI4
+Liguria,2014,34.02,ITC3
+Lombardia,2014,27.96,ITC4
+Marche,2014,35.7,ITI3
+Molise,2014,45.43,ITF2
+Piemonte,2014,28.67,ITC1
+Puglia,2014,41.08,ITF4
+Sardegna,2014,40.12,ITG2
+Sicilia,2014,43.92,ITG1
+Toscana,2014,26.22,ITI1
+Provincia Autonoma di Trento,2014,25.74,ITH2
+Umbria,2014,30.79,ITI2
+Valle d'Aosta/Vallée d'Aoste,2014,32.96,ITC2
+Veneto,2014,25.11,ITH3
+Abruzzo,2015,37.65,ITF1
+Basilicata,2015,38.43,ITF5
+Provincia Autonoma di Bolzano/Bozen,2015,24.04,ITH1
+Calabria,2015,36.94,ITF6
+Campania,2015,61.09,ITF3
+Emilia-Romagna,2015,27.09,ITH5
+Friuli-Venezia Giulia,2015,24.2,ITH4
+Lazio,2015,39.82,ITI4
+Liguria,2015,33.25,ITC3
+Lombardia,2015,26.89,ITC4
+Marche,2015,33.63,ITI3
+Molise,2015,45.32,ITF2
+Piemonte,2015,28.45,ITC1
+Puglia,2015,42.04,ITF4
+Sardegna,2015,39.79,ITG2
+Sicilia,2015,43.32,ITG1
+Toscana,2015,25.67,ITI1
+Provincia Autonoma di Trento,2015,24.04,ITH2
+Umbria,2015,28.07,ITI2
+Valle d'Aosta/Vallée d'Aoste,2015,28.78,ITC2
+Veneto,2015,24.97,ITH3
+Abruzzo,2016,36.29,ITF1
+Basilicata,2016,39.42,ITF5
+Provincia Autonoma di Bolzano/Bozen,2016,24.84,ITH1
+Calabria,2016,38.09,ITF6
+Campania,2016,59.03,ITF3
+Emilia-Romagna,2016,26.76,ITH5
+Friuli-Venezia Giulia,2016,24.18,ITH4
+Lazio,2016,39.05,ITI4
+Liguria,2016,31.02,ITC3
+Lombardia,2016,27.01,ITC4
+Marche,2016,33.76,ITI3
+Molise,2016,46.73,ITF2
+Piemonte,2016,28.6,ITC1
+Puglia,2016,43.92,ITF4
+Sardegna,2016,38.82,ITG2
+Sicilia,2016,41.75,ITG1
+Toscana,2016,26.41,ITI1
+Provincia Autonoma di Trento,2016,20.7,ITH2
+Umbria,2016,28.33,ITI2
+Valle d'Aosta/Vallée d'Aoste,2016,30.47,ITC2
+Veneto,2016,24.95,ITH3
+Abruzzo,2017,34.39,ITF1
+Basilicata,2017,37.46,ITF5
+Provincia Autonoma di Bolzano/Bozen,2017,25.21,ITH1
+Calabria,2017,38.21,ITF6
+Campania,2017,53.64,ITF3
+Emilia-Romagna,2017,24.61,ITH5
+Friuli-Venezia Giulia,2017,23.11,ITH4
+Lazio,2017,37.46,ITI4
+Liguria,2017,29.87,ITC3
+Lombardia,2017,26.38,ITC4
+Marche,2017,32.04,ITI3
+Molise,2017,44.14,ITF2
+Piemonte,2017,27.09,ITC1
+Puglia,2017,41.58,ITF4
+Sardegna,2017,37.77,ITG2
+Sicilia,2017,41.82,ITG1
+Toscana,2017,25.92,ITI1
+Provincia Autonoma di Trento,2017,21.82,ITH2
+Umbria,2017,27.18,ITI2
+Valle d'Aosta/Vallée d'Aoste,2017,28.42,ITC2
+Veneto,2017,22.98,ITH3
