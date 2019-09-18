@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='JS/d3.v4.min.js'></script>
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #F4F4F4;
+        }
+
+        #exp_vis,
+        #male_exp,
+        #female_exp, #deathCausesIT {
+            width: 100vw;
+            height: 70vh;
+        }
+
+        .tooltip {
+            background-color: white;
+            position: absolute;
+            padding: .3em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .tooltipText {
+            color: black;
+        }
+
+        @media(min-width: 48em) {
+
+            #exp_vis,
+            #male_exp,
+            #female_exp, #deathCausesIT {
+                width: 60vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id='exp_vis'></div>
+    <div id='male_exp'></div>
+    <div id='female_exp'></div>
+    <div id='deathCausesIT'></div>
+
+
+    <script>
+
+
+
+var radius = '6';
+        var strokeWidth = '1px'
+        var parseTime = d3.timeParse("%Y");
+
+        var margin = { top: 50, bottom: 50, left: 200, right: 50 };
+
+
+        var tooltip = d3
+            .select('body')
+            .append('div')
+            .attr('class', 'tooltip');
+
+
+        var tooltipText = tooltip
+            .append('p')
+            .attr('class', 'tooltipText');
+
+
+            const basics = function (parent) {
+
+
+var width = d3.select(parent).node().getBoundingClientRect().width;
+
+
+var height = d3.select(parent).node().getBoundingClientRect().height;
+var svg = d3.select(parent)
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+
+
+
+height = height - margin.top - margin.bottom;
+
+width = width - margin.left - margin.right;
+svg
+    .append('g')
+    .attr('class', 'x axis')
+    .attr("transform", "translate(0," + height + ")")
+
+
+
+svg
+    .append('g')
+    .attr('class', 'y axis')
+
+
+return [width, height, svg]
+}
+
+
+
+
+        d3.csv('src/lifexp_tidy.csv', function (d) {
+            d.life_exp = +d.life_exp;
+            d.year = parseTime(parseInt(d.year));
+
+            return d;
+        }, function (data) {
+           // console.log(data);
+
+            var recent = data.filter(function (d) {
+                return d.year.getFullYear() == d3.max(data, function (d) {
+                    return d.year;
+                }).getFullYear()
+            })
+
+           // console.log(recent)
+            //  barMirror(recent);
+
+            // life expectancy gap for men
+            lineCompare(data, '#male_exp', 'men');
+
+
+            // life expectancy gap for women
+            lineCompare(data, '#female_exp', 'women');
+
+
+
+        })
+
+
+
+        d3.csv('src/life_gender.csv', function (d) {
+            d.men = +d.men;
+            d.women = +d.women;
+            d.year = parseTime(parseInt(d.year));
+            d.mean_exp = d3.mean([d.men, d.women]);
+            return d;
+        }, function (data) {
+        // console.log(data);
+
+            dotExp(data);
+          //  barComparison(data, '#exp_80');
+
+            //barComparison(data, '#exp_latest');
+        })
+
+
+        const dotExp = function (data) {
+
+            var recent = data.filter(function (d) {
+                return d.year.getFullYear() == d3.max(data, function (d) {
+                    return d.year;
+                }).getFullYear()
+            });
+
+
+            recent = recent.sort(function (a, b) {
+                return d3.ascending(a.women, b.women)
+            })
+
+            var [width, height, svg] = basics('#exp_vis');
+
+
+            var max = d3.max(recent, function(d){
+    return (d.men < d.women) ? d.female : d.male;
+});
+
+var min = d3.min(data, function(d){
+    return (d.male < d.female) ? d.male : d.female;
+});
+
+          var xScale = d3.scaleLinear()
+          .domain([d3.min(recent, d => {
+              return Math.min(d.men, d.women)
+              
+          }), d3.max(recent, d => {
+            return Math.max(d.men, d.women)
+          })])
+          .range([0, width])
+          .nice()
+
+    
+
+          var yScale = d3.scaleBand()
+          .domain(recent.map(d => {
+              return d.region;
+          }))
+          .range([height, 0])
+          .padding(1);
+
+
+
+          var groups = svg.selectAll('.group')
+          .data(recent, d => { return d.region})
+          .enter()
+          .append('g')
+          .attr('class', 'group');
+
+          groups
+                .append('line')
+                .attr('class', 'line')
+
+                .attr('x1', function (d) {
+                   
+                    return xScale(d.men);
+                })
+                .attr('x2', function (d) {
+                    return xScale(d.women);
+                })
+                .attr('y1', function (d) {
+                    return yScale(d.region);
+                })
+                .attr('y2', function (d) {
+                    return yScale(d.region);
+                })
+                .attr('stroke', '#616060')
+                .attr('stroke-width', strokeWidth)
+
+
+
+            groups
+                .append('circle')
+                .attr('class', 'menDot')
+                .attr('cx', function (d) {
+                    return xScale(d.men);
+                })
+                .attr('cy', function (d) {
+                    return yScale(d.region);
+                })
+                .attr('r', radius)
+                .attr('fill', '#67a9cf')
+
+
+
+            groups
+                .append('circle')
+                .attr('class', 'womenDot')
+                .attr('cx', function (d) {
+                    return xScale(d.women);
+                })
+                .attr('cy', function (d) {
+                    return yScale(d.region);
+                })
+                .attr('r', radius)
+                .attr('fill', '#ef8a62')
+
+
+            svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale));
+
+
+            svg
+                .select('.x.axis')
+                .call(d3.axisBottom(xScale))
+
+   
+        
+           
+          
+        }
+
+
+      
+
+
+
+        const lineCompare = function (data, parent, gender) {
+            var [width, height, svg] = basics(parent)
+   /*          var width = d3.select(parent).node().getBoundingClientRect().width;
+
+            var height = d3.select(parent).node().getBoundingClientRect().height;
+            var svg = d3.select(parent)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .append('g')
+                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')'); */
+
+
+            var voronoi = d3.voronoi()
+                .x(function (d) {
+                    return xScale(d.year);
+                })
+                .y(function (d) {
+                    return yScale(d.life_exp);
+                })
+                .extent([
+                    [-margin.left, -margin.top],
+                    [(width + margin.left + margin.right) + margin.right, (height + margin.top + margin.bottom) + margin.bottom]
+                ]);
+
+
+
+            svg
+                .append('g')
+                .attr('class', 'x axis')
+                .attr("transform", "translate(0," + height + ")");
+
+            svg
+                .append('g')
+                .attr('class', 'y axis');
+
+          
+            var line = d3.line()
+                .x(d => { return xScale(d.year) })
+                .y(d => { return yScale(d.life_exp) });
+
+            var recent = data.filter(d => {
+                return d.year.getFullYear() == '2017' & d.gender == gender;
+            })
+            var extremes = recent.filter(d => {
+                return (d3.extent(recent, d => {
+                    return d.life_exp;
+                })).includes(d.life_exp)
+            }).map(d => {
+                return d.region;
+            })
+
+            var extremesDf = data.filter(d => {
+                return extremes.includes(d.region) & d.gender == gender;
+            })
+            var xScale = d3.scaleTime()
+                .range([0, width])
+                .domain(d3.extent(extremesDf, function (d) {
+                    return (d.year);
+                }))
+             
+
+
+            var yScale = d3.scaleLinear()
+                .domain(d3.extent(extremesDf, d => {
+                    return d.life_exp;
+                }))
+                .range([height, 0])
+                .nice();
+               
+
+
+
+
+            var nest = d3.nest()
+                .key(d => {
+                    return d.region;
+                })
+                /* .key(d => {
+                    return d.gender;
+                }) */
+                .entries(extremesDf);
+
+
+            var strokes = ['#BCA33B', '#20376F']
+            var colour_dict = {};
+
+            for (i in nest) {
+
+                colour_dict[nest[i].key] = strokes[i];
+
+            }
+            /* var over = svg
+            .selectAll('.over')
+            .data(nest, d => {return d.key;})
+            .enter()
+            .append('g')
+            .attr('class', 'over'); */
+
+
+            var groups = svg
+                .selectAll('group')
+                .data(nest, d => { return d.key; })
+                .enter()
+                .append('g')
+                .attr('class', 'group');
+
+
+            groups
+                .append('path')
+                .attr('class', 'line')
+                .attr('d', d => { return line(d.values) })
+                .attr('stroke-width', 1.5)
+                .attr('stroke', d => {
+                    return colour_dict[d.key];
+                })
+                .attr('fill', 'none');
+
+
+
+            svg
+                .select('.x.axis')
+                .call(d3.axisBottom(xScale));
+
+
+            svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale));
+
+
+            var v = svg.selectAll('.voronoi')
+                .data(voronoi.polygons(extremesDf))
+                .enter()
+                .append('path')
+                .attr('d', d => {
+                    return d ? "M" + d.join("L") + "Z" : null;
+                })
+                .style('fill', 'none')
+                .style('pointer-events', 'all')
+                .on('mouseenter', function (d) {
+                    tooltip.transition()
+                        .duration(100)
+                        .style('opacity', .9)
+                        .style('left', (d3.event.pageX) + 'px')
+
+                        .style('top', (d3.event.pageY - 28) + 'px');
+                    tooltipText
+                        .text(d.data.year.getFullYear() + ' ' + d.data.region + ': ' + d.data.life_exp + ' years')
+
+                })
+                .on('mouseout', function (d) {
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                })
+
+
+        }
+
+
+
+        d3.csv('src/deaths_italy.csv', function (d) {
+            d.deaths = +d.deaths;
+            return d;
+        }, function (data) {
+             console.log(data);
+
+            barchartCauses(data);
+        })
+
+
+
+const barchartCauses = function (data) {
+    var [width, height, svg] = basics('#deathCausesIT');
+
+
+    var filtered = data.filter(d => {
+        return d.cause !== 'All' & d.cause_detail == 'All';
+    })
+
+console.log(filtered);
+
+
+filtered = filtered.sort(function (a, b) {
+    return d3.descending(a.deaths, b.deaths)
+}).slice(0,10);
+
+console.log(filtered)
+
+var xScale = d3.scaleLinear()
+.domain([0, d3.max(filtered, d => {
+    return d.deaths;
+})])
+.range([0, width])
+.nice();
+
+
+var yScale = d3.scaleBand()
+                .domain(filtered.map(function (d) {
+                    return d.cause;
+                }))
+                .range([height, 0])
+                .padding(.1);
+
+
+
+    var groups = svg
+    .selectAll('.group')
+    .data(filtered, d => { return d.cause})
+    .enter()
+    .append('g')
+    .attr('class', 'group');
+
+
+
+    groups
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('x', 0)
+                .attr('y', d => { return yScale(d.cause)})
+                .attr('height', yScale.bandwidth())
+                .attr('width', d => { return xScale(d.deaths)})
+                .attr('fill', 'red')
+
+
+
+                svg
+                .select('.x.axis')
+                .call(d3.axisBottom(xScale));
+
+                svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale));
+
+
+
+
+
+
+}
+
+       /*  const barComparison = function (data, parent) {
+            var width = d3.select(parent).node().getBoundingClientRect().width;
+
+            var height = d3.select(parent).node().getBoundingClientRect().height;
+            var svg = d3.select(parent)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .append('g')
+                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+            height = height - margin.top - margin.bottom;
+
+            width = width - margin.left - margin.right;
+
+
+            var filtered;
+
+            if (parent == '#exp_80') {
+              
+               filtered = data.filter( d=> {
+                return d.year.getFullYear() == d3.min(data, d => {
+                   return d.year;
+                }).getFullYear()
+            });
+            filtered.sort(function (a, b) {
+                return d3.ascending(b.mean_exp, a.mean_exp)
+            }); 
+            } else if (parent == '#exp_latest') {
+            
+               filtered = data.filter( d=> {
+                return d.year.getFullYear() == d3.max(data, d => {
+                   return d.year;
+                }).getFullYear()
+            });
+            filtered.sort(function (a, b) {
+                return d3.ascending(b.mean_exp, a.mean_exp)
+            });
+            }
+            
+            
+           
+            svg
+                .append('g')
+                .attr('class', 'x axis')
+                .attr("transform", "translate(0," + height + ")");
+
+            svg
+                .append('g')
+                .attr('class', 'y axis');
+
+            var xScale = d3.scaleLinear()
+                .range([0, width])
+                .domain([0, d3.max(data, d => {
+                    return d.mean_exp;
+                })])
+
+
+            var yScale = d3.scaleBand()
+                .domain(data.map(function (d) {
+                    return d.region;
+                }))
+                .range([height, 0])
+                .padding(.1)
+
+
+
+                var groups = svg
+                .selectAll('.group')
+                .data(filtered.slice(0,10), d => { return d.region;})
+                .enter()
+                .append('g')
+                .attr('class', 'group');
+
+
+
+                groups
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('x', 0)
+                .attr('y', d => { return yScale(d.region)})
+                .attr('height', yScale.bandwidth())
+                .attr('width', d => { return xScale(d.mean_exp)})
+                .attr('fill', 'red')
+
+
+
+                svg
+                .select('.x.axis')
+                .call(d3.axisBottom(xScale));
+
+                svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale));
+        }
+        
+          const barMirror = function (data) {
+            // all life expectancy data by region
+            var width = d3.select('#exp_vis').node().getBoundingClientRect().width;
+
+            var height = d3.select('#exp_vis').node().getBoundingClientRect().height;
+            var svg = d3.select('#exp_vis')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .append('g')
+                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+            height = height - margin.top - margin.bottom;
+
+            width = width - margin.left - margin.right;
+
+
+            data.sort(function (a, b) {
+                return d3.ascending(b.life_exp, a.life_exp)
+            })
+            svg
+                .append('g')
+                .attr('class', 'x axis')
+                .attr("transform", "translate(0," + height + ")");
+
+            svg
+                .append('g')
+                .attr('class', 'y axis');
+
+            var xScale = d3.scaleLinear()
+                .range([0, width])
+                .domain(d3.extent(data, function (d) {
+                    return (d.life_exp);
+                }))
+
+
+            var yScale = d3.scaleBand()
+                .domain(data.map(function (d) {
+                    return d.region;
+                }))
+                .range([height, 0])
+                .padding(.1)
+
+
+
+
+
+            var groups = svg
+                .selectAll('.group')
+                .data(data, function (d) {
+                    return d.region;
+                })
+                .enter()
+                .append('g')
+                .attr('class', 'group');
+
+
+
+            groups
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('id', function (d) {
+                    return 'bar' + d.region;
+                })
+                .attr("x", function (d) {
+                    return xScale(Math.min(0, d.life_exp));
+                })
+                .attr('y', function (d) {
+
+                    return yScale(d.region)
+                })
+                .attr('height', yScale.bandwidth())
+                .attr("width", function (d) {
+                    return Math.abs(xScale(d.life_exp) - xScale(0));
+                })
+\
+                .attr('fill', function (d) {
+                    return (d.life_exp <= 0 ? '#67a9cf' : '#ef8a62');
+                })
+
+
+
+            svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale)
+                    .tickPadding(5));
+
+
+            svg
+                .select('.x.axis')
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(xScale)
+                    .ticks(5)
+                )
+
+
+
+        }
+        
+        
+         */
+
+
+
+
+    </script>
+</body>
+
+</html>

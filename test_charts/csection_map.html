@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='JS/d3.v4.min.js'></script>
+<!--     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.4/d3-queue.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/2.2.0/topojson.min.js"></script> -->
+<!--     <script src="https://d3js.org/d3-color.v1.min.js"></script> -->
+<!--     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+-->
+
+    <script src ='node_modules/topojson/dist/topojson.js'></script>
+    <script src='node_modules/d3-color/dist/d3-color.js'></script>
+    <script src='node_modules/d3-interpolate/dist/d3-interpolate.js'></script>
+    <script src='node_modules/d3-queue/build/d3-queue.js'></script>
+    <script src='node_modules/d3-scale-chromatic/dist/d3-scale-chromatic.js'></script>
+
+    <title>IT Map possibly?</title>
+    <style>
+           html, body {
+          width: 100%;
+          padding: 0px;
+          margin: 0px;
+      }
+            #csection_IT {
+                overflow: scroll; 
+                margin: 0 auto;
+                padding: 0px;
+                height: 80vh;
+                width: 65%;
+                background-color: #eeeeee;
+                position: relative;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+
+            .area {
+                stroke: #797979;
+                stroke-width: .1px;
+            }
+
+
+            #csection_IT .active {
+    opacity: .5;
+    stroke-width: .3px;
+}
+  
+
+            div.tooltip {   
+    position: absolute;           
+    text-align: center;           
+    min-width: 80px;                  
+    min-height: 40px;                 
+    padding: 2px;             
+    font: 14px sans-serif;        
+    background: white;   
+    border: 0px;      
+    border-radius: 8px;           
+    pointer-events: none;         
+  }
+
+    </style>
+</head>
+<body>
+
+    <div id='mapContainer'>
+        <div id='mapFilter'></div>
+        <div id='csection_IT' class='mapVis'>
+
+        </div>
+    </div>
+<script>
+    var width, height, svg, g, projection, path, boundaries;
+
+
+
+var csections_data;
+ 
+
+
+
+        var format = d3.format(" ^(.2f")
+
+
+    var tooltip = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+    var tooltipText = tooltip
+    .append('p')
+    .attr('class', 'tooltipText');
+
+    var colours = d3.scaleSequential(d3.interpolateYlOrRd);
+        var map = d3.map();
+
+
+
+
+  var init = function () {
+            width = d3.select('#csection_IT').node().getBoundingClientRect().width;
+
+ height = d3.select('#csection_IT').node().getBoundingClientRect().height;
+
+
+            svg = d3.select('#csection_IT')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height);
+
+
+            g = svg.append('g');
+
+
+
+
+           // projection = d3.geoMercator()
+           // .rotate([0, 0]);
+
+            projection = d3.geoAlbers()
+            .rotate([0,0]);
+           
+
+            path = d3.geoPath()
+          .projection(projection);
+
+
+
+ 
+
+
+            d3.queue()
+            
+            .defer(d3.json, 'src/nuts2it.json')
+            .defer(d3.csv, 'src/csection.csv')
+            .await(function (error, boundary_data, c_data) {
+            
+                c_data.forEach(function (d) {
+                    d.mean_cs = +d.mean_cs;
+                  
+                  
+                })
+
+
+                csections_data = c_data;
+
+        
+                console.log(csections_data);
+                boundaries = boundary_data;
+                console.log(boundaries);
+
+
+
+          draw(boundary_data);
+            })
+        }();
+
+
+
+        const draw = function(boundaries) {
+
+            projection.scale(1)
+            .translate([0, 0]);
+
+
+
+            min = d3.min(csections_data, d => {
+                return d.mean;
+            })
+
+
+            max = d3.max(csections_data, d => {
+                return d.mean;
+            })
+
+
+
+            colours.domain(d3.extent(csections_data, d => {
+                return d.mean_cs;
+            }));
+
+
+            csections_data.forEach( d => {
+                map.set(d.geo_code, d.mean_cs);
+            })
+
+
+            console.log(map)
+
+            var b = path.bounds(topojson.feature(boundaries, boundaries.objects['foo']));
+
+            var s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
+            var t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+            projection
+                .scale(s)
+                .translate(t);
+
+                var areas = g.selectAll(".area")
+                .data(topojson.feature(boundaries, boundaries.objects['foo']).features)
+
+               
+                areas.exit().remove();
+            areas
+                .enter()
+                .append("path")
+                .attr("class", "area")
+                .merge(areas)
+             /*    .attr('id', d => {
+                    //console.log(d);
+                    return 'area' + d.properties.id;
+                }) */
+                .attr("fill", function (d) {
+                   
+                   // console.log(d);
+                   /*  if (map.get(d.properties.NUTS_ID) == undefined) {
+                
+                        // if there is no data for an area, set the no. of victims to 0 and return gray shade
+                        d.properties.income = 'Not available';
+                        return '#e3e3e3'
+                    }
+                    else { */
+                      
+                        // retrieve victims based on the key-value pairs created previously
+                        console.log(d)
+                        return colours(d.properties.mean = map.get(d.properties.id))
+                //    }
+                    /* console.log(mp.get(d.properties.PC_NAME))
+                      return colours(d.properties.victims = mp.get(d.properties.PC_NAME)) ? colours(d.properties.victims = mp.get(d.properties.PC_NAME) ) : 'gray';  */
+                })
+                .attr('d', path)
+                .on('mouseenter', function (d) {
+                   
+                   tooltip.transition()        
+           .duration(100)      
+           .style("opacity", .9) 
+           .style("left", (d3.event.pageX) + "px")     
+           .style("top", (d3.event.pageY - 28) + "px");
+
+           tooltipText.html(d.properties.NUTS_NAME + '<br>' + format(d.properties.mean) + '%');
+       })                  
+   
+             
+               .on("mouseout", function(d) {       
+       tooltip.transition()        
+           .duration(500)      
+           .style("opacity", 0);   
+   })
+              
+               // .on("click", clicked);
+
+
+        
+        
+        }
+
+        const clicked = function(d) {
+          
+            if (active.node() === this) {
+                reset(d);
+            } else {
+                
+                active = d3.select(this);
+                active.classed('active', true)
+              /*   active.style("stroke", "#000");
+                active = d3.select(this);
+                active.style("opacity", 0.7)
+                active.style("stroke", "#c0c0c0"); */
+
+                var b = path.bounds(d);
+                var dx = b[1][0] - b[0][0];
+                var dy = b[1][1] - b[0][1];
+                var x = (b[0][0] + b[1][0]) / 2;
+                var y = (b[0][1] + b[1][1]) / 2;
+                var s = 0.3 / Math.max(dx / width, dy / height);
+                var t = [width / 2 - s * x, height / 2 - s * y];
+
+               
+
+                var tform = d3.zoomIdentity.translate(t[0], t[1]).scale(s);
+
+                svg.transition()
+                    .duration(1300)
+                    .call(zoom.transform, tform);
+
+             
+            }
+        }
+
+
+        function reset(d) {
+            active.classed('active', false)
+          
+        /*     active.style("stroke", "#000"); */
+            active = d3.select(null)
+
+     
+            svg.transition()
+                .duration(1300)
+                .call(zoom.transform, d3.zoomIdentity);
+        }
+
+</script>
+    </body>
+    </html>

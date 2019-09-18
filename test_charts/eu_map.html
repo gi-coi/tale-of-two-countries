@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='JS/d3.v4.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.4/d3-queue.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/2.2.0/topojson.min.js"></script>
+<!--     <script src="https://d3js.org/d3-color.v1.min.js"></script> -->
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <!-- <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
+    <script src='node_modules/d3-scale-chromatic/dist/d3-scale-chromatic.min.js'></script>
+    <script src='node_modules/d3-color/dist/d3-color.min.js'></script>
+    
+    <title>EU map possibly?</title>
+    <style>
+      html, body {
+          width: 100%;
+          padding: 0px;
+          margin: 0px;
+      }
+            #mapVis {
+                overflow: scroll; 
+                margin: 0 auto;
+                padding: 0px;
+                height: 80vh;
+                width: 65%;
+                background-color: #eeeeee;
+                position: relative;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+
+            .area {
+               stroke: #797979; 
+                stroke-width: .1px;
+            }
+
+
+            #mapVis .active {
+    opacity: .5;
+    stroke-width: .3px;
+}
+  
+
+            div.tooltip {   
+    position: absolute;           
+    text-align: center;           
+    min-width: 80px;                  
+    min-height: 40px;                 
+    padding: 2px;             
+    font: 14px sans-serif;        
+    background: white;   
+    border: 0px;      
+    border-radius: 8px;           
+    pointer-events: none;         
+  }
+
+
+    </style>
+</head>
+<body>
+
+
+    
+        <div id='mapContainer'>
+                <div id='mapVis'>
+        
+                </div>
+            </div>
+    <script>
+               // dimensions of visualisation
+               var width;
+        var height;
+
+        // 'svg' to draw in, 'g' element to group everything together
+        var svg;
+        var g;
+
+        // projection to convert from coordinates to pixels
+        var projection;
+        // path function to create line paths
+        var path;
+
+        var cons_data;
+        var active = d3.select(null);
+
+        var poverty_data;
+
+
+        var tooltip = d3.select("body").append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+    var tooltipText = tooltip
+    .append('p')
+    .attr('class', 'tooltipText');
+
+        var colours = d3.scaleSequential().interpolator(d3.interpolateYlOrBr);
+     
+        var map = d3.map();
+
+        var zoom = d3.zoom()
+            .on("zoom", handle_zoom);
+
+   /*      function set_opacity(node, d) {
+            var opacity;
+            let majority = cons_data.filter(c => {
+                return c.ons_id === d.properties.PC_ID;
+            })[0].majority;
+
+            let signees = revoke_data.filter(r => {
+                return r.ons_code === d.properties.PC_ID;
+            })[0].signature_count;
+
+            if (signees > majority) {
+                opacity = 1.0;
+            } else {
+                opacity = 0.2;
+            }
+            node.style("opacity", opacity);
+        }
+ */
+        function reset(d) {
+            active.classed('active', false)
+          
+        /*     active.style("stroke", "#000"); */
+            active = d3.select(null)
+
+     
+            svg.transition()
+                .duration(1300)
+                .call(zoom.transform, d3.zoomIdentity);
+        }
+
+        function handle_zoom() {
+            g.attr('transform', d3.event.transform);
+        }
+
+        function clicked(d) {
+            
+            if (active.node() === this) {
+                reset(d);
+            } else {
+                
+                active = d3.select(this);
+                active.classed('active', true)
+              /*   active.style("stroke", "#000");
+                active = d3.select(this);
+                active.style("opacity", 0.7)
+                active.style("stroke", "#c0c0c0"); */
+
+                var b = path.bounds(d);
+                var dx = b[1][0] - b[0][0];
+                var dy = b[1][1] - b[0][1];
+                var x = (b[0][0] + b[1][0]) / 2;
+                var y = (b[0][1] + b[1][1]) / 2;
+                var s = 0.3 / Math.max(dx / width, dy / height);
+                var t = [width / 2 - s * x, height / 2 - s * y];
+
+               
+
+                var tform = d3.zoomIdentity.translate(t[0], t[1]).scale(s);
+
+                svg.transition()
+                    .duration(1300)
+                    .call(zoom.transform, tform);
+
+             
+            }
+        }
+
+
+
+        function draw(boundary) {
+
+
+          
+
+
+
+min = d3.min(poverty_data, function (d) {
+    return +d.values
+})
+
+max = d3.max(poverty_data, function (d) {
+    return +d.values
+})
+
+                colours.domain([min, max])
+
+          
+
+
+
+            poverty_data.forEach(function (d) {
+                map.set(String(d.geo_code), d.values);
+            })
+
+            projection
+                .scale(1)
+                .translate([0, 0]);
+
+                var b = path.bounds(topojson.feature(boundary, boundary.objects['foo']));
+            var s = 2 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
+            var t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+            projection
+                .scale(s)
+                .translate(t)
+                .center([13.393240000000006, 48.37219])
+
+                var areas = g.selectAll(".area")
+                .data(topojson.feature(boundary, boundary.objects['foo']).features);
+console.log(map.get('Oberfranken'))
+            areas
+                .enter()
+                .append("path")
+                .attr("class", "area")
+                .attr("fill", function (d) {
+                    
+                    if ((map.get(d.properties.NUTS_ID) == undefined) && (d.properties.values = map.get(d.properties.CNTR_CODE))) {
+                        d.properties.values = map.get(d.properties.CNTR_CODE) + '% (Local data unavailable)';
+                        return colours(map.get(d.properties.CNTR_CODE))
+                        //return colours(d.properties.values = map.get(d.properties.CNTR_CODE))
+                        
+                        // if there is no data for an area, set the no. of victims to 0 and return gray shade
+                      /*   d.properties.values = 'Not available';
+                        return '#e3e3e3' */
+                    } else if ((d.properties.values = map.get(d.properties.CNTR_CODE) == undefined) || (map.get(d.properties.NUTS_ID) == 0)) {
+                        d.properties.values = 'Not available';
+                        return '#e3e3e3'
+                    }
+                 
+                    else {
+                   
+                        // retrieve victims based on the key-value pairs created previously
+                        d.properties.values = map.get(d.properties.NUTS_ID) + '%';
+                        return colours(map.get(d.properties.NUTS_ID))
+                    }
+                    /* console.log(mp.get(d.properties.PC_NAME))
+                      return colours(d.properties.victims = mp.get(d.properties.PC_NAME)) ? colours(d.properties.victims = mp.get(d.properties.PC_NAME) ) : 'gray';  */
+                })
+                .attr('d', path)
+                .attr("id", function (d) { return 'region' + d.properties.NUTS_ID; })
+                .on('mouseenter', function (d) {
+
+                   tooltip.transition()        
+           .duration(100)      
+           .style("opacity", .9) 
+           .style("left", (d3.event.pageX) + "px")     
+           .style("top", (d3.event.pageY - 28) + "px");
+        
+           tooltipText.html(d.properties.NUTS_NAME + '<br>' + d.properties.values);
+       })                  
+   
+             
+               .on("mouseout", function(d) {       
+       tooltip.transition()        
+           .duration(500)      
+           .style("opacity", 0);   
+   })
+              
+                .on("click", clicked);
+        }
+
+        // initialise our visualisation
+        function init() {
+
+            width = document.getElementById("mapVis").clientWidth;
+            height = document.getElementById("mapVis").clientHeight;
+
+            svg = d3.select("#mapVis")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            g = svg.append("g");
+
+            svg.call(zoom);
+
+            projection = d3.geoAlbers()
+                .rotate([0, 0]);
+
+            path = d3.geoPath()
+                .projection(projection);
+
+            d3.queue()
+            .defer(d3.json, 'src/nuts2.json')
+            .defer(d3.csv, '/src/poverty_eu.csv')
+                .await(function (error, boundary_data, pov_data) {
+                    pov_data.forEach(function (d) {
+                    d.values = +d.values;
+                    d.time = parseTime(d.time)
+                    
+                })
+
+
+                poverty_data = pov_data;
+        
+                console.log(poverty_data);
+                boundaries = boundary_data;
+                console.log(boundaries);
+                    draw(boundary_data);
+                });
+        }
+
+        init();
+        
+        </script>
+        <script src='JS/commons.js'></script>
+</body>
+</html>

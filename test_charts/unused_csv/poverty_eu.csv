@@ -1,0 +1,265 @@
+geo_code,geo,time,values
+AT,Austria,01/01/2017,18.1
+AT11,Burgenland (AT),01/01/2017,16.3
+AT12,Niederösterreich,01/01/2017,12.6
+AT13,Wien,01/01/2017,26.7
+AT21,Kärnten,01/01/2017,16
+AT22,Steiermark,01/01/2017,18.3
+AT31,Oberösterreich,01/01/2017,13.2
+AT32,Salzburg,01/01/2017,15.3
+AT33,Tirol,01/01/2017,17.7
+AT34,Vorarlberg,01/01/2017,22.2
+BE,Belgium,01/01/2017,20.3
+BG,Bulgaria,01/01/2017,38.9
+BG3,Severna i yugoiztochna Bulgaria,01/01/2017,42.6
+BG31,Severozapaden,01/01/2017,46.7
+BG32,Severen tsentralen,01/01/2017,41.6
+BG33,Severoiztochen,01/01/2017,42.7
+BG34,Yugoiztochen,01/01/2017,40.1
+BG4,Yugozapadna i yuzhna tsentralna Bulgaria,01/01/2017,35.1
+BG41,Yugozapaden,01/01/2017,29.3
+BG42,Yuzhen tsentralen,01/01/2017,43.8
+CH,Switzerland,01/01/2017,18.1
+CH01,Région lémanique,01/01/2017,19.5
+CH02,Espace Mittelland,01/01/2017,19.6
+CH03,Nordwestschweiz,01/01/2017,17.4
+CH04,Zürich,01/01/2017,14.3
+CH05,Ostschweiz,01/01/2017,18
+CH06,Zentralschweiz,01/01/2017,13.9
+CH07,Ticino,01/01/2017,32.9
+CY,Cyprus,01/01/2017,25.2
+CZ,Czechia,01/01/2017,12.2
+CZ01,Praha,01/01/2017,9.4
+CZ02,Strední Cechy,01/01/2017,10.4
+CZ03,Jihozápad,01/01/2017,9.7
+CZ04,Severozápad,01/01/2017,16.7
+CZ05,Severovýchod,01/01/2017,9.9
+CZ06,Jihovýchod,01/01/2017,11.7
+CZ07,Strední Morava,01/01/2017,12.3
+CZ08,Moravskoslezsko,01/01/2017,19.2
+DE,Germany (until 1990 former territory of the FRG),01/01/2017,19
+DE11,Stuttgart,01/01/2017,13.4
+DE12,Karlsruhe,01/01/2017,15.8
+DE13,Freiburg,01/01/2017,14.3
+DE14,Tübingen,01/01/2017,13.9
+DE21,Oberbayern,01/01/2017,16.1
+DE22,Niederbayern,01/01/2017,21.3
+DE23,Oberpfalz,01/01/2017,18
+DE24,Oberfranken,01/01/2017,
+DE25,Mittelfranken,01/01/2017,21.5
+DE26,Unterfranken,01/01/2017,18.8
+DE27,Schwaben,01/01/2017,16.3
+DE30,Berlin,01/01/2017,24.1
+DE40,Brandenburg,01/01/2017,19.1
+DE50,Bremen,01/01/2017,28.5
+DE60,Hamburg,01/01/2017,21.6
+DE71,Darmstadt,01/01/2017,14.5
+DE72,Gießen,01/01/2017,17.1
+DE73,Kassel,01/01/2017,14.4
+DE80,Mecklenburg-Vorpommern,01/01/2017,24.4
+DE91,Braunschweig,01/01/2017,21.4
+DE92,Hannover,01/01/2017,18.4
+DE93,Lüneburg,01/01/2017,13.3
+DE94,Weser-Ems,01/01/2017,20.2
+DEA1,Düsseldorf,01/01/2017,21.4
+DEA2,Köln,01/01/2017,19.8
+DEA3,Münster,01/01/2017,18.1
+DEA4,Detmold,01/01/2017,16.9
+DEA5,Arnsberg,01/01/2017,21.3
+DEB1,Koblenz,01/01/2017,20.2
+DEB2,Trier,01/01/2017,17.6
+DEB3,Rheinhessen-Pfalz,01/01/2017,19.3
+Dec-00,Saarland,01/01/2017,21.7
+DED2,Dresden,01/01/2017,19.8
+DED4,Chemnitz,01/01/2017,23.1
+DED5,Leipzig,01/01/2017,20.4
+DEE0,Sachsen-Anhalt,01/01/2017,21.8
+DEF0,Schleswig-Holstein,01/01/2017,20.8
+DEG0,Thüringen,01/01/2017,22.3
+DK,Denmark,01/01/2017,17.2
+DK01,Hovedstaden,01/01/2017,18.4
+DK02,Sjælland,01/01/2017,17.5
+DK03,Syddanmark,01/01/2017,16.8
+DK04,Midtjylland,01/01/2017,15.7
+DK05,Nordjylland,01/01/2017,17.3
+EE,Estonia,01/01/2017,23.4
+EL,Greece,01/01/2017,34.8
+EL3,EL3 Attiki,01/01/2017,31.1
+EL4,"Nisia Aigaiou, Kriti",01/01/2017,38.8
+EL5,Voreia Ellada,01/01/2017,33.9
+EL6,Kentriki Ellada,01/01/2017,39.7
+ES,Spain,01/01/2017,26.6
+ES1,Noroeste (ES),01/01/2017,21
+ES11,Galicia,01/01/2017,22.6
+ES12,Principado de Asturias,01/01/2017,17.2
+ES13,Cantabria,01/01/2017,20.5
+ES2,Noreste (ES),01/01/2017,14.7
+ES21,País Vasco,01/01/2017,14.5
+ES22,Comunidad Foral de Navarra,01/01/2017,13.5
+ES23,La Rioja,01/01/2017,14.4
+ES24,Aragón,01/01/2017,15.8
+ES3,ES3 Comunidad de Madrid,01/01/2017,20.6
+ES30,ES30 Comunidad de Madrid,01/01/2017,20.6
+ES4,Centro (ES),01/01/2017,29.2
+ES41,Castilla y León,01/01/2017,18.4
+ES42,Castilla-la Mancha,01/01/2017,33.9
+ES43,Extremadura,01/01/2017,44.3
+ES5,Este (ES),01/01/2017,24.2
+ES51,Cataluña,01/01/2017,19.4
+ES52,Comunidad Valenciana,01/01/2017,31.3
+ES53,Illes Balears,01/01/2017,24.7
+ES6,Sur (ES),01/01/2017,36.9
+ES61,Andalucía,01/01/2017,37.3
+ES62,Región de Murcia,01/01/2017,34.7
+ES63,Ciudad Autónoma de Ceuta (ES),01/01/2017,35.8
+ES64,Ciudad Autónoma de Melilla (ES),01/01/2017,29.4
+ES7,ES7 Canarias (ES),01/01/2017,40.2
+ES70,ES70 Canarias (ES),01/01/2017,40.2
+FI,Finland,01/01/2017,15.7
+FI1,Manner-Suomi,01/01/2017,15.7
+FI19_20,"Länsi-Suomi, Åland",01/01/2017,18.5
+FI1B,Helsinki-Uusimaa,01/01/2017,11.8
+FI1C,Etelä-Suomi,01/01/2017,15.3
+FI1D,Pohjois- ja Itä-Suomi,01/01/2017,17.5
+FR,France,01/01/2017,17.1
+HR,Croatia,01/01/2017,26.4
+HR03,Jadranska Hrvatska,01/01/2017,24.5
+HR04,Kontinentalna Hrvatska,01/01/2017,27.3
+HU,Hungary,01/01/2017,25.6
+HU1,Közép-Magyarország,01/01/2017,22.3
+HU10,Közép-Magyarország (NUTS 2013),01/01/2017,22.3
+HU2,Dunántúl,01/01/2017,22.6
+HU21,Közép-Dunántúl,01/01/2017,18.4
+HU22,Nyugat-Dunántúl,01/01/2017,20
+HU23,Dél-Dunántúl,01/01/2017,30.3
+HU3,Alföld és Észak,01/01/2017,30.4
+HU31,Észak-Magyarország,01/01/2017,36.1
+HU32,Észak-Alföld,01/01/2017,29.2
+HU33,Dél-Alföld,01/01/2017,26.5
+IE,Ireland,01/01/2017,22.7
+IE04,Northern and Western,01/01/2017,25.6
+IE05,Southern,01/01/2017,23.7
+IE06,Eastern and Midland,01/01/2017,20.9
+IT,Italy,01/01/2017,28.9
+ITC,Nord-Ovest,01/01/2017,20.7
+ITC1,Piemonte,01/01/2017,22
+ITC2,Valle d'Aosta/Vallée d'Aoste,01/01/2017,19.9
+ITC3,Liguria,01/01/2017,23
+ITC4,Lombardia,01/01/2017,19.7
+ITF,Sud,01/01/2017,42.3
+ITF1,Abruzzo,01/01/2017,34.8
+ITF2,Molise,01/01/2017,38.3
+ITF3,Campania,01/01/2017,46.3
+ITF4,Puglia,01/01/2017,38.2
+ITF5,Basilicata,01/01/2017,36.2
+ITF6,Calabria,01/01/2017,46.3
+ITG,Isole,01/01/2017,48.7
+ITG1,Sicilia,01/01/2017,52.1
+ITG2,Sardegna,01/01/2017,38.1
+ITH,ITH Nord-Est,01/01/2017,16.1
+ITH1,Provincia Autonoma di Bolzano/Bozen,01/01/2017,8.5
+ITH2,Provincia Autonoma di Trento,01/01/2017,19.3
+ITH3,Veneto,01/01/2017,15.4
+ITH4,Friuli-Venezia Giulia,01/01/2017,17.2
+ITH5,Emilia-Romagna,01/01/2017,17.2
+ITI,Centro (IT),01/01/2017,25.3
+ITI1,Toscana,01/01/2017,20.8
+ITI2,Umbria,01/01/2017,20.7
+ITI3,Marche,01/01/2017,24.9
+ITI4,Lazio,01/01/2017,28.9
+LT,Lithuania,01/01/2017,29.6
+LU,Luxembourg,01/01/2017,21.5
+LV,Latvia,01/01/2017,28.2
+MK,North Macedonia,01/01/2017,41.6
+MT,Malta,01/01/2017,19.3
+NL,Netherlands,01/01/2017,17
+NL1,Noord-Nederland,01/01/2017,18.9
+NL11,Groningen,01/01/2017,21.9
+NL12,Friesland (NL),01/01/2017,18.4
+NL13,Drenthe,01/01/2017,15.9
+NL2,Oost-Nederland,01/01/2017,16
+NL21,Overijssel,01/01/2017,16.6
+NL22,Gelderland,01/01/2017,15.3
+NL23,Flevoland,01/01/2017,17.8
+NL3,West-Nederland,01/01/2017,18
+NL31,Utrecht,01/01/2017,15.8
+NL32,Noord-Holland,01/01/2017,17.1
+NL33,Zuid-Holland,01/01/2017,20
+NL34,Zeeland,01/01/2017,13
+NL4,Zuid-Nederland,01/01/2017,14.9
+NL41,Noord-Brabant,01/01/2017,14.4
+NL42,Limburg (NL),01/01/2017,16
+NO,Norway,01/01/2017,16
+NO01,Oslo og Akershus,01/01/2017,16.3
+NO02,Hedmark og Oppland,01/01/2017,15.9
+NO03,Sør-Østlandet,01/01/2017,13.4
+NO04,Agder og Rogaland,01/01/2017,15.1
+NO05,Vestlandet,01/01/2017,17.4
+NO06,Trøndelag,01/01/2017,17.2
+NO07,Nord-Norge,01/01/2017,17.7
+PL,Poland,01/01/2017,19.5
+PL1,Region Centralny (NUTS 2013),01/01/2017,15.5
+PL2,Makroregion Poludniowy,01/01/2017,19.7
+PL3,Region Wschodni (NUTS 2013),01/01/2017,25.9
+PL4,Makroregion Pólnocno-Zachodni,01/01/2017,19.9
+PL5,Makroregion Poludniowo-Zachodni,01/01/2017,16
+PL6,Makroregion Pólnocny,01/01/2017,19
+PT,Portugal,01/01/2017,23.3
+RO,Romania,01/01/2017,35.7
+RO1,Macroregiunea unu,01/01/2017,26.1
+RO11,Nord-Vest,01/01/2017,26.4
+RO12,Centru,01/01/2017,25.7
+RO2,Macroregiunea doi,01/01/2017,43.3
+RO21,RO21 Nord-Est,01/01/2017,43.9
+RO22,Sud-Est,01/01/2017,42.5
+RO3,Macroregiunea trei,01/01/2017,34
+RO31,Sud - Muntenia,01/01/2017,40.9
+RO32,Bucuresti - Ilfov,01/01/2017,25
+RO4,Macroregiunea patru,01/01/2017,39.2
+RO41,Sud-Vest Oltenia,01/01/2017,45.3
+RO42,Vest,01/01/2017,32.5
+RS,Serbia,01/01/2017,36.7
+RS1,Srbija - sever,01/01/2017,34.2
+RS2,Srbija - jug,01/01/2017,39.2
+SE,Sweden,01/01/2017,17.7
+SE1,Östra Sverige,01/01/2017,15.7
+SE11,Stockholm,01/01/2017,14.4
+SE12,Östra Mellansverige,01/01/2017,17.4
+SE2,Södra Sverige,01/01/2017,19.1
+SE21,Småland med öarna,01/01/2017,14.7
+SE22,Sydsverige,01/01/2017,22
+SE23,Västsverige,01/01/2017,18.7
+SE3,Norra Sverige,01/01/2017,18.7
+SE31,Norra Mellansverige,01/01/2017,20.9
+SE32,Mellersta Norrland,01/01/2017,17.9
+SE33,Övre Norrland,01/01/2017,15.6
+SI,Slovenia,01/01/2017,17.1
+SI01,Vzhodna Slovenija (NUTS 2010),01/01/2017,19.3
+SI02,Zahodna Slovenija (NUTS 2010),01/01/2017,14.3
+SK,Slovakia,01/01/2017,16.3
+SK01,Bratislavský kraj,01/01/2017,8.6
+SK02,Západné Slovensko,01/01/2017,13.6
+SK03,Stredné Slovensko,01/01/2017,17.9
+SK04,Východné Slovensko,01/01/2017,21
+TR,Turkey,01/01/2017,41.3
+UK,United Kingdom,01/01/2017,22
+AT,Austria,01/01/2017,16.6
+AT11,Burgenland (AT),01/01/2017,7.6
+AT12,Niederösterreich,01/01/2017,10.7
+AT13,Wien,01/01/2017,23.9
+AT21,Kärnten,01/01/2017,12.1
+AT22,Steiermark,01/01/2017,15.1
+AT31,Oberösterreich,01/01/2017,11.2
+AT32,Salzburg,01/01/2017,11.5
+AT33,Tirol,01/01/2017,14
+AT34,Vorarlberg,01/01/2017,17.1
+AT,Austria,01/01/2017,19.5
+AT11,Burgenland (AT),01/01/2017,25
+AT12,Niederösterreich,01/01/2017,14.4
+AT13,Wien,01/01/2017,29.5
+AT21,Kärnten,01/01/2017,19.9
+AT22,Steiermark,01/01/2017,21.4
+AT31,Oberösterreich,01/01/2017,15.2
+AT32,Salzburg,01/01/2017,19.2
+AT33,Tirol,01/01/2017,21.4
+AT34,Vorarlberg,01/01/2017,27.3

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='JS/d3.v4.min.js'></script>
+    <script src="https://d3js.org/d3-format.v1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.2/d3-annotation.min.js'></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script src="https://d3js.org/d3-path.v1.min.js"></script>
+    <script src="https://d3js.org/d3-chord.v1.min.js"></script>
+   
+    <title>Dot plot</title>
+    <style>
+        body {
+            background-color: #F4F4F4;
+        }
+
+
+.annotation {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+        .chart {
+            width: 100vw;
+            height: 70vh;
+        }
+
+
+        .axis {
+            font-size: 1.2em;
+        }
+
+        .tooltip {
+            background-color: white;
+            position: absolute;
+            padding: .3em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .tooltip text {
+            color: black;
+        }
+
+        @media(min-width: 48em) {
+            .chart {
+                width: 60vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <div id='matrixTest' class='chart'></div>
+
+    <div id='dotMobility' class='chart'>
+
+
+
+    </div>
+    <div id='barMobility' class='chart'>
+
+    </div>
+
+
+    <div id='asbestos_time' class='chart'>
+
+    </div>
+
+
+   
+
+    <script>
+
+
+        var parseTime = d3.timeParse("%Y");
+        var margin = { top: 50, bottom: 50, left: 200, right: 50 };
+
+
+        var radius = '6';
+        var strokeWidth = '1px'
+
+        var fills = {
+            crediti_mobilita: '#67a9cf',
+            debiti_mobilita: '#ef8a62'
+        }
+
+
+
+
+        var l = d3.formatDefaultLocale({
+            'decimal': '.',
+            'thousands': ',',
+            'grouping': [3],
+            'currency': ['€', ''],
+
+        })
+
+
+        var format = d3.format(" ^($,.2f")
+
+
+        var dt;
+
+
+
+
+        var tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        var tooltipText = tooltip
+            .append('p')
+            .attr('class', 'tooltipText');
+
+
+
+d3.csv('src/mobility_tots.csv', d=> {
+    d.movement = +d.movement;
+    return d;
+}, data => {
+    console.log(data)
+
+
+  
+
+    var matrix = [
+        [4603834, 36633, 20221],
+        [81623, 2042476, 35997],
+        [176785, 151919, 3275831]
+    ]
+
+
+    var width = 640
+
+
+    var height = Math.min(640, width)
+
+    var outerRadius = Math.min(width, height) * 0.5 - 30
+
+var innerRadius = outerRadius - 20
+
+
+    var svg = d3.select('#matrixTest')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', 'translate(20, 20)')
+
+    
+       
+           var colos = (["#440154ff", "#31668dff", "#37b578ff"]);
+
+           var chord = d3.chord()
+    .padAngle(0.05)
+    .sortSubgroups(d3.descending)
+
+   var arc = d3.arc()
+    .innerRadius(innerRadius)
+    .outerRadius(outerRadius)
+
+    var ribbon = d3.ribbon()
+    .radius(innerRadius)
+
+  
+
+   const chords = chord(matrix);
+
+   console.log(chords.groups)
+
+const group = svg
+  .selectAll("g")
+  .data(chords.groups)
+  .enter()
+  .append('g')
+  
+group.append("path")
+    .attr("fill", function (d, i) { return colos[i]})
+    .attr("stroke", 'black')
+    .attr("d", arc);
+
+
+    svg.append("g")
+      .attr("fill-opacity", 0.67)
+    .selectAll("path")
+    .data(chords)
+    .enter()
+    .append('path')
+      .attr("d", ribbon)
+      .attr("fill", function (d, i) { return colos[i]})
+
+       
+      
+
+})
+
+
+
+        d3.csv('src/mobilita_crediti.csv', function (d) {
+            d.crediti_mobilita = +d.crediti_mobilita;
+            d.debiti_mobilita = +d.debiti_mobilita;
+            return d;
+        }, function (data) {
+            // console.log(data);
+
+
+
+
+
+            dotplot(data);
+            barplot(data);
+
+        })
+
+
+        const basics = function (parent) {
+
+
+            var width = d3.select(parent).node().getBoundingClientRect().width;
+
+
+            var height = d3.select(parent).node().getBoundingClientRect().height;
+            var svg = d3.select(parent)
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .append('g')
+                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+
+
+
+            height = height - margin.top - margin.bottom;
+
+            width = width - margin.left - margin.right;
+            svg
+                .append('g')
+                .attr('class', 'x axis')
+                .attr("transform", "translate(0," + height + ")")
+
+
+
+            svg
+                .append('g')
+                .attr('class', 'y axis')
+
+
+            return [width, height, svg]
+        }
+        const dotplot = function (data) {
+
+            // https://www.d3-graph-gallery.com/graph/lollipop_cleveland.html
+
+
+            /*  var width = d3.select('#dotMobility').node().getBoundingClientRect().width;
+ 
+ var height = d3.select('#dotMobility').node().getBoundingClientRect().height;
+         var svg = d3.select('#dotMobility')
+             .append('svg')
+             .attr('width', width)
+             .attr('height', height)
+             .append('g')
+             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+ 
+             svg
+                 .append('g')
+                 .attr('class', 'x axis')
+              
+ 
+ 
+             svg
+                 .append('g')
+                 .attr('class', 'y axis')
+ 
+ 
+         height = height - margin.top - margin.bottom;
+ 
+         width = width - margin.left - margin.right; */
+
+
+            var [width, height, svg] = basics('#dotMobility')
+
+
+            const voronoi = d3.voronoi()
+                .x(function (d) {
+                    return xScale(d.value);
+                })
+                .y(function (d) {
+                    return yScale(d.regioni)
+                })
+                .extent([
+                    [-margin.left, -margin.top],
+                    [width + margin.right, height + margin.bottom]
+                ]);
+            var xScale = d3.scaleLinear()
+                .range([0, width]);
+
+
+            var yScale = d3.scaleBand()
+                .range([height, 0])
+                .padding(1);
+
+            data = data.sort(function (a, b) { return d3.ascending(a.crediti_mobilita, b.crediti_mobilita); });
+
+            yScale
+                .domain(data.map(function (d) {
+                    return d.regioni;
+                })
+                )
+
+
+            xScale
+                .domain([0, d3.max(data, function (d) {
+
+                    return (d.crediti_mobilita)
+                })])
+
+
+
+
+            var groups = svg
+                .selectAll('.group')
+                .data(data, function (d) {
+                    return d.regioni;
+                })
+                .enter()
+                .append('g')
+                .attr('class', 'group');
+
+
+            groups
+                .append('line')
+                .attr('class', 'line')
+
+                .attr('x1', function (d) {
+
+                    return xScale(d.crediti_mobilita);
+                })
+                .attr('x2', function (d) {
+                    return xScale(d.debiti_mobilita);
+                })
+                .attr('y1', function (d) {
+                    return yScale(d.regioni);
+                })
+                .attr('y2', function (d) {
+                    return yScale(d.regioni);
+                })
+                .attr('stroke', '#616060')
+                .attr('stroke-width', strokeWidth)
+
+
+
+            groups
+                .append('circle')
+                .attr('class', 'creditDot')
+                .attr('cx', function (d) {
+                    return xScale(d.crediti_mobilita);
+                })
+                .attr('cy', function (d) {
+                    return yScale(d.regioni);
+                })
+                .attr('r', radius)
+                .attr('fill', '#67a9cf')
+
+
+
+            groups
+                .append('circle')
+                .attr('class', 'debtDot')
+                .attr('cx', function (d) {
+                    return xScale(d.debiti_mobilita);
+                })
+                .attr('cy', function (d) {
+                    return yScale(d.regioni);
+                })
+                .attr('r', radius)
+                .attr('fill', '#ef8a62')
+
+
+            svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale));
+
+
+            svg
+                .select('.x.axis')
+                .call(d3.axisBottom(xScale)
+                    .ticks(5))
+
+
+            var transposed = [];
+
+            data.forEach(function (d) {
+                for (var key in d) {
+                    var obj = {};
+                    if (key !== "regioni") {
+                        obj.mobility = key;
+                        obj.value = d[key];
+                        obj.regioni = d.regioni;
+                        transposed.push(obj)
+                    }
+                }
+            });
+
+
+            //console.log(transposed)
+
+            dt = transposed;
+            var v = svg
+                .selectAll('.voronoi')
+                .data(voronoi.polygons(transposed));
+
+
+            v
+                .enter()
+                .append('path')
+                .attr('d', function (d, i) {
+                    return d ? 'M' + d.join('L') + 'Z' : null;
+                })
+                .style('fill', 'none')
+                .style('pointer-events', 'all')
+                .on('mouseenter', function (d) {
+                    tooltip.transition()
+                        .duration(100)
+                        .style('opacity', .9)
+                        .style('left', (d3.event.pageX) + 'px')
+
+                        .style('top', (d3.event.pageY - 28) + 'px');
+                    if (d.data.mobility === 'debiti_mobilita') {
+                        tooltipText
+                            .text('Mobility debts:\n' + format(d.data.value));
+                    } else if (d.data.mobility === 'crediti_mobilita') {
+
+                        tooltipText
+                            .text('Mobility credits:\n' + format(d.data.value));
+                    }
+
+
+
+                })
+                .on('mouseout', function (d) {
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                })
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+        const barplot = function (data) {
+            data.forEach(function (d) {
+                d.difference = d.crediti_mobilita - d.debiti_mobilita;
+            })
+            console.log(data);
+            /*   var width = d3.select('#barMobility').node().getBoundingClientRect().width;
+  
+  var height = d3.select('#barMobility').node().getBoundingClientRect().height;
+  
+  
+  
+  
+          var svg = d3.select('#barMobility')
+              .append('svg')
+              .attr('width', width)
+              .attr('height', height)
+              .append('g')
+              .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+  
+  
+             svg
+                  .append('g')
+                  .attr('class', 'x axis')
+               
+  
+  
+              svg
+                  .append('g')
+                  .attr('class', 'y axis')
+  
+  
+                   height = height - margin.top - margin.bottom;
+  
+          width = width - margin.left - margin.right;
+                  
+   */
+
+
+            var [width, height, svg] = basics('#barMobility')
+            data.sort(function (a, b) {
+                return d3.ascending(a.difference, b.difference)
+            })
+
+
+
+            var xScale = d3.scaleLinear()
+                .range([0, width])
+                .domain(d3.extent(data, function (d) {
+                    return (d.difference);
+                }))
+
+
+            var yScale = d3.scaleBand()
+                .domain(data.map(function (d) {
+                    return d.regioni;
+                }))
+                .range([height, 0])
+                .padding(.1)
+
+
+
+
+
+            var groups = svg
+                .selectAll('.group')
+                .data(data, function (d) {
+                    return d.regioni;
+                })
+                .enter()
+                .append('g')
+                .attr('class', 'group');
+
+
+
+            groups
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('id', function (d) {
+                    return 'bar' + d.regioni;
+                })
+                .attr("x", function (d) {
+                    return xScale(Math.min(0, d.difference));
+                })
+                .attr('y', function (d) {
+
+                    return yScale(d.regioni)
+                })
+                .attr('height', yScale.bandwidth())
+                .attr("width", function (d) {
+                    return Math.abs(xScale(d.difference) - xScale(0));
+                })
+
+                .attr('fill', function (d) {
+                    return (d.difference >= 0 ? '#67a9cf' : '#ef8a62');
+                })
+
+
+
+            svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale)
+                    .tickPadding(5));
+
+
+            svg
+                .select('.x.axis')
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(xScale)
+                    .ticks(5)
+                )
+
+        }
+
+        d3.csv('src/registro_cumulativo.csv', d => {
+
+            d.year = parseTime(parseInt(d.year));
+            d.alta = +d.alta;
+            d.bassa = +d.bassa;
+            d.tot = +d.tot;
+            d.cum_alta = +d.cum_alta;
+            d.cum_bassa = +d.cum_bassa;
+            d.cum_tot = +d.cum_tot;
+
+            return d;
+        }, function (data) {
+            console.log(data);
+
+
+            cumulative(data);
+        })
+
+
+
+
+
+        /// REGISTRO EX EXPOSTI - NUORO
+        const cumulative = function (data) {
+
+            var [width, height, svg] = basics('#asbestos_time');
+
+
+
+            var filter = data.filter(d => {
+                return d.asl == 'asl_3';
+            })
+
+            var xScale = d3.scaleBand()
+                .domain(filter.map(d => {
+                    return d.year.getFullYear()
+                }))
+                .range([0, width])
+                .padding(.1);
+
+
+
+            var yScale = d3.scaleLinear()
+                .domain([0, d3.max(filter, d => {
+                    return d.cum_tot;
+                })])
+                .range([height, 0])
+
+            console.log(xScale.bandwidth())
+            console.log(xScale.range())
+
+
+            var bars = svg
+                .selectAll('.bar')
+                .data(filter, d => { return d.year })
+                .enter()
+                .append('rect')
+                .attr('class', 'bar')
+                .attr('width', xScale.bandwidth())
+                .attr('x', d => {
+                    console.log(d);
+                    return xScale(d.year.getFullYear())
+                })
+                .attr('y', d => {
+                    return yScale(d.cum_tot);
+                })
+                .attr('height', d => {
+                    return height - yScale(d.cum_tot);
+                })
+                .attr('fill', '#28719D')
+
+
+
+            svg
+                .select('.x.axis')
+                .call(d3.axisBottom(xScale));
+
+
+            svg
+                .select('.y.axis')
+                .call(d3.axisLeft(yScale));
+
+
+      
+            //.attr('transform', 'translate(' + xScale('2012') + ', ' + yScale(450) + ')');
+
+
+/*             var arrow = annotation
+            .append('line')
+            .attr('x1', xScale(2014))
+            .attr('y1', yScale(350))
+            .attr('x2', xScale(2016) - 10)
+            .attr('y2', yScale(450))
+            .attr('stroke', 'black')
+            .attr('stroke-width', 1.5);
+
+
+            annotation
+            .append('text')
+            .attr('transform', 'translate(' + xScale(2013) + ', ' + yScale(340) + ')')
+            .text('In late 2015, Ottana workers were admitted into the surveillance programme'); */
+
+
+
+// https://d3-annotation.susielu.com/
+
+            const type = d3.annotationCallout;
+
+            const annotations = [{
+                note: {
+                    label: 'Ottana workers are admitted into the surveillance programme',
+                    bgPadding: 40,
+                    title: 'Late 2015'
+                },
+
+                data: {year: 2016, cum_tot: 450},
+                className: "annotation",
+  dy: 10,
+  dx: -15
+            }]
+
+
+        const makeAnnotation = d3.annotation()
+        .editMode(false)
+        .notePadding(15)
+        .type(type)
+        .accessors({
+            x: d => {
+                return xScale(d.year);
+            },
+            y: d => {
+                return yScale(450)
+            }
+        })
+        .annotations(annotations);
+
+        var annotation = svg
+            .append('g')
+            .attr('class', 'annotationContainer')
+            .call(makeAnnotation)
+        
+        }
+
+    </script>
+</body>
+
+</html>

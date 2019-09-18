@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='JS/d3.v4.min.js'></script>
+    <script src="https://d3js.org/d3-format.v1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.3.2/d3-annotation.min.js'></script>
+    <title>Dot plot</title>
+    <style>
+        body {
+            background-color: #F4F4F4;
+        }
+
+
+.annotation {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+        .chart {
+            width: 100vw;
+            height: 70vh;
+        }
+
+
+        .axis {
+            font-size: 1.2em;
+        }
+
+        .tooltip {
+            background-color: white;
+            position: absolute;
+            padding: .3em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .tooltip text {
+            color: black;
+        }
+
+        @media(min-width: 48em) {
+            .chart {
+                width: 60vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='income_age' class='chart'>
+
+
+
+    </div>
+
+
+    <script>
+
+
+const basics = function (parent) {
+
+
+var width = d3.select(parent).node().getBoundingClientRect().width;
+
+
+var height = d3.select(parent).node().getBoundingClientRect().height;
+var svg = d3.select(parent)
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+
+
+
+height = height - margin.top - margin.bottom;
+
+width = width - margin.left - margin.right;
+svg
+    .append('g')
+    .attr('class', 'x axis')
+    .attr("transform", "translate(0," + height + ")")
+
+
+
+svg
+    .append('g')
+    .attr('class', 'y axis')
+
+
+return [width, height, svg]
+}
+
+
+
+
+var radius = 6;
+var opacity = .75;
+var margin = {top: 50, right: 50, bottom: 50, left: 50}
+
+const areas = {
+    'Nord': '#406068',
+    'Centro':  '#C4BB66',
+    'Mezzogiorno': '#904935'
+}
+
+
+d3.csv('src/age_income.csv', d => {
+    d.value = +d.value;
+    d.life_exp = +d.life_exp;
+    d.spesa_pubblica = +d.spesa_pubblica;
+    d.spesa_privata = +d.spesa_privata;
+    d.spesa_tot = +d.spesa_tot;
+    return d;
+
+}, data => {
+    console.log(data);
+
+
+    scatter(data);
+})
+
+
+
+const scatter = function (data) {
+
+    var filter = data.filter(d => {
+        return d.presenza_affitti_imputati == 'esclusi fitti imputati';
+    })
+    var [width, height, svg] = basics('#income_age');
+
+    var xScale = d3.scaleLinear()
+    .domain(d3.extent(filter, d => {
+        return d.value;
+    }))
+    .range([0, width])
+    .nice();
+
+
+    var yScale = d3.scaleLinear()
+    .domain(d3.extent(filter, d => {
+        return d.life_exp;
+    }))
+    .range([height, 0])
+    .nice();
+
+
+
+
+
+    var group = svg
+    .selectAll('.group')
+    .data(filter, d => {return d.territorio;})
+    .enter()
+    .append('g')
+    .attr('class', 'group');
+
+
+    group
+    .append('circle')
+    .attr('r', radius)
+    .attr('cx', d => {
+        return xScale(d.value);
+    })
+    .attr('cy', d => {
+        return yScale(d.life_exp);
+    })
+    .attr('fill', d => {
+        return areas[d.area];
+    } )
+    .attr('opacity', opacity)
+
+
+
+    svg.select('.x.axis')
+    .call(d3.axisBottom(xScale));
+
+
+    svg.select('.y.axis')
+    .call(d3.axisLeft(yScale));
+}
+        </script>
+        </body>
+        </html>
