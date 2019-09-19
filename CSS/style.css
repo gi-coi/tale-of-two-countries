@@ -427,7 +427,7 @@ span.arrow {
   display: flex;
   align-content: center;
   justify-content: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', 'Open Sans', Helvetica, sans-serif;
   margin: 0 auto;
   width: 80em;
   /* border: 1em solid #C9C9C9; */
